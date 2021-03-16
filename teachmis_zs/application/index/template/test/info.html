@@ -1,0 +1,70 @@
+<div class="page_function">
+  <div class="info">
+    <h3>试题{$action_name}</h3>
+    <small>使用以下功能进行试题{$action_name}操作</small>
+  </div>
+</div>
+<div class="tab" id="tab"> <a class="selected" href="#">{$action_name}员工</a> <a  href="javascript:menuload('__URL__')">返回试题列表</a></div>
+<div class="page_form">
+<form action="__URL__/{$action}_save/time-<?php echo time() ?>-ajax-true" method="post" id="form">
+<div class="page_table form_table">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableClass_0">
+      <tr>
+          <td style="width:90px">页码:</td>
+          <td>
+              <input name="page_0" type="text" style="width:300px;" value="{$info.page}" />
+          </td>
+      </tr>
+      <tr>
+          <td style="width:90px">行数：</td>
+          <td>
+              <select class="hang" name="hang_0">
+                  <option value="1">一</option>
+                  <option value="2">二</option>
+                  <option value="3">三</option>
+              </select>
+          </td>
+      </tr>
+        <tr>
+            <td style="width:90px">题目:</td>
+            <td>
+                <input name="test_name_0" type="text" style="width:300px;" value="{$info.test_name}" />
+            </td>
+        </tr>
+  </table>
+    <input type="hidden" class="addTableNum" name="addTableNum" value="0">
+</div>
+    <script>
+        function addTable()
+        {
+            var ta=$(".addTable").html();
+            var num=$(".addTableNum").val();
+            nums=num*1+1;
+            $(".addTableNum").val(nums);
+            $(".tableClass_"+num).after('<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableClass_'+nums+'"><tr><td style="width:90px">页码:</td><td> <input name="page_'+nums+'" type="text" style="width:300px;" value="{$info.page}" /> </td> </tr> <tr> <td style="width:90px">行数：</td> <td> <select class="hang" name="hang_'+nums+'"> <option value="1">一</option> <option value="2">二</option> <option value="3">三</option> </select> </td></tr><tr><td style="width:90px">题目:</td><td><input name="test_name_'+nums+'" type="text" style="width:300px;" value="{$info.test_name}" /></td></tr></table>');
+        }
+        function delTable()
+        {
+            var num=$(".addTableNum").val();
+            if(num>0)
+            {
+                nums=num*1-1;
+                $(".addTableNum").val(nums);
+                $(".tableClass_"+num).remove();
+            }else{
+                alert("最少一条记录！");
+            }
+        }
+    </script>
+<!--普通提交-->
+<div class="form_submit">
+<input name="test_id" type="hidden" value="{$info.test_id}" />
+    <!--if:{$action=='add'}-->
+    <button type="button" class="button" onclick="addTable()">添加</button>
+    <button type="button" class="button" onclick="delTable()">删除</button>
+    <!--{/if}-->
+    <button type="submit" class="button">保存</button>
+</div>
+</form>
+</div>
+</div>

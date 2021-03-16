@@ -1,0 +1,122 @@
+<div class="page_function">
+	<div class="info">
+		<h3>试卷{$action_name}</h3>
+		<small>使用以下功能进行试卷{$action_name}操作</small>
+	</div>
+</div>
+<link href="__PUBLICURL__/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLICURL__/js/jquery.datetimepicker.js" type="text/javascript"></script>
+<div class="tab" id="tab"> <a class="selected" href="#">{$action_name}试卷</a> <a  href="javascript:menuload('__URL__')">返回试卷列表</a><span style="float: right" class="time_wrap" value="{$times}"></span></div>
+<div class="page_form">
+	<form action="__URL__/{$action}_save/time-<?php echo time() ?>-ajax-true" method="post" id="form">
+		<div class="page_table form_table" style="text-align:center">
+			<ul style="overflow:hidden;">
+				<!--foreach:{$list $key=>$vo}-->
+				<li class="paper_text paper_text_{$key}" style="float:left;width:300px;height:50px;<!--if:{$key==0}-->display:block;<!--{else}-->display:none;<!--{/if}-->">
+					第<?php echo $vo["page"];?>张：<input type="hidden" name="paper_test[]" value="{$vo.test_name}"><input type="text" style="width:200px;height:30px;" onkeydown="onenters({$key})" name="paper_answer[]" value="">
+				</li>
+				<!--{/foreach}-->
+				<select onchange="modText(this.value)">
+					<option value="0">请选择第几张</option>
+					<!--foreach:{$list $key=>$vo}-->
+					<option value="{$key}">第<?php echo $vo["page"];?>张</option>
+					<!--{/foreach}-->
+				</select>
+			</ul>
+			<!--<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td style="width:90px">试卷名称:</td>
+					<td>
+						<input name="paper_name" type="text" style="width:300px;" value="{$info.paper_name}" />
+					</td>
+				</tr>
+				<tr>
+					<td style="width:90px">试卷题目数:</td>
+					<td>
+						<input name="paper_num" type="text" style="width:300px;" value="{$info.paper_num}" />
+					</td>
+				</tr>
+				<tr>
+					<td style="width:90px">试卷参考部门:</td>
+					<td>
+						<select name="paper_admin">
+							<option value="">请选择</option>
+							&lt;!&ndash;foreach:{$data $vo}&ndash;&gt;
+							&lt;!&ndash;if:{$vo["id"]==$info["paper_admin"]}&ndash;&gt;
+							<option selected="selected" value="{$vo.id}">{$vo.name}</option>
+							&lt;!&ndash;{else}&ndash;&gt;
+							<option value="{$vo.id}">{$vo.name}</option>
+							&lt;!&ndash;{/if}&ndash;&gt;
+							&lt;!&ndash;{/foreach}&ndash;&gt;
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:90px">试卷开始时间:</td>
+					<td>
+						<input id="start_time" name="start_time" type="text" style="width:300px;" value="{$info.start_time}" />
+					</td>
+				</tr>
+				<tr>
+					<td style="width:90px">试卷结束时间:</td>
+					<td>
+						<input id="end_time" name="end_time" type="text" style="width:300px;" value="{$info.end_time}" />
+					</td>
+				</tr>
+			</table>-->
+		</div>
+		<script>
+            $('#start_time').datetimepicker({
+                mask:'9999/19/39 29:59'
+            });
+            $('#end_time').datetimepicker({
+                mask:'9999/19/39 29:59'
+            });
+		</script>
+		<!--普通提交-->
+		<div class="form_submit">
+			<input name="paper_id" type="hidden" value="{$paper_id}" />
+			<input name="start_time" type="hidden" value="{$start_time}" />
+			<button type="button" class="button submit_button" onclick="if(confirm('是否确定提交！')){$('#form').submit();}">保存</button>
+		</div>
+	</form>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setInterval(function(){
+				$(".time_wrap").each(function(){
+					var Obj = this;
+					var EndTime = new Date(parseInt($(Obj).attr('value')) * 1000);
+					var NowTime = new Date();
+					var nMS=EndTime.getTime() - NowTime.getTime();
+					var nD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+					var nH=Math.floor(nMS/(1000*60*60)) % 24;
+					var nM=Math.floor(nMS/(1000*60)) % 60;
+					var nS=Math.floor(nMS/1000) % 60;
+					var nMS=Math.floor(nMS/100) % 10;
+					if(nD>= 0){
+						var str = '<span class="timer" ><em>'+nD+'</em>天<em>'+nH+'</em>小时<em>'+nM+'</em>分<em>'+nS+'.'+nMS+'</em>秒</span>';
+						$(Obj).html(str);
+						if(nD== 0)
+						{
+						    $(".submit_button").submit();
+						}
+					}
+				});
+			}, 100);
+		});
+		function onenters(id)
+		{
+            if(event.keyCode == "13") {
+                $(".paper_text_"+id).css("display","none");
+                $(".paper_text_"+(id*1+1)).css("display","block");
+                $(".paper_text_"+(id*1+1)+" input").focus();
+            }
+		}
+		function modText(id)
+		{
+		    $(".paper_text").css("display","none");
+            $(".paper_text_"+id).css("display","block");
+		}
+	</script>
+</div>
+</div>

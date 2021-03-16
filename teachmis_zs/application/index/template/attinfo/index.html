@@ -1,0 +1,69 @@
+
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/duxui.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/common.js" type="text/javascript"></script>
+<div class="page_function">
+  <div class="info">
+    <h3>考核管理</h3>
+  </div>
+  <div class="exercise"> 
+   <a href="javascript:menuload('__URL__/index')">考核列表</a>
+   </div>
+</div>
+<div class="page_main">
+  <div class="page_table table_list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="10%"><center>试卷ID</center></th>
+        <th width="10%"><center>试卷名称</center></th>
+        <th width="10%"><center>试题行</center></th>
+		<th width="10%"><center>部门</center></th>
+        <th width="10%"><center>开始时间</center></th>
+        <th width="10%"><center>截止日期</center></th>
+        <th width="10%"><center>正确数</center></th>
+        <th width="10%"><center>考试用时</center></th>
+        <th width="10%"><center>状态</center></th>
+        <th width="10%"><center>操作</center></th>
+      </tr>
+      <!--foreach:{$list $key=>$vo}-->
+      <tr id="{$vo.id}" style="text-align:center">
+        <td><center>{$vo.paper_id}</center></td>
+        <td>{$vo.paper_name}</td>
+        <td>{$vo.hang}行</td>
+        <td>{$vo.paper_admin}</td>
+        <td>{$vo.start_time}</td>
+        <td>{$vo.end_time}</td>
+        <td>{$vo.correct_num}</td>
+        <td>{$vo.lang_time}</td>
+        <td><!--if:{$vo["status"]==2}-->考试时间已过<!--{else}--><!--if:{!$vo["lang_time"]}-->待考<!--{else}-->已考<!--{/if}--><!--{/if}--></td>
+        <td><center>
+          <!--if:{!$vo["lang_time"] && $vo["status"]!=2}-->
+          <a href="__URL__/edit/id-{$vo.paper_id}">考试</a>
+          <!--{else}-->
+          <!--<a href="__URL__/edit/id-{$vo.paper_id}-ck_status-1">查看</a>-->
+          <!--{/if}-->
+		</center></td>
+      </tr>
+      <!--{/foreach}-->
+    </table>
+  </div>
+</div>
+
+<div class="page_tool">
+    <div class="page" >{$page}</div>
+</div>
+<script>
+	//删除
+	function del(id,obj) 
+	{
+		var obj;
+		var status=confirm("是否确定删除！");
+		if(status)
+		{
+			$.get("__URL__/del",{id:id},function(data){
+				alert("删除成功！");
+				$("#"+id).css("display","none");
+				});
+		}
+	}
+</script>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MENU管理</title>
+    <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>MENU管理</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal" id="menu_form" method="post">
+                            <div class="form-group">
+                                <label for="fid" class="col-sm-2 control-label">选择父级栏目</label>
+                                <div class="col-sm-8">
+                                    <select name="fid" id="fid" class="form-control1">
+                                        <option value="0"></option>
+                                        <!--foreach:{$menu_list $ml}-->
+                                        <option value="{$ml.id}" <!--if:{$ml["id"]==$info["fid"]}-->selected="selected"<!--{/if}-->>{$ml.menuname}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="menuname" class="col-sm-2 control-label">栏目名称</label>
+                                <div class="col-sm-8">
+                                    <input name="menuname" type="text" class="form-control1" id="menuname" placeholder="栏目名称" value="{$info.menuname}">
+                                </div>
+                                <div class="col-sm-2 menuname_sm" style="display: none">
+                                    <p class="help-block" style="color: red">ERROR</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="module" class="col-sm-2 control-label">栏目方法</label>
+                                <div class="col-sm-8">
+                                    <input name="module" type="text" class="form-control1" id="module" placeholder="栏目方法" value="{$info.module}">
+                                </div>
+                                <div class="col-sm-2 module_sm" style="display: none">
+                                    <p class="help-block" style="color: red">ERROR</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="radio" class="col-sm-2 control-label">状态</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="menustatus" type="radio" <!--if:{$info["menustatus"]==1}-->checked="checked"<!--{/if}--> value="1"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="menustatus" type="radio" <!--if:{$info["menustatus"]==0}-->checked="checked"<!--{/if}--> value="0"> 关闭</label></div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <input type="hidden" name="id" value="{$info.id}">
+                                        <button type="button" class="btn btn-primary" onclick="submits()">提交</button>
+                                        <button class="btn-default btn" onclick="history.go(-1)">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script>
+    function submits()
+    {
+        if(!$("#menuname").val())
+        {
+            $(".menuname_sm").css("display","block");
+            return false;
+        }
+        if(!$("#module").val())
+        {
+            $(".module_sm").css("display","block");
+            return false;
+        }
+        if(confirm("是否确定提交！"))
+        {
+            $("#menu_form").submit();
+        }
+    }
+</script>
+</body>
+</html>

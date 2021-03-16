@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{$action_name}</title>
+    <!--#include file="public/header_top.html"-->
+    <link rel="stylesheet" type="text/css" href="__PUBLICURL__/css/jquery.datetimepicker.css" />
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>{$action_name}</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal" id="menu_form" method="post" action="__URL__/{$action}_save">
+                            <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
+                            <input type="hidden" id="formUrlName" name="formUrl" value="{$action}_save">
+                            <div class="form-group" <!--if:{$info["bookChaptersFid"]>0}-->style="display: none"<!--{/if}-->>
+                                <label for="gradeId" class="col-sm-2 control-label">年级</label>
+                                <div class="col-sm-8">
+                                    <select name="gradeId" id="gradeId" class="form-control1">
+                                        <option value="0">请选择</option>
+                                        <!--foreach:{$grade $l}-->
+                                        <option value="{$l.gradeId}" <!--if:{$l["gradeId"]==$info["gradeId"]}-->selected="selected"<!--{/if}-->>{$l.gradeName}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookChaptersName" class="col-sm-2 control-label">课本章节名称</label>
+                                <div class="col-sm-8">
+                                    <input name="bookChaptersName" type="text" class="form-control1" id="bookChaptersName" placeholder="课本章节名称" value="{$info.bookChaptersName}">
+                                    <input name="bookChaptersFid" type="hidden" class="form-control1" id="bookChaptersFid" value="{$info.bookChaptersFid}">
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <input type="hidden" name="bookChaptersId" id="bookChaptersId" value="{$info.bookChaptersId}">
+                                        <button type="button" class="btn btn-primary" onclick="submitbookform()">提交</button>
+                                        <button class="btn-default btn" onclick="history.go(-1)">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script src="__PUBLICURL__/js/jquery.datetimepicker.js" type="text/javascript"></script>
+<script>
+    $('#studentAge').datetimepicker({
+        format: 'Y-m-d',//显示格式
+    });
+</script>
+</body>
+</html>

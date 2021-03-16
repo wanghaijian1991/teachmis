@@ -1,0 +1,82 @@
+<div class="page_function">
+  <div class="info"><h3>管理首页</h3></div>
+  <div class="tip">{$admin.adminname}&nbsp;&nbsp;您等当前登录时间为：{$php( echo date('Y-m-d H:i:s',$admin['logintime']))}</div>
+<!--[if lt IE 8]> 
+<div class="index_tip"><p>您正在使用IE6或IE7为了您更好的体验，请升级浏览器至IE8以上或者更换其他浏览器<a href="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> 其他浏览器: 
+<a href="http://www.mozillaonline.com/">Firefox</a> / <a href="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="http://www.apple.com.cn/safari/">Safari</a> / <a href="http://www.operachina.com/">Opera</a></p></div>
+<![endif]-->
+</div>
+<div class="page_main">
+<h3>基本信息</h3>
+  <div class="page_table">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="120">程序版本: </td>
+        <td width="250">{$config.ver_name} {$config.ver}</td>
+        <td width="120">服务器时间: </td>
+        <td><?php echo date("Y-m-d G:i T",time());  ?></td>
+      </tr>
+      <tr>
+        <td width="120">当前模板: </td>
+        <td width="250">{$config_array['TPL_TEMPLATE_PATH']}</td>
+        <td width="120">伪静态: </td>
+        <td><?php if($config_array['URL_REWRITE_ON']){echo '<font color=green>已开启</font>';} else {echo '<font color=red>未开启</font>';} ?></td>
+      </tr>
+      <tr>
+        <td width="120">缓存状态: </td>
+        <td width="250">
+        <?php if($config_array['TPL_CACHE_ON']){echo '<font title="已开启" color=green>模板</font>';} else {echo '<font  title="未开启" color=red>模板</font>';} ?>
+         &nbsp;&nbsp;
+        <?php if($config_array['DB_CACHE_ON']){echo '<font title="已开启" color=green>数据</font>';} else {echo '<font  title="未开启" color=red>数据</font>';} ?>
+        &nbsp;&nbsp;
+        <?php if($config_array['HTML_CACHE_ON']){echo '<font title="已开启" color=green>静态</font>';} else {echo '<font  title="未开启" color=red>静态</font>';} ?>
+        </td>
+        <td width="120">栏目数: </td>
+        <td>{$category_count}</td>
+      </tr>
+      <tr>
+        <td width="120">内容数: </td>
+        <td width="250">{$content_count}</td>
+        <td width="120">实用工具:  </td>
+        <td colspan="3"><a href="javascript:;" onclick="system()">环境信息</a>  &nbsp;&nbsp; <a href="javascript:;" onclick="bom()">BOM清除</a></td>
+      </tr>
+
+      
+    </table>
+  </div>
+  
+  <h3>程序信息</h3>
+  <div class="page_table">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="120">官方主页: </td>
+        <td width="250"><a href="http://www.aladdin-holdings.com" target="_blank">www.aladdin-holdings.com</a></td>
+        <td width="120">开发团队: </td>
+        <td>阿拉丁科技</td>
+      </tr>
+      <tr>
+      	<td width="120">BUG反馈: </td>
+        <td width="250"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=cnhonk@qq.com" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_11.png"/></a></td>
+        
+        <td width="120">分机号码: </td>
+        <td>8060</td>
+      </tr>
+      
+     
+    </table>
+  </div>
+</div>
+<script>
+function system() {
+	urldialog('环境信息','__URL__/tool_system')
+};
+
+function bom() {
+	ajaxpost(
+		'本操作可能需要一些时间，请确认清除BOM！',
+		"__URL__/tool_bom",
+		'',
+		1
+	);
+};
+</script>

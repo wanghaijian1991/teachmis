@@ -1,0 +1,51 @@
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<div class="page_function">
+    <div class="info">
+        <h3>分后台管理</h3>
+        <small>使用以下功能进行分后台添加操作</small> </div>
+    <div class="exercise">
+        <a href="javascript:menuload('__URL__')">分后台列表</a>
+        <a href="javascript:menuload('__URL__/add')">添加分后台</a>
+    </div>
+</div>
+<div class="page_main">
+    <div class="page_menu">
+        <input name="search" type="text" class="text_value" id="search" value="<?php echo urldecode($_GET['search']) ?>" />
+        &nbsp;&nbsp;<input type="button"  class="button_small" onclick="javascript:location.href='__URL__/index/search-'+$('#search').val();" value="搜索" />
+    </div>
+    <div class="page_table table_list">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th width="10%"><center>ID</center></th>
+                <th width="10%">分后台帐号</th>
+                <th width="10%">分后台名称</th>
+                <th width="20%">管理组</th>
+                <th width="20%"><center>操作</center></th>
+            </tr>
+            <!--foreach:{$list $vo}-->
+            <tr id="{$vo.id}">
+                <td><center>{$vo.id}</center></td>
+                <td>{$vo.adminname}</td>
+                <td>{$vo.nicename}</td>
+                <td>{$vo.groupname}</td>
+                <td><center>
+                    <a href="__URL__/edit/id-{$vo.id}">修改</a>
+                    | <a href="javascript:void(0);" onclick="del('{$vo.id}')">删除</a></center></td>
+            </tr>
+            <!--{/foreach}-->
+        </table>
+    </div>
+</div>
+
+<div class="page_tool">
+    <div class="page">{$page}</div>
+</div>
+<script>
+    //删除
+    function del(id) {
+        $.get("__URL__/del",{id:id},function(data){
+            alert("删除成功！");
+            $("#"+id).css("display","none");
+        });
+    }
+</script>

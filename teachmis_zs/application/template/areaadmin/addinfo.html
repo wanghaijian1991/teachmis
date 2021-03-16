@@ -1,0 +1,65 @@
+<link type="text/css" rel="stylesheet" href="__PUBLICURL__/css/style.css">
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLICURL__/js/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="__PUBLICURL__/js/handlers.js"></script>
+<script src="__PUBLICURL__/kindeditor/kindeditor-min.js" type="text/javascript"></script>
+<div class="page_function">
+	<div class="info">
+		<h3>分后台管理</h3>
+	</div>
+</div>
+<div class="tab" id="tab">
+	<a class="selected" href="#">{$action_name}添加分后台</a>
+    <a  href="__URL__">返回分后台列表</a>
+</div>
+<div class="page_form">
+    <form action="__URL__/{$action}" method="post" id="form" enctype="multipart/form-data">
+        <div class="page_table form_table">
+            <table width="100%" border="0">
+                <tr>
+                    <td style="width:90px">选择对应商城后台:</td>
+                    <td>
+						<select name="staffId">
+							<option value="0">请选择</option>
+						<!--foreach:{$list $vo}-->
+							<!--if:{$vo["staffId"]==$info["fid"]}-->
+							<option selected="selected" value="{$vo.staffId}">{$vo.staffName}</option>
+							<!--{else}-->
+							<option value="{$vo.staffId}">{$vo.staffName}</option>
+							<!--{/if}-->
+						<!--{/foreach}-->
+						</select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100">权限管理组</td>
+                    <td width="300">
+                        <select name="gid" id="gid">
+                            <!--foreach:{$user_group $vo}-->
+                            <!--if:{$vo["id"]==$info["gid"]}-->
+                            <option value="{$vo.id}"  selected="selected">{$vo.groupname}</option>
+                            <!--{else}-->
+                            <option value="{$vo.id}">{$vo.groupname}</option>
+                            <!--{/if}-->
+                            <!--{/foreach}-->
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:90px">设置密码:</td>
+                    <td>
+                        <input type="password" name="password" value="{$info.password}" style="width:300px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--普通提交-->
+        <div class="form_submit">
+            <input name="id" type="hidden" value="{$info.id}" />
+            <button type="submit" class="button">保存</button> 
+        </div>
+    </form>
+</div>
+</div>
+</script>

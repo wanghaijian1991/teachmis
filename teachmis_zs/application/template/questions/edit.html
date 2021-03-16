@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{$action_name}</title>
+    <!--#include file="public/header_top.html"-->
+    <link rel="stylesheet" type="text/css" href="__PUBLICURL__/css/jquery.datetimepicker.css" />
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>{$action_name}</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal" id="menu_form" method="post" action="__URL__/{$action}_save">
+                            <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
+                            <input type="hidden" id="formUrlName" name="formUrl" value="{$action}_save">
+                            <div class="form-group">
+                                <label for="questionsName" class="col-sm-2 control-label">试题题目</label>
+                                <div class="col-sm-6">
+                                    <input name="questionsName" type="text" class="form-control1" id="questionsName" placeholder="试题题目" value="{$info.questionsName}">
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="file" id="question_img" name="questionImg" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="questionsType" class="col-sm-2 control-label">选择试题类型</label>
+                                <div class="col-sm-8">
+                                    <select name="questionsType" id="questionsType" class="form-control1">
+                                        <option value="0"></option>
+                                        <!--foreach:{$questionsType $k=>$l}-->
+                                        <option value="{$k}" <!--if:{$k==$info["questionsType"]}-->selected="selected"<!--{/if}-->>{$l}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gradeId" class="col-sm-2 control-label">选择年级</label>
+                                <div class="col-sm-8">
+                                    <select name="gradeId" id="gradeId" class="form-control1" onchange="getbookChapters()">
+                                        <option value="0"></option>
+                                        <!--foreach:{$grade $g}-->
+                                        <option value="{$g.gradeId}" <!--if:{$g["gradeId"]==$info["gradeId"]}-->selected="selected"<!--{/if}-->>{$g.gradeName}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookChapters" class="col-sm-2 control-label">选择章节</label>
+                                <input type="hidden" id="bookChaptersNum" value="{$bookChaptersNum}">
+                                <!--foreach:{$bookChaptersIdArr $bck=>$bc}-->
+                                <div class="col-sm-2" id="num{$bck}">
+                                    <select name="bookChapters{$bck}" id="bookChapters{$bck}" class="form-control1" onchange="addbookChapters({$bck})">
+                                        <option value="0"></option>
+                                        <!--foreach:{$bookChaptersArr[$bck] $l}-->
+                                        <option value="{$l.bookChaptersId}" <!--if:{$l["bookChaptersId"]==$bc}-->selected="selected"<!--{/if}-->>{$l.bookChaptersName}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                                <!--{/foreach}-->
+                            </div>
+                            <div class="form-group">
+                                <label for="questionsDifficulty" class="col-sm-2 control-label">选择试题难度</label>
+                                <div class="col-sm-8">
+                                    <select name="questionsDifficulty" id="questionsDifficulty" class="form-control1">
+                                        <option value="0"></option>
+                                        <!--foreach:{$difficulty $dk=>$d}-->
+                                        <option value="{$dk}" <!--if:{$dk==$info["questionsDifficulty"]}-->selected="selected"<!--{/if}-->>{$d}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" id="answerDiv0">
+                                <label for="gradeId" class="col-sm-8 control-label" style="text-align: center">试题答案</label>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-primary" onclick="addAnswer()">添加答案选项</button>
+                                    <button type="button" class="btn btn-primary" onclick="delAnswer()">删除选项</button>
+                                </div>
+                                <input type="hidden" id="answerNum" value="{$answerNum}">
+                            </div>
+                            <!--foreach:{$answerList $alk=>$al}-->
+                            <!--if:{$al}-->
+                            <div class="form-group" id="answerDiv{$alk}">
+                                <label for="gradeId" class="col-sm-2 control-label">答案<?php echo $alk+1;?></label>
+                                <div class="col-sm-8">
+                                    <div class="col-sm-6">
+                                        <input type="hidden" id="answerId{$alk}" value="{$al.answerId}">
+                                        <input name="answerName{$alk}" type="text" class="form-control1 col-sm-2" id="answerName{$alk}" value="{$al.answerName}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="answerOptions{$alk}" id="answerOptions{$alk}" class="form-control1">
+                                            <option value="1" <!--if:{$al["answerStatus"]==1}-->selected="selected"<!--{/if}-->>正确</option>
+                                            <option value="2" <!--if:{$al["answerStatus"]!=1}-->selected="selected"<!--{/if}-->>错误</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control1 col-sm-4" id="answerParsing'+nums+'" name="answerParsing'+nums+'" placeholder="答案解析">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="file" id="answerImg{$alk}" name="answerImg{$alk}" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--{/if}-->
+                            <!--{/foreach}-->
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <input type="hidden" name="questionsId" id="questionsId" value="{$info.questionsId}">
+                                        <button type="button" class="btn btn-primary" onclick="submiteditquestionsform()">提交</button>
+                                        <button class="btn-default btn" onclick="history.go(-1)">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function getbookChapters()
+        {
+            var gradeId=$("#gradeId").val();
+            $.ajax({
+                url:"__APP__/bookChapters/ajaxChapters",
+                type:'post',
+                data:"bookChaptersId=0&gradeId="+gradeId,
+                dataType:'json',
+                success:function(d){
+                    if(d)
+                    {
+                        var str='<option value="0"></option>';
+                        $.each( d, function(index, content){
+                            str=str+'<option value="'+content.bookChaptersId+'">'+content.bookChaptersName+'</option>';
+                        });
+                        $("#bookChapters0").html(str);
+                    }else{
+                        $("#bookChapters0").html('');
+                    }
+                }
+            });
+        }
+        function addbookChapters(reNum)
+        {
+            var num=$("#bookChaptersNum").val();
+            var gradeId=$("#gradeId").val();
+            $(".addNumDiv"+reNum).remove();
+            num=reNum;
+            var id=$("#bookChapters"+num).val();
+            var className=$("#num"+num).attr('class');
+            className=className+" addNumDiv"+num;
+            var nums=num*1+1;
+            $.ajax({
+                url:"__APP__/bookChapters/ajaxChapters",
+                type:'post',
+                data:"bookChaptersId="+id+"&gradeId="+gradeId,
+                dataType:'json',
+                success:function(d){
+                    if(d)
+                    {
+                        var str='<div class="'+className+'" id="num'+nums+'"><select name="bookChapters'+nums+'" id="bookChapters'+nums+'" class="form-control1" onchange="addbookChapters('+nums+')"><option value="0"></option>';
+                        $.each( d, function(index, content){
+                            str=str+'<option value="'+content.bookChaptersId+'">'+content.bookChaptersName+'</option>';
+                        });
+                        str=str+'</select></div>';
+                        $("#num"+num).after(str);
+                        $("#bookChaptersNum").val(nums);
+                    }
+                }
+            });
+        }
+        function addAnswer()
+        {
+            var num=$("#answerNum").val();
+            var nums=num*1+1;
+            var str='<div class="form-group" id="answerDiv'+nums+'"><label for="gradeId" class="col-sm-2 control-label">答案'+nums+'</label><div class="col-sm-8"><div class="col-sm-6"><input type="hidden" id="answerId'+nums+'" value=""><input name="answerName'+nums+'" type="text" class="form-control1 col-sm-2" id="answerName'+nums+'" value=""> </div> <div class="col-sm-2"> <select name="answerOptions'+nums+'" id="answerOptions'+nums+'" class="form-control1"> <option value="1" >正确</option> <option value="2" >错误</option> </select> </div><div class="col-sm-2"><input type="text" class="form-control1 col-sm-2" id="answerParsing'+nums+'" name="answerParsing'+nums+'" placeholder="答案解析"></div><div class="col-sm-2"> <input type="file" id="answerImg'+nums+'" name="answerImg'+nums+'" value=""></div> </div> </div>';
+            $("#answerDiv"+num).after(str);
+            $("#answerNum").val(nums);
+        }
+        function delAnswer()
+        {
+            var num=$("#answerNum").val();
+            if(num>=1){
+                $("#answerDiv"+num).remove();
+                $("#answerNum").val(num*1-1);
+            }
+        }
+    </script>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script src="__PUBLICURL__/js/jquery.datetimepicker.js" type="text/javascript"></script>
+<script>
+    $('#studentAge').datetimepicker({
+        format: 'Y-m-d',//显示格式
+    });
+</script>
+</body>
+</html>

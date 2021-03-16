@@ -1,0 +1,7 @@
+  日期：
+  <select id="status" onchange="javascript:location.href=this.value;">
+  	<option>默认</option>
+	<?php for($i=2013;$i<2015;$i++){ ?>
+  	<option <?php if($type==$i){ ?> selected="selected" <?php } ?> value="__URL__/index/type-{$i}-id-{$id}" >{$i}</option>
+	<?php } ?>
+  </select>年

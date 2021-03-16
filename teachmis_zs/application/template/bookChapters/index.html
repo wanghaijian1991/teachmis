@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>{$menu_name}</title>
+  <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+  <!--#include file="public/header.html"-->
+  <div id="page-wrapper">
+    <div class="col-md-12 graphs">
+      <div class="xs">
+        <h3>{$menu_name}</h3>
+        <div class="dropdown">
+          <a href="#" title="" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">
+            <span>请先选择年级</span>
+            <i class="fa fa-chevron-down icon_8"></i>
+            <div class="ripple-wrapper"></div></a>
+          <ul class="dropdown-menu float-right">
+            <!--foreach:{$grade $g}-->
+            <li>
+              <a href="javascript:void(0)" title="" onclick="$('#gradeId').val({$g.gradeId});ajaxSelectList({$g.gradeId})">
+                {$g.gradeName}
+              </a>
+            </li>
+            <!--{/foreach}-->
+          </ul>
+          <input type="hidden" id="gradeId">
+        </div>
+      </div>
+        <button type="button" class="btn btn-primary" style="float: right" onclick="window.location.href='__APP__/bookChapters/add'">新增</button>
+        <div class="bs-example4" data-example-id="contextual-table">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>课本章节名称</th>
+              <th>课本章节父类ID</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="bookChaptersList">
+            <!--foreach:{$list $l}-->
+            <tr id="{$l.bookChaptersId}" class="active">
+              <th scope="row">{$l.bookChaptersId}<input type="hidden" id="indent{$l.bookChaptersId}" value="1"></th>
+              <td>{$l.bookChaptersName}</td>
+              <td>{$l.bookChaptersFid}</td>
+              <td><a href="__APP__/bookChapters/edit/id-{$l.bookChaptersId}">修改</a> | <a href="__APP__/bookChapters/add/id-{$l.bookChaptersId}">新增子分类</a><!--if:{$l["status"]==1}--> | <a href="javascript:void(0)" class="unfurled{$l.bookChaptersId}" onclick="unfurled({$l.bookChaptersId})">展开</a><!--{/if}--></td>
+            </tr>
+            <!--{/foreach}-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function unfurled(id)
+    {
+        var gradeId=$("#gradeId").val();
+        var unfurleds=$(".unfurled"+id).html();
+        var indent=$("#indent"+id).val();
+        var indents="";
+        for(var i=0;i<indent*1;i++)
+        {
+            if(i==indent-1)
+            {
+                indents=indents+"┕╍╍ ";
+            }else{
+                indents=indents+"&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        indent=indent*1+1;
+        if(unfurleds=='展开')
+        {
+            $.ajax({
+                url:"__APP__/bookChapters/ajaxChapters",
+                type:'post',
+                data:"bookChaptersId="+id+"&gradeId="+gradeId,
+                dataType:'json',
+                success:function(d){
+                    var str="";
+                    var class_s=$("#"+id).attr("class");
+                    class_s=class_s+" bookChaptersId"+id;
+                    $.each( d, function(index, content){
+                        var op="";
+                        if(content.status==1)
+                            op='| <a href="javascript:void(0)" class="unfurled'+content.bookChaptersId+'" onclick="unfurled('+content.bookChaptersId+')">展开</a>';
+                        str=str+'<tr id="'+content.bookChaptersId+'" class="'+class_s+'"><th scope="row">'+content.bookChaptersId+'<input type="hidden" id="indent'+content.bookChaptersId+'" value="'+indent+'"></th><td>'+indents+" "+content.bookChaptersName+'</td><td>'+content.bookChaptersFid+'</td><td><a href="__APP__/bookChapters/edit/id-'+content.bookChaptersId+'">修改</a> | <a href="__APP__/bookChapters/add/id-'+content.bookChaptersId+'">新增子分类</a>'+op+'</td> </tr>';
+                    });
+                    $("#"+id).after(str);
+                    $(".unfurled"+id).html("收起");
+                }
+            });
+        }else{
+            $(".bookChaptersId"+id).remove();
+            $(".unfurled"+id).html("展开");
+        }
+    }
+    function ajaxSelectList(id)
+    {
+        $.ajax({
+            url:"__APP__/bookChapters/ajaxChapters",
+            type:'post',
+            data:"bookChaptersId=0&gradeId="+id,
+            dataType:'json',
+            success:function(d){
+                var str="";
+                $.each( d, function(index, content){
+                    var op="";
+                    if(content.status==1)
+                        op='| <a href="javascript:void(0)" class="unfurled'+content.bookChaptersId+'" onclick="unfurled('+content.bookChaptersId+')">展开</a>';
+                    str=str+'<tr id="'+content.bookChaptersId+'" class="active"><th scope="row">'+content.bookChaptersId+'<input type="hidden" id="indent'+content.bookChaptersId+'" value="1"></th><td>'+content.bookChaptersName+'</td><td>'+content.bookChaptersFid+'</td><td><a href="__APP__/bookChapters/edit/id-'+content.bookChaptersId+'">修改</a> | <a href="__APP__/bookChapters/add/id-'+content.bookChaptersId+'">新增子分类</a>'+op+'</td> </tr>';
+                });
+                $("#bookChaptersList").html(str);
+            }
+        });
+    }
+  </script>
+  <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+</body>
+</html>

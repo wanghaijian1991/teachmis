@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>{$menu_name}</title>
+  <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+  <!--#include file="public/header.html"-->
+  <div id="page-wrapper">
+    <div class="col-md-12 graphs">
+      <div class="xs">
+        <h3>{$menu_name}</h3>
+        <button type="button" class="btn btn-primary" style="float: right" onclick="window.location.href='__APP__/classs/add'">新增</button>
+        <div class="bs-example4" data-example-id="contextual-table">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>班级名称</th>
+              <th>年份</th>
+              <th>年级</th>
+              <th>几班</th>
+              <th>班主任</th>
+              <th>学校名称</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--foreach:{$list $l}-->
+            <tr class="active">
+              <th scope="row">{$l.classId}</th>
+              <td>{$l.className}</td>
+              <td>{$l.classYear}年</td>
+              <td>{$l.gradeName}</td>
+              <td>{$l.classFew}</td>
+              <td>{$l.teacherName}</td>
+              <td>{$l.nicename}</td>
+              <td><a href="__APP__/classs/edit/id-{$l.classId}">修改</a></td>
+            </tr>
+            <!--{/foreach}-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+</body>
+</html>

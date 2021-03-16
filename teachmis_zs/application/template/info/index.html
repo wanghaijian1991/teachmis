@@ -1,0 +1,60 @@
+<link type="text/css" rel="stylesheet" href="__PUBLICURL__/css/style.css">
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/duxui.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/common.js" type="text/javascript"></script>
+<div class="page_function">
+  <div class="info">
+    <h3>员工管理</h3>
+  </div>
+  <div class="exercise"> 
+   <a href="javascript:menuload('__URL__')">员工列表</a>
+   <a href="javascript:menuload('__URL__/add')">员工添加</a>
+   </div>
+</div>
+<div class="page_main">
+  <div class="page_table table_list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="10%"><center>ID</center></th>
+        <th width="10%"><center>部门名称</center></th>
+        <th width="10%"><center>员工姓名</center></th>
+        <th width="10%"><center>职位名称</center></th>
+        <th width="20%"><center>操作</center></th>
+      </tr>
+      <!--foreach:{$list $key=>$vo}-->
+      <tr id="{$vo.id}" style="text-align:center">
+        <td><center>{$vo.id}</center></center></td>
+        <td><center>{$vo.name}</center></td>
+		<td><center>{$vo.username}</center></td>
+		<td><center>{$vo.position}</center></td>
+        <td><center>
+        <a href="__URL__/edit/id-{$vo.id}">修改</a>
+           | <a href="javascript:void(0);" onclick="del('{$vo.id}',this)">删除</a></center></td>
+      </tr>
+      <!--{/foreach}-->
+    </table>
+  </div>
+</div>
+
+<div class="page_tool">
+    <div class="page" >{$page}</div>
+</div>
+<script type="text/javascript">
+//提交表单
+savelistform("__URL__/add","__URL__");
+</script>
+<script>
+	//删除
+	function del(id,obj) 
+	{
+		var obj;
+		var status=confirm("是否确定删除！");
+		if(status)
+		{
+			$.get("__URL__/del",{id:id},function(data){
+				alert("删除成功！");
+				$("#"+id).css("display","none");
+				});
+		}
+	}
+</script>

@@ -1,0 +1,44 @@
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<div class="page_function">
+  <div class="info">
+    <h3>试卷管理</h3>
+    <small>使用以下功能进行试卷操作</small> </div>
+  <div class="exercise">
+   <a href="javascript:menuload('__URL__/phpexcel/id-{$id}')">导出</a>
+   </div>
+</div>
+<div class="page_main">
+  <div class="page_table table_list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="10%"><center>ID</center></th>
+        <th width="10%">用户名</th>
+        <th width="20%">开始时间</th>
+        <th width="20%">总用时</th>
+        <th width="20%">正确数</th>
+      </tr>
+      <!--foreach:{$list $vo}-->
+      <tr id="{$vo.test_id}">
+        <td><center>{$vo.paper_user_id}</center></td>
+        <td>{$vo.adminname}</td>
+        <td>{$vo.start_time}</td>
+        <td>{$vo.duration}</td>
+        <td>{$vo.correct_num}</td>
+      </tr>
+      <!--{/foreach}-->
+    </table>
+  </div>
+</div>
+
+<div class="page_tool">
+  <div class="page">{$page}</div>
+</div>
+<script>
+//删除
+function del(id) {
+	$.get("__URL__/del",{id:id},function(data){
+		alert("删除成功！");
+		$("#"+id).css("display","none");
+		});
+}
+</script>

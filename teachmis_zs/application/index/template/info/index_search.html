@@ -1,0 +1,12 @@
+  类型：
+  <select id="status" onchange="javascript:location.href=this.value;">
+  	<option>默认</option>
+  	<option <?php if($type==1){ ?> selected="selected" <?php } ?> value="__URL__/index/type-1" >联盟新闻</option>
+    <option <?php if($type==2){ ?> selected="selected" <?php } ?> value="__URL__/index/type-2" >联盟活动</option>
+    <option <?php if($type==3){ ?> selected="selected" <?php } ?> value="__URL__/index/type-3" >专家观点</option>
+    <option <?php if($type==4){ ?> selected="selected" <?php } ?> value="__URL__/index/type-4" >媒体聚焦</option>
+  </select>
+  &nbsp;&nbsp;
+  名称搜索：
+  <input name="search" type="text" class="text_value" id="search" value="<?php echo urldecode($_GET['search']) ?>" />
+  &nbsp;&nbsp;<input type="button"  class="button_small" onclick="javascript:location.href='__URL__/index/search-'+$('#search').val();" value="搜索" />

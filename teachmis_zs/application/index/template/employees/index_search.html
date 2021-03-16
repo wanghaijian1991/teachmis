@@ -1,0 +1,6 @@
+  日期：
+  <select id="status" onchange="javascript:location.href=this.value;">
+	<?php for($i=2013;$i<2015;$i++){ ?>
+  	<option <?php $now=date("Y",time()); if($type==$i){ ?> selected="selected" <?php }else if(empty($type) && $i==$now){  ?>selected="selected"<?php } ?> value="__URL__/index/type-{$i}-status-{$status}-id-{$id}" >{$i}</option>
+	<?php } ?>
+  </select>年

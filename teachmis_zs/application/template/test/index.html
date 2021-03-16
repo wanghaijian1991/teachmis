@@ -1,0 +1,49 @@
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<div class="page_function">
+  <div class="info">
+    <h3>试题管理</h3>
+    <small>使用以下功能进行员工添加操作</small> </div>
+  <div class="exercise"> 
+   <a href="javascript:menuload('__URL__')">试题列表</a>
+   <a href="javascript:menuload('__URL__/add')">添加试题</a>
+   </div>
+</div>
+<div class="page_main">
+  <div class="page_table table_list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="10%"><center>位置</center></th>
+        <th width="10%">试题</th>
+        <th width="10%">出题次数</th>
+        <th width="20%">错误次数</th>
+        <th width="20%">状态</th>
+        <th width="20%"><center>操作</center></th>
+      </tr>
+      <!--foreach:{$list $vo}-->
+      <tr id="{$vo.test_id}">
+        <td><center>{$vo.hang}行{$vo.page}页</center></td>
+        <td>{$vo.test_name}</td>
+        <td>{$vo.num}</td>
+        <td>{$vo.error_num}</td>
+        <td>{$vo.status}</td>
+        <td><center>
+        <a href="__URL__/edit/id-{$vo.test_id}">修改</a>
+         | <a href="javascript:void(0);" onclick="del('{$vo.test_id}')">删除</a></center></td>
+      </tr>
+      <!--{/foreach}-->
+    </table>
+  </div>
+</div>
+
+<div class="page_tool">
+  <div class="page">{$page}</div>
+</div>
+<script>
+//删除
+function del(id) {
+	$.get("__URL__/del",{id:id},function(data){
+		alert("删除成功！");
+		$("#"+id).css("display","none");
+		});
+}
+</script>

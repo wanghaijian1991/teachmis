@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>校园新增</title>
+    <!--#include file="public/header_top.html"-->
+    <link rel="stylesheet" type="text/css" href="__PUBLICURL__/css/jquery.datetimepicker.css" />
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>校园新增</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal" id="menu_form" method="post" action="__URL__/{$action}_save">
+                            <div class="form-group">
+                                <label for="fid" class="col-sm-2 control-label">选择权限组</label>
+                                <div class="col-sm-8">
+                                    <select name="gid" id="gid" class="form-control1">
+                                        <option value="0"></option>
+                                        <!--foreach:{$list $l}-->
+                                        <option value="{$l.id}" <!--if:{$l["id"]==$info["gid"]}-->selected="selected"<!--{/if}-->>{$l.groupname}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminname" class="col-sm-2 control-label">登录名称</label>
+                                <div class="col-sm-8">
+                                    <input name="adminname" type="text" class="form-control1" id="adminname" placeholder="登录名称" value="{$info.adminname}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-2 control-label">密码</label>
+                                <div class="col-sm-8">
+                                    <input name="password" type="password" class="form-control1" id="password" placeholder="密码" value="">
+                                </div>
+                                <div class="col-sm-2 module_sm">
+                                    <p class="help-block">不修改不需填写</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nicename" class="col-sm-2 control-label">校园名称</label>
+                                <div class="col-sm-8">
+                                    <input name="nicename" type="text" class="form-control1" id="nicename" placeholder="校园名称" value="{$info.nicename}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-2 control-label">状态</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="status" type="radio" <!--if:{$info["status"]==0}-->checked="checked"<!--{/if}--> value="0"> 关闭</label></div>
+                                    <div class="radio-inline"><label><input name="status" type="radio" <!--if:{$info["status"]==1}-->checked="checked"<!--{/if}--> value="1"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="status" type="radio" <!--if:{$info["status"]==2}-->checked="checked"<!--{/if}--> value="2"> 过期</label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-2 control-label">有效期</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="startTime" type="text" id="startTime" class="form-control1" value="{$info.startTime}"></label></div>
+                                    <div class="radio-inline">至<label><input name="endTime" type="text" id="endTime" class="form-control1" value="{$info.endTime}"></label></div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <input type="hidden" name="id" value="{$info.id}">
+                                        <button type="button" class="btn btn-primary" onclick="submits()">提交</button>
+                                        <button class="btn-default btn" onclick="history.go(-1)">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script src="__PUBLICURL__/js/jquery.datetimepicker.js" type="text/javascript"></script>
+<script>
+    function submits()
+    {
+        if(confirm("是否确定提交！"))
+        {
+            $("#menu_form").submit();
+        }
+    }
+    $('#startTime').datetimepicker({
+        format: 'Y-m-d H:i:00',//显示格式
+    });
+
+    $('#endTime').datetimepicker({
+        format: 'Y-m-d H:i:00',//显示格式
+    });
+</script>
+</body>
+</html>

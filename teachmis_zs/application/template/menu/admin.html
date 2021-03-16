@@ -1,0 +1,14 @@
+<div class="title"><a href="javascript:void(0)">管理员管理</a></div>
+    <ul class="load menu">
+      <!--foreach:{$list $vo}-->
+      <li><a href="__APP__/{$vo.module}">{$vo.menuname}</a></li>
+      <!--{/foreach}-->
+    </ul>
+    
+<script>
+url=$(".load li:first a").attr("href");
+if(url==''||url=='#'){
+}else{
+	ajaxload(url);
+}
+</script>

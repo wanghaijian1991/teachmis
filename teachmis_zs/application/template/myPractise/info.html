@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{$action_name}</title>
+    <!--#include file="public/header_top.html"-->
+    <link rel="stylesheet" type="text/css" href="__PUBLICURL__/css/jquery.datetimepicker.css" />
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>{$action_name}</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal" id="menu_form" method="post" action="__URL__/{$action}_save">
+                            <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
+                            <input type="hidden" id="formUrlName" name="formUrl" value="{$action}_save">
+                            <!--foreach:{$questionsType $k=>$l}-->
+                            <div class="form-group">
+                                <label for="questionsType" class="col-sm-2 control-label">{$l}试题数量</label>
+                                <div class="col-sm-8">
+                                    <input name="questionsTypeNum{$k}" type="text" class="form-control1" id="questionsTypeNum{$k}" placeholder="试题数量" value="">
+                                </div>
+                            </div>
+                            <!--{/foreach}-->
+                            <input type="hidden" id="questionsTypeNum" value="<?php echo count($questionsType);?>">
+                            <div class="form-group">
+                                <label for="gradeId" class="col-sm-2 control-label">选择年级</label>
+                                <div class="col-sm-8">
+                                    <select name="gradeId" id="gradeId" class="form-control1" onchange="getbookChapters()">
+                                        <option value="0"></option>
+                                        <!--foreach:{$grade $g}-->
+                                        <option value="{$g.gradeId}" <!--if:{$g["gradeId"]==$info["gradeId"]}-->selected="selected"<!--{/if}-->>{$g.gradeName}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookChapters" class="col-sm-2 control-label">选择章节</label>
+                                <input type="hidden" id="bookChaptersNum" value="0">
+                                <div class="col-sm-2" id="num0">
+                                    <select name="bookChapters0" id="bookChapters0" class="form-control1" onchange="addbookChapters(0)">
+                                        <option value="0"></option>
+                                        <!--foreach:{$bookChapters $l}-->
+                                        <option value="{$l.bookChaptersId}">{$l.bookChaptersName}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="questionsDifficulty" class="col-sm-2 control-label">选择试题难度</label>
+                                <div class="col-sm-8">
+                                    <select name="questionsDifficulty" id="questionsDifficulty" class="form-control1">
+                                        <option value="0"></option>
+                                        <!--foreach:{$difficulty $dk=>$d}-->
+                                        <option value="{$dk}" <!--if:{$dk==$info["questionsDifficulty"]}-->selected="selected"<!--{/if}-->>{$d}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button type="button" class="btn btn-primary" onclick="ajaxGetPractise()">生成练习</button>
+                                        <input type="hidden" class="questionNums" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 graphs">
+            <div class="xs" id="paperPreview">
+                <h3 style="text-align: center">练习题</h3>
+                <div class="col-md-6 stats-info stats-info1">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Browser Stats</h4>
+                    </div>
+                    <div class="panel-body panel-body2">
+                        <ul class="list-unstyled">
+                            <li>Google Chrome<div class="text-success pull-right">12%<i class="fa fa-level-up"></i></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script src="__PUBLICURL__/js/jquery.datetimepicker.js" type="text/javascript"></script>
+<script>
+    $('#startTime').datetimepicker({
+        mask:'Y-m-d H:i'
+    });
+    $('#endTime').datetimepicker({
+        mask:'Y-m-d H:i'
+    });
+</script>
+<script>
+    function getbookChapters()
+    {
+        var gradeId=$("#gradeId").val();
+        $.ajax({
+            url:"__APP__/bookChapters/ajaxChapters",
+            type:'post',
+            data:"bookChaptersId=0&gradeId="+gradeId,
+            dataType:'json',
+            success:function(d){
+                if(d)
+                {
+                    var str='<option value="0"></option>';
+                    $.each( d, function(index, content){
+                        str=str+'<option value="'+content.bookChaptersId+'">'+content.bookChaptersName+'</option>';
+                    });
+                    $("#bookChapters0").html(str);
+                }else{
+                    $("#bookChapters0").html('');
+                }
+            }
+        });
+        $.ajax({
+            url:"__APP__/classs/ajaxClassList",
+            type:'post',
+            data:"gradeId="+gradeId,
+            dataType:'json',
+            success:function(d){
+                if(d)
+                {
+                    var str='';
+                    $.each( d, function(index, content){
+                        str=str+'<div class="col-xs-8"><div class="col-xs-1"><input type="checkbox" class="checkbox" id="classId" name="classId" value="'+content.classId+'"></div>'+content.className+'</div>';
+                    });
+                    $("#classIdList").html(str);
+                }else{
+                    $("#classIdList").html('');
+                }
+            }
+        });
+    }
+    function ajaxGetPractise()
+    {
+        var questionsType=$("#questionsType").val();
+        var gradeId=$("#gradeId").val();
+        var questionsTypeNum=$("#questionsTypeNum").val();
+        var qstr='';
+        for(var i=1;i<=questionsTypeNum;i++)
+        {
+            var num=$("#questionsTypeNum"+i).val();
+            qstr=qstr+i+","+num+";";
+        }
+        var bookChaptersNum=$("#bookChaptersNum").val();
+        var bookChapters=$("#bookChapters"+bookChaptersNum).val();
+        var questionsDifficulty=$("#questionsDifficulty").val();
+        $.ajax({
+            url:"__APP__/paper/ajaxGetPaper",
+            type:'post',
+            data:"&gradeId="+gradeId+"&bookChapters="+bookChapters+"&questionsDifficulty="+questionsDifficulty+"&questionsTypeNum="+qstr,
+            dataType:'json',
+            success:function(d){
+                if(d)
+                {
+                    var str='';
+                    var num=0;
+                    $.each( d, function(index, content){
+                        if(index==1) var names='单选题';
+                        if(index==2) var names='多选题';
+                        if(index==3) var names='填空题';
+                        if(index==4) var names='写作题';
+                        str=str+'<h3 style="text-align: center">'+names+'</h3>';
+                        $.each( content, function(pn, paper){
+                            num=num*1+1;
+                            var strs='';
+                            var boxstr='';
+                            $.each( paper.answer, function(an, answer){
+                                if(an==0) var optionsName='A';
+                                if(an==1) var optionsName='B';
+                                if(an==2) var optionsName='C';
+                                if(an==3) var optionsName='D';
+                                if(paper.questionsType==1)
+                                {
+                                    boxstr='<input type="radio" class="checkbox" id="questionsKey'+index+'_'+pn+'" name="questionsKey'+index+'_'+pn+'" value="'+answer.answerId+'" onclick="submitQuestion('+paper.questionsId+','+index+','+pn+')">';
+                                    strs=strs+'<li><div class="col-xs-1">'+boxstr+'</div>'+optionsName+'、'+answer.answerName+'</li>';
+                                }
+                                if(paper.questionsType==2)
+                                {
+                                    boxstr='<input type="checkbox" class="checkbox" id="questionsKey'+index+'_'+pn+'" name="questionsKey'+index+'_'+pn+'" value="'+answer.answerId+'" onclick="submitQuestion('+paper.questionsId+','+index+','+pn+')">';
+                                    strs=strs+'<li><div class="col-xs-1">'+boxstr+'</div>'+optionsName+'、'+answer.answerName+'</li>';
+                                }
+                                if(paper.questionsType==3)
+                                {
+                                    boxstr='<input type="text" class="text" id="questionsKey'+index+'_'+pn+'" name="questionsKey'+index+'_'+pn+'" onchange="submitQuestion('+paper.questionsId+','+index+','+pn+')">';
+                                    strs=strs+'<li><div class="col-xs-1">'+boxstr+'</div>请输入对应空的内容！</li>';
+                                }
+                            });
+                            if(paper.questionsType==4)
+                            {
+                                boxstr='<textarea id="questionsKey'+index+'_'+pn+'" name="questionsKey'+index+'_'+pn+'" style="width:100%;height:300px;"></textarea>';
+                                strs=strs+'<li><div class="col-md-12">'+boxstr+'</div></li>';
+                            }
+                            str=str+'<div class="col-md-12 stats-info stats-info1 questionNum questionNum'+num+'" id="questionsList'+index+'_'+pn+'" style="display: none"><div class="panel-heading"><h4 class="panel-title">'+names+"："+paper.questionsName+'</h4><button type="button" style="float: right" class="btn btn-primary" onclick="submitQuestion('+paper.questionsId+','+index+','+pn+','+num+')">下一题</button><input type="hidden" id="questionsId'+index+'_'+pn+'" value="'+paper.questionsId+'"></div><div class="panel-body panel-body2"> <ul class="list-unstyled"> '+strs+' </ul> </div> </div>';
+                        });
+                    });
+                    $("#paperPreview").html(str);
+                    $(".questionNum1").css("display",'block');
+                    $(".questionNums").val(num);
+                }
+            }
+        });
+    }
+    function addbookChapters(reNum)
+    {
+        var num=$("#bookChaptersNum").val();
+        var gradeId=$("#gradeId").val();
+        $(".addNumDiv"+reNum).remove();
+        num=reNum;
+        var id=$("#bookChapters"+num).val();
+        var className=$("#num"+num).attr('class');
+        className=className+" addNumDiv"+num;
+        var nums=num*1+1;
+        $.ajax({
+            url:"__APP__/bookChapters/ajaxChapters",
+            type:'post',
+            data:"bookChaptersId="+id+"&gradeId="+gradeId,
+            dataType:'json',
+            success:function(d){
+                if(d)
+                {
+                    var str='<div class="'+className+'" id="num'+nums+'"><select name="bookChapters'+nums+'" id="bookChapters'+nums+'" class="form-control1" onchange="addbookChapters('+nums+')"><option value="0"></option>';
+                    $.each( d, function(index, content){
+                        str=str+'<option value="'+content.bookChaptersId+'">'+content.bookChaptersName+'</option>';
+                    });
+                    str=str+'</select></div>';
+                    $("#num"+num).after(str);
+                    $("#bookChaptersNum").val(nums);
+                }
+            }
+        });
+    }
+    function ajaxUpQuestions(type,num)
+    {
+        var gradeId=$("#gradeId").val();
+        var bookChaptersNum=$("#bookChaptersNum").val();
+        var bookChapters=$("#bookChapters"+bookChaptersNum).val();
+        var questionsDifficulty=$("#questionsDifficulty").val();
+        $.ajax({
+            url:"__APP__/paper/ajaxGetPaperOne",
+            type:'post',
+            data:"&gradeId="+gradeId+"&bookChapters="+bookChapters+"&questionsDifficulty="+questionsDifficulty+"&questionsType="+type,
+            dataType:'json',
+            success:function(d){
+                if(d)
+                {
+                    var str='';
+                    $.each( d, function(pn, paper){
+                        var strs='';
+                        var boxstr='';
+                        $.each( paper.answer, function(an, answer){
+                            if(an==0) var optionsName='A';
+                            if(an==1) var optionsName='B';
+                            if(an==2) var optionsName='C';
+                            if(an==3) var optionsName='D';
+                            if(paper.questionsType==1)
+                            {
+                                boxstr='<input type="radio" class="radio" id="questionsKey'+type+'_'+pn+'" name="questionsKey'+type+'_'+pn+'">';
+                                strs=strs+'<li><div class="col-xs-1">'+boxstr+'</div>'+optionsName+'、'+answer.answerName+'</li>';
+                            }
+                            if(paper.questionsType==2)
+                            {
+                                boxstr='<input type="checkbox" class="checkbox" id="questionsKey'+type+'_'+pn+'" name="questionsKey'+type+'_'+pn+'">';
+                                strs=strs+'<li><div class="col-xs-1">'+boxstr+'</div>'+optionsName+'、'+answer.answerName+'</li>';
+                            }
+                            if(paper.questionsType==3)
+                            {
+                                boxstr='<input type="text" class="text" id="questionsKey'+type+'_'+pn+'" name="questionsKey'+type+'_'+pn+'">';
+                                strs=strs+'<li><div class="col-xs-1">'+boxstr+'</div>请输入对应空的内容！</li>';
+                            }
+                        });
+                        if(paper.questionsType==4)
+                        {
+                            boxstr='<textarea id="questionsKey'+type+'_'+pn+'" name="questionsKey'+type+'_'+pn+'" style="width:100%;height:300px;"></textarea>';
+                            strs=strs+'<li><div class="col-md-12">'+boxstr+'</div></li>';
+                        }
+                        str=str+'<div class="panel-heading"><h4 class="panel-title">'+paper.questionsName+'<div class="btn btn_1 btn-default mrg5R" style="float:right" onclick="ajaxUpQuestions('+type+','+pn+')"> <i class="fa fa-refresh"> </i> </div></h4><input type="hidden" id="questionsId[]" value="'+paper.questionsId+'"></div><div class="panel-body panel-body2"> <ul class="list-unstyled"> '+strs+' </ul> </div>';
+                    });
+                    $("#questionsList"+type+"_"+num).html(str);
+                }
+            }
+        });
+    }
+
+    function submitQuestion(questionsId,n,pn,num)
+    {
+        var questionsKey=$("#questionsKey"+n+"_"+pn).val();
+        var nums=$(".questionNums").val();
+        if(num!=nums)
+        {
+            $(".questionNum").css("display",'none');
+            num=num*1+1;
+            $(".questionNum"+num).css("display",'block');
+        }else{
+            layer.msg("已经是最后一道题了！");
+        }
+    }
+</script>
+</body>
+</html>

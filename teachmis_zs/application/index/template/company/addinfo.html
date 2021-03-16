@@ -1,0 +1,50 @@
+<link type="text/css" rel="stylesheet" href="__PUBLICURL__/css/style.css">
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLICURL__/js/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="__PUBLICURL__/js/handlers.js"></script>
+<script src="__PUBLICURL__/kindeditor/kindeditor-min.js" type="text/javascript"></script>
+<div class="page_function">
+	<div class="info">
+		<h3>公司部门管理</h3>
+	</div>
+</div>
+<div class="tab" id="tab">
+	<a class="selected" href="#">{$action_name}添加公司部门</a>
+    <a  href="__URL__">返回公司部门列表</a>
+</div>
+<div class="page_form">
+    <form action="__URL__/{$action}" method="post" id="form" enctype="multipart/form-data">
+        <div class="page_table form_table">
+            <table width="100%" border="0">
+                <tr>
+                    <td style="width:90px">上级单位:</td>
+                    <td>
+						<select name="fid">
+							<option value="0">请选择</option>
+						<!--foreach:{$list $vo}-->
+							<!--if:{$vo["id"]==$info["fid"]}-->
+							<option selected="selected" value="{$vo.id}">{$vo.cname}</option>
+							<!--{else}-->
+							<option value="{$vo.id}">{$vo.cname}</option>
+							<!--{/if}-->
+						<!--{/foreach}-->
+						</select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:90px">单位名称:</td>
+                    <td>
+                        <input type="text" name="name" value="{$info.name}" style="width:300px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--普通提交-->
+        <div class="form_submit">
+            <input name="id" type="hidden" value="{$info.id}" />
+            <button type="submit" class="button">保存</button> 
+        </div>
+    </form>
+</div>
+</div>
+</script>
