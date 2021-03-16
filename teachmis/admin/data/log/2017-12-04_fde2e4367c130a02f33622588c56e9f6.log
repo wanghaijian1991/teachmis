@@ -1,0 +1,7 @@
+2017-12-04 20:10:42 | 112.232.106.193 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-12-04 20:16:58 | 112.232.106.193 | /kindergarten/admin/index.php/teacherInfo |teacherInfo模块不存在
+2017-12-04 20:17:02 | 112.232.106.193 | /kindergarten/admin/index.php/teacherClass |teacherClass模块不存在
+2017-12-04 20:17:27 | 112.232.106.193 | /kindergarten/admin/index.php/myPractise |myPractise模块不存在

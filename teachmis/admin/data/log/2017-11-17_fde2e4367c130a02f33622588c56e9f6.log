@@ -1,0 +1,30 @@
+2017-11-17 10:12:21 | 112.229.244.246 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-17 14:24:22 | 112.229.244.246 | /kindergarten/admin/index.php/questions/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_questions  SET  `questionsName` = '试题题目12', `questionsType` = '1', `gradeId` = '1', `bookChaptersId` = ',1,2,4,6,', `questionsDifficulty` = '1', `modId` = '2', `modTime` = '2017-11-17 14:24:22'  WHERE questionsId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-17 15:01:11 | 112.229.243.126 | /kindergarten/admin/index.php/questions/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: DELETE FROM att_answer   WHERE questionsId=3 and answerId not in(6,5,8,)<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-17 15:33:02 | 112.229.243.126 | /kindergarten/admin/index.php/questions/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: DELETE FROM att_answer   WHERE questionsId=3 and answerId not in(7,29,28,27,)<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-17 15:34:07 | 112.229.243.126 | /kindergarten/admin/index.php/questions/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: DELETE FROM att_answer   WHERE questionsId=3 and answerId not in(7,29,28,27,30,)<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-17 15:42:54 | 112.229.243.126 | /kindergarten/admin/index.php/paper |paper模块不存在
+2017-11-17 20:33:06 | 39.64.193.248 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-17 20:37:16 | 39.64.193.248 | /kindergarten/admin/index.php/positions |positions模块不存在
+2017-11-17 20:37:32 | 39.64.193.248 | /kindergarten/admin/index.php/bookChapters/ajaxChapters | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.* FROM att_bookChapters A   WHERE A.bookChaptersFid=1 and gradeId= and A.schoolId=2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and A.schoolId=2' at line 1<br>
+					<b>错误代码</b>:1064<br>

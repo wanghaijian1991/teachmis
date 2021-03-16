@@ -1,0 +1,471 @@
+
+<script src="__PUBLICURL__/js/jquery.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/jquery.validate.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/duxui.js" type="text/javascript"></script>
+<script src="__PUBLICURL__/js/common.js" type="text/javascript"></script>
+<script>
+
+	
+	$(document).ready(function(){
+	
+		$("#form").validate({
+			rules: {
+				"progress": {
+					required: true
+				},
+				"results": {
+					required: true
+				},
+				"my_1":{
+					required: true
+				},
+				"my_2":{
+					required: true
+				},
+				"my_3":{
+					required: true
+				},
+				"my_4":{
+					required: true
+				},
+				"my_5":{
+					required: true
+				},
+				"my_6":{
+					required: true
+				},
+				"my_7":{
+					required: true
+				},
+				"dep_1":{
+					required: true
+				},
+				"dep_2":{
+					required: true
+				},
+				"dep_3":{
+					required: true
+				},
+				"dep_4":{
+					required: true
+				},
+				"dep_5":{
+					required: true
+				},
+				"dep_6":{
+					required: true
+				},
+				"dep_7":{
+					required: true
+				},
+				"pre_1":{
+					required: true
+				},
+				"pre_2":{
+					required: true
+				},
+				"pre_3":{
+					required: true
+				},
+				"pre_4":{
+					required: true
+				},
+				"pre_5":{
+					required: true
+				},
+				"pre_6":{
+					required: true
+				},
+				"pre_7":{
+					required: true
+				}
+			},messages: {
+				"progress": {
+					required: " "
+				},
+				"results": {
+					required: " "
+				},
+				"my_1":{
+					required: " "
+				},
+				"my_2":{
+					required: " "
+				},
+				"my_3":{
+					required: " "
+				},
+				"my_4":{
+					required: " "
+				},
+				"my_5":{
+					required: " "
+				},
+				"my_6":{
+					required: " "
+				},
+				"my_7":{
+					required: " "
+				},
+				"dep_1":{
+					required: " "
+				},
+				"dep_2":{
+					required: " "
+				},
+				"dep_3":{
+					required: " "
+				},
+				"dep_4":{
+					required: " "
+				},
+				"dep_5":{
+					required: " "
+				},
+				"dep_6":{
+					required: " "
+				},
+				"dep_7":{
+					required: " "
+				},
+				"pre_1":{
+					required: " "
+				},
+				"pre_2":{
+					required: " "
+				},
+				"pre_3":{
+					required: " "
+				},
+				"pre_4":{
+					required: " "
+				},
+				"pre_5":{
+					required: " "
+				},
+				"pre_6":{
+					required: " "
+				},
+				"pre_7":{
+					required: " "
+				}
+			}
+		
+		  });
+		
+	});
+	
+	function baocun(){
+		if($("#form").valid()){
+			$("#form").submit();
+		}else{
+			alert("请完善必填项！");
+		}
+	}
+
+	function myscore()
+	{
+		var str=0;
+		for(i=1;i<8;i++)
+		{
+			str=str*1+1*($("#my_"+i).val());
+		}
+		$(".my_score").html(str);
+		
+	}
+	function depscore()
+	{
+		var dep=0;
+		for(i=1;i<8;i++)
+		{
+			dep=dep*1+1*($("#dep_"+i).val());
+		}
+		$(".dep_score").html(dep);
+		
+	}
+	function prescore()
+	{
+		var pre=0;
+		for(i=1;i<8;i++)
+		{
+			pre=pre*1+1*($("#pre_"+i).val());
+		}
+		$(".pre_score").html(pre);
+		
+	}
+</script>
+<style type="text/css">
+/* CSS Document */
+body {
+ font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+ color: #4f6b72;
+ background: #E6EAE9;
+}
+a {
+ color: #c75f3e;
+}
+#mytable {
+ width: 1100px;
+ padding: 0;
+ margin: 0;
+}
+caption {
+ padding: 0 0 5px 0;
+ width: 1100px;  
+ font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+ text-align: right;
+}
+th {
+ font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+ color: #4f6b72;
+ border-right: 1px solid #C1DAD7;
+ border-bottom: 1px solid #C1DAD7;
+ border-top: 1px solid #C1DAD7;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ text-align: left;
+ padding: 6px 6px 6px 12px;
+ background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+th.nobg {
+ border-top: 0;
+ border-left: 0;
+ border-right: 1px solid #C1DAD7;
+ background: none;
+}
+td {
+ border-right: 1px solid #C1DAD7;
+ border-bottom: 1px solid #C1DAD7;
+ background: #fff;
+ font-size:11px;
+ padding: 6px 6px 6px 12px;
+ color: #4f6b72;
+}
+
+td.alt {
+ background: #F5FAFA;
+ color: #797268;
+}
+th.spec {
+ border-left: 1px solid #C1DAD7;
+ border-top: 0;
+ background: #fff url(images/bullet1.gif) no-repeat;
+ font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+th.specalt {
+ border-left: 1px solid #C1DAD7;
+ border-top: 0;
+ background: #f5fafa url(images/bullet2.gif) no-repeat;
+ font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+ color: #797268;
+}
+/*---------for IE 5.x bug*/
+html>body td{ font-size:11px;}
+</style>
+<div class="page_function">
+  <div class="info">
+    <h3>用户考核信息管理</h3>
+  </div>
+</div>
+<div class="tab" id="tab">
+	<a class="selected" href="#">{$action_name}用户考核添加</a>
+    <a  href="javascript:menuload('__URL__/index/id-{$id}')">返回用户未评价列表</a>
+    <a  href="javascript:menuload('__URL__/index/status-2-id-{$id}')">返回用户已评价列表</a>
+</div>
+<div class="page_main">
+  <div class="page_table table_list">
+	<form action="__URL__/{$action}" method="post" id="form" enctype="multipart/form-data">
+        <div class="page_table form_table">
+            <table id="mytable" cellspacing="0" summary="The technical specifications of the Apple PowerMac G5 series">
+			<caption> </caption>
+			  <tr>
+				<th width="150" scope="col" abbr="Dual 1.8" >姓名：{$data.nicename}</th>
+				<th colspan="3" scope="col" abbr="Dual 1.8">部门： {$data.name}</th>
+				<th colspan="3" scope="col" abbr="Dual 2.5">职位： {$data.position}</th>
+			  </tr>
+			  <tr>
+				<th scope="row" abbr="Model" class="spec">工作职责：</th>
+				<td colspan="6"><label for="textfield"></label>{$data.duty}</td>
+			  </tr>
+			  <tr>
+				<th scope="row" abbr="G5 Processor" class="specalt">考核事项：</th>
+				<td width="200" class="alt">考核内容</td>
+				<td width="99" class="alt">权重（100%）</td>
+				<td width="50" class="alt">自评</td>
+				<td width="102" class="alt">部门领导评价</td>
+				<td width="102" class="alt">总裁意见</td>
+				<td width="200" class="alt">备注</td>
+			  </tr>
+			  <tr>
+				<th scope="row" abbr="Frontside bus" class="spec">工作积极性：</th>
+				<td>1、及时完成本职及领导安排的工作。2、主动思考并发现问题、开拓创新。3、辅助其他同事开展工作。</td>
+				<td>20%</td>
+				<td><span class="alt">
+				  <input type="text" name="my_1" class="my" id="my_1" value="{$info.my0}" style="resize:none" onblur="myscore()">{$info.my0}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="dep_1" class="dep" id="dep_1" value="{$info.dep0}" style="resize:none" onblur="depscore()">{$info.dep0}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="pre_1" class="pre" id="pre_1" value="{$info.pre0}" style="resize:none" onblur="prescore()">{$info.pre0}
+				</span></td>
+				<td><span class="alt">
+				  <textarea name="note_1" id="note_1" class="note" cols="25" rows="3" style="resize:none">{$info.note0}</textarea>
+				</span></td>
+			  </tr>
+			  <tr>
+				<th scope="row" abbr="L2 Cache" class="specalt">工作进展：</th>
+				<td class="alt">{$info.progress}</td>
+				<td class="alt">20%</td>
+				<td class="alt"><input type="text" name="my_2" class="my" id="my_2" value="{$info.my1}" style="resize:none" onblur="myscore()">{$info.my1}</td>
+				<td class="alt"><input type="text" name="dep_2" class="dep" id="dep_2" value="{$info.dep1}" style="resize:none" onblur="depscore()">{$info.dep1}</td>
+				<td class="alt"><input type="text" name="pre_2" class="pre" id="pre_2" value="{$info.pre1}" style="resize:none" onblur="prescore()">{$info.pre1}</td>
+				<td class="alt"><textarea name="note_2" id="note_2" class="note" cols="25" rows="3" style="resize:none">{$info.note1}</textarea></td>
+			  </tr>
+			  
+			  <tr>
+				<th scope="row" abbr="Frontside bus" class="spec"><p>工作成果：</p></th>
+				<td><span class="alt">{$info.results}</span></td>
+				<td>20%</td>
+				<td><span class="alt">
+				  <input type="text" name="my_3" class="my" id="my_3" value="{$info.my2}" style="resize:none" onblur="myscore()">{$info.my2}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="dep_3" class="dep" id="dep_3" value="{$info.dep2}" style="resize:none" onblur="depscore()">{$info.dep2}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="pre_3" class="pre" id="pre_3" value="{$info.pre2}" style="resize:none" onblur="prescore()">{$info.pre2}
+				</span></td>
+				<td><span class="alt">
+				  <textarea name="note_3" id="note_3" class="note" cols="25" rows="3" style="resize:none">{$info.note2}</textarea>
+				</span></td>
+			  </tr>
+			  
+			  <tr>
+				<th rowspan="2" class="specalt" scope="row" abbr="L2 Cache">配合度：</th>
+				<td class="alt">与部门同事配合度</td>
+				<td class="alt">15%</td>
+				<td class="alt"><input type="text" name="my_4" class="my" id="my_4" value="{$info.my3}" style="resize:none" onblur="myscore()">{$info.my3}</td>
+				<td class="alt"><input type="text" name="dep_4" class="dep" id="dep_4" value="{$info.dep3}" style="resize:none" onblur="depscore()">{$info.dep3}</td>
+				<td class="alt"><input type="text" name="pre_4" class="pre" id="pre_4" value="{$info.pre3}" style="resize:none" onblur="prescore()">{$info.pre3}</td>
+				<td class="alt"><textarea name="note_4" id="note_4" class="note" cols="25" rows="3" style="resize:none">{$info.note3}</textarea></td>
+			  </tr>
+			  <tr>
+				<td class="alt">与工作伙伴配合度</td>
+				<td class="alt">15%</td>
+				<td class="alt"><input type="text" name="my_5" class="my" id="my_5" value="{$info.my4}" style="resize:none" onblur="myscore()">{$info.my4}</td>
+				<td class="alt"><input type="text" name="dep_5" class="dep" id="dep_5" value="{$info.dep4}" style="resize:none" onblur="depscore()">{$info.dep4}</td>
+				<td class="alt"><input type="text" name="pre_5" class="pre" id="pre_5" value="{$info.pre4}" style="resize:none" onblur="prescore()">{$info.pre4}</td>
+				<td class="alt"><textarea name="note_5" id="note_5" class="note" cols="25" rows="3" style="resize:none">{$info.note4}</textarea></td>
+			  </tr>
+			  
+			  <tr>
+				<th rowspan="2" class="spec" scope="row" abbr="Frontside bus">个人行为：</th>
+				<td>仪容仪表、文明礼貌</td>
+				<td>5%</td>
+				<td><span class="alt">
+				  <input type="text" name="my_6" class="my" id="my_6" value="{$info.my5}" style="resize:none" onblur="myscore()">{$info.my5}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="dep_6" class="dep" id="dep_6" value="{$info.dep5}" style="resize:none" onblur="depscore()">{$info.dep5}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="pre_6" class="pre" id="pre_6" value="{$info.pre5}" style="resize:none" onblur="prescore()">{$info.pre5}
+				</span></td>
+				<td><span class="alt">
+				  <textarea name="note_6" id="note_6" class="note" cols="25" rows="3" style="resize:none">{$info.note5}</textarea>
+				</span></td>
+			  </tr>
+			  <tr>
+				<td>制度规范</td>
+				<td>5%</td>
+				<td><span class="alt">
+				  <input type="text" name="my_7" class="my" id="my_7" value="{$info.my6}" style="resize:none" onblur="myscore()">{$info.my6}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="dep_7" class="dep" id="dep_7" value="{$info.dep6}" style="resize:none" onblur="depscore()">{$info.dep6}
+				</span></td>
+				<td><span class="alt">
+				  <input type="text" name="pre_7" class="pre" id="pre_7" value="{$info.pre6}" style="resize:none" onblur="prescore()">{$info.pre6}
+				</span></td>
+				<td><span class="alt">
+				  <textarea name="note_7" id="note_7" class="note" cols="25" rows="3" style="resize:none">{$info.note6}</textarea>
+				</span></td>
+			  </tr>
+			  
+			  <tr>
+				<th scope="row" abbr="L2 Cache" class="specalt">总分：</th>
+				<td class="alt">&nbsp;</td>
+				<td class="alt">&nbsp;</td>
+				<td class="alt"><span class="my_score">{$info.my_score}</span></td>
+				<td class="alt"><span class="dep_score">{$info.dep_score}</span></td>
+				<td class="alt"><span class="pre_score">{$info.pre_score}</span></td>
+				<td class="alt">&nbsp;</td>
+			  </tr>
+			  <tr>
+				<th scope="row" abbr="L2 Cache" class="spec">签字：</th>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td><input type="hidden" name="my_status" class="my" id="my_status" value="{$info.my_status}" />{$info.my_status}</td>
+				<td><input type="hidden" name="dep_status" class="dep" id="dep_status" value="{$info.dep_status}" />{$info.dep_status}</td>
+				<td><input type="hidden" name="pre_status" class="pre" id="pre_status" value="{$info.pre_status}" />{$info.pre_status}</td>
+				<td>&nbsp;</td>
+			  </tr>
+			</table>
+        </div>
+        <!--普通提交-->
+        <div class="form_submit">
+            <input name="id" type="hidden" value="{$info.id}" />
+			<input type="hidden" name="superior" class="superior" value="{$info.superior}" />
+			<?php echo '<input type="hidden" name="permissions" class="permissions" value="'.$_SESSION["user_yg"]["permissions"].'" />'; ?>
+			<!--if:{$_SESSION["user_yg"]["permissions"]==2 and $info["superior"]<3}-->
+            <button type="button" class="button" onclick="baocun()">评价</button> 
+			<!--{/if}-->
+			<!--if:{$_SESSION["user_yg"]["permissions"]==3 and $info["superior"]<4}-->
+            <button type="button" class="button" onclick="baocun()">评价</button> 
+			<!--{/if}-->
+        </div>
+    </form>
+  </div>
+</div>
+
+<div class="page_tool">
+    <div class="page" >{$page}</div>
+</div>
+<script>
+	if($(".superior").val()==2)
+	{
+		$(".pre").css("display","none");
+		$(".my").css("display","none");
+	}
+	if($(".superior").val()==3 && $(".permissions").val()==3)
+	{
+		$(".my").css("display","none");
+		$(".dep").css("display","none");
+	}
+	if($(".superior").val()==3 && $(".permissions").val()==2)
+	{
+		$(".my").css("display","none");
+		$(".dep").css("display","none");
+		$(".pre").css("display","none");
+	}
+	if($(".superior").val()==4)
+	{
+		$(".my").css("display","none");
+		$(".dep").css("display","none");
+		$(".pre").css("display","none");
+	}
+	//删除
+	function del(id,obj) 
+	{
+		var obj;
+		var status=confirm("是否确定删除！");
+		if(status)
+		{
+			$.get("__URL__/del",{id:id},function(data){
+				alert("删除成功！");
+				$("#"+id).css("display","none");
+				});
+		}
+	}
+</script>

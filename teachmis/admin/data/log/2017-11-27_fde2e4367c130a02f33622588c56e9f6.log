@@ -1,0 +1,32 @@
+2017-11-27 13:46:27 | 119.162.211.251 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 19:15:07 | 39.64.193.4 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 21:48:11 | 39.64.193.4 | /kindergarten/admin/index.php/paper/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT className FROM att_class    WHERE classId in (,1,3,)<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,3,)' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 21:48:51 | 39.64.193.4 | /kindergarten/admin/index.php/paper/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT className FROM att_class    WHERE classId in ()<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 21:49:12 | 39.64.193.4 | /kindergarten/admin/index.php/paper/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT className FROM att_class    WHERE classId in (,1,3)<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,3)' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 21:49:15 | 39.64.193.4 | /kindergarten/admin/index.php/paper/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT className FROM att_class    WHERE classId in (,1,3)<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,3)' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 22:56:35 | 39.64.193.4 | /kindergarten/admin/index.php/paper/ajaxPaperList | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.*,B.nicename,D.teacherName,E.gradeName FROM att_paper A ,att_admininfo B,att_teacher D,att_grade E  WHERE A.schoolId=2 AND A.schoolId = B.id AND A.teacherId = D.teacherId AND A.gradeId = E.gradeId LIMIT -2,2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-2,2' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-27 23:09:03 | 39.64.193.4 | /kindergarten/admin/index.php/paper/ajaxPaperList | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.*,B.nicename,D.teacherName,E.gradeName FROM att_paper A ,att_admininfo B,att_teacher D,att_grade E  WHERE A.schoolId=2 AND A.schoolId = B.id AND A.teacherId = D.teacherId AND A.gradeId = E.gradeId LIMIT -2,2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-2,2' at line 1<br>
+					<b>错误代码</b>:1064<br>

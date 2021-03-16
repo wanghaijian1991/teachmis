@@ -1,0 +1,8 @@
+2018-01-18 08:56:22 | 60.208.217.130 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2018-01-18 09:09:53 | 60.208.217.130 | /kindergarten/admin/index.php/questions/edit/grids.html | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_questions    WHERE questionsId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>

@@ -1,0 +1,18 @@
+2018-03-30 21:24:34 | 112.232.190.102 | /kindergarten/admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: Access denied for user 'bdm24037196'@'123.57.142.89' (using password: YES)<br>
+					<b>错误代码</b>:1045<br>
+2018-03-30 21:47:12 | 112.232.190.102 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2018-03-30 21:51:24 | 112.232.190.102 | /kindergarten/admin/index.php/positions |positions模块不存在
+2018-03-30 21:51:29 | 112.232.190.102 | /kindergarten/admin/index.php/courses |coursesMod类未定义
+2018-03-30 22:19:13 | 171.13.14.134 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2018-03-30 22:19:36 | 101.199.108.57 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>

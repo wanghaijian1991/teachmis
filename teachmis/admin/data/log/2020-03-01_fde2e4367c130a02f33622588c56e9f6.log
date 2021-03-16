@@ -1,0 +1,228 @@
+2020-03-01 00:31:06 | 223.98.5.56 | /admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file<br>
+					<b>错误代码</b>:2000<br>
+2020-03-01 00:31:07 | 223.98.5.56 | /admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file<br>
+					<b>错误代码</b>:2000<br>
+2020-03-01 00:31:09 | 223.98.5.56 | /admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file<br>
+					<b>错误代码</b>:2000<br>
+2020-03-01 01:39:26 | 223.98.5.56 | /admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:40:51 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:40:53 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:40:53 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:43:29 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:43:30 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:43:31 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:43:31 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:43:31 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:44:25 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:44:26 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:44:27 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:45:47 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:45:48 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:55 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:56 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:57 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:57 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:58 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:58 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:46:59 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 01:58:12 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 02:00:32 | 223.98.5.56 | /index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: No such file or directory<br>
+					<b>错误代码</b>:2002<br>
+2020-03-01 02:02:01 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:02:02 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:02:03 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:02:03 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:02:11 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:03:09 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:09:56 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:12:47 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:13:55 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:01 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:02 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:03 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:03 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:04 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:04 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:04 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:05 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:05 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:05 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:05 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:06 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:06 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:06 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:06 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:07 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:07 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:07 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:08 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:08 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:15:08 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-01 02:17:06 | 223.98.5.56 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>

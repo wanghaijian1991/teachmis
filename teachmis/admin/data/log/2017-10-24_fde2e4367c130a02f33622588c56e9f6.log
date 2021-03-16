@@ -1,0 +1,6 @@
+2017-10-24 08:10:35 | unknown | /jixiao/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-24 14:37:44 | unknown | /kindergarten/admin/index.php |template/public/index_search.html模板文件不存在
+2017-10-24 14:40:04 | unknown | /kindergarten/admin/index.php |template/public/header-top.html模板文件不存在

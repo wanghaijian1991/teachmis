@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MENU设置</title>
+    <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>MENU管理</h3>
+                <button type="button" class="btn btn-primary" style="float: right" onclick="window.location.href='__APP__/menu/add'">新增</button>
+                <div class="bs-example4" data-example-id="contextual-table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>名称</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--foreach:{$menu_list $ml}-->
+                        <tr class="active">
+                            <th scope="row">{$ml.id}</th>
+                            <td>{$ml.menuname}</td>
+                            <td><!--if:{$ml["menustatus"]==1}-->开启<!--{else}-->关闭<!--{/if}--></td>
+                            <td><a href="__APP__/menu/edit/id-{$ml.id}">修改</a></td>
+                        </tr>
+                        <!--foreach:{$ml["menus"] $m}-->
+                        <tr class="success">
+                            <th scope="row">{$m.id}</th>
+                            <td>﹂ {$m.menuname}</td>
+                            <td><!--if:{$m["menustatus"]==1}-->开启<!--{else}-->关闭<!--{/if}--></td>
+                            <td><a href="__APP__/menu/edit/id-{$m.id}">修改</a></td>
+                        </tr>
+                        <!--{/foreach}-->
+                        <!--{/foreach}-->
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+</body>
+</html>

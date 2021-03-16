@@ -1,0 +1,121 @@
+<div class="page_function">
+  <div class="info">
+    <h3>员工{$action_name}</h3>
+    <small>使用以下功能进行员工{$action_name}操作</small> 
+  </div>
+</div>
+<div class="tab" id="tab"> <a class="selected" href="#">{$action_name}员工</a> <a  href="javascript:menuload('__URL__')">返回员工列表</a></div>
+<div class="page_form">
+<form action="__URL__/{$action}_save/time-<?php echo time() ?>-ajax-true" method="post" id="form">
+<div class="page_table form_table">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="100" align="right">选择部门</td>
+      <td width="300">
+		<select name="departmentId" id="departmentId">
+        <!--foreach:{$list $vo}-->
+        	<!--if:{$vo["id"]==$info["departmentId"]}-->
+        		<option value="{$vo.id}"  selected="selected">{$vo.name}</option>
+			<!--{else}-->
+        		<option value="{$vo.id}">{$vo.name}</option>
+            <!--{/if}-->
+        <!--{/foreach}-->
+		</select>
+	  </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td width="100" align="right">帐号</td>
+      <td width="300"><input name="userName" type="text" class="text_value" id="userName" value="{$info.userName}" reg="\S" msg="帐号不能为空" /></td>
+      <td></td>
+    </tr>
+      <tr>
+          <td width="100" align="right">姓名</td>
+          <td width="300"><input name="niceName" type="text" class="text_value" id="niceName" value="{$info.niceName}" reg="\S" msg="姓名不能为空" /></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">手机号</td>
+          <td width="300"><input name="userPhone" type="text" class="text_value" id="userPhone" value="{$info.userPhone}" reg="\S" msg="手机号不能为空" /></td>
+          <td></td>
+      </tr>
+    <tr>
+      <td width="100" align="right">邀请码</td>
+      <td width="300"><input name="referralCode" type="text" class="text_value" id="referralCode" value="{$info.referralCode}" reg="\S" msg="单位不能为空" />
+	  </td>
+      <td></td>
+    </tr>
+      <tr>
+          <td width="100" align="right">负责区域</td>
+          <td width="300"><input name="areaCode" type="text" class="text_value" id="areaCode" value="{$info.areaCode}"/>
+          </td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">注册客户目标</td>
+          <td width="300"><input name="regUserDay" type="text" class="text_value" id="regUserDay" value="{$target.Dregister}"/>
+              <input name="regUserWeek" type="text" class="text_value" id="regUserWeek" value="{$target.Wregister}"/>
+              <input name="regUserMonth" type="text" class="text_value" id="regUserMonth" value="{$target.Mregister}"/>
+          </td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">新单客户目标</td>
+          <td width="300"><input name="newOrderUserDay" type="text" class="text_value" id="newOrderUserDay" value="{$target.DnewOrderUser}"/>
+              <input name="newOrderUserWeek" type="text" class="text_value" id="newOrderUserWeek" value="{$target.WnewOrderUser}"/>
+              <input name="newOrderUserMonth" type="text" class="text_value" id="newOrderUserMonth" value="{$target.MnewOrderUser}"/>
+          </td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">活跃客户目标</td>
+          <td width="300"><input name="activeUserDay" type="text" class="text_value" id="activeUserDay" value="{$target.Dactive}"/>
+              <input name="activeUserWeek" type="text" class="text_value" id="activeUserWeek" value="{$target.Wactive}"/>
+              <input name="activeUserMonth" type="text" class="text_value" id="activeUserMonth" value="{$target.Mactive}"/>
+          </td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">下单客户目标</td>
+          <td width="300"><input name="orderUserDay" type="text" class="text_value" id="orderUserDay" value="{$target.Dorder}"/>
+              <input name="orderUserWeek" type="text" class="text_value" id="orderUserWeek" value="{$target.Worder}"/>
+              <input name="orderUserMonth" type="text" class="text_value" id="orderUserMonth" value="{$target.Morder}"/>
+          </td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">客户客单目标</td>
+          <td width="300"><input name="orderPriceDay" type="text" class="text_value" id="orderPriceDay" value="{$target.Dprice}"/>
+              <input name="orderPriceWeek" type="text" class="text_value" id="orderPriceWeek" value="{$target.Wprice}"/>
+              <input name="orderPriceMonth" type="text" class="text_value" id="orderPriceMonth" value="{$target.Mprice}"/>
+          </td>
+          <td></td>
+      </tr>
+      <tr>
+          <td width="100" align="right">销售总金额目标</td>
+          <td width="300"><input name="salesAmountDay" type="text" class="text_value" id="salesAmountDay" value="{$target.Dzprice}"/>
+              <input name="salesAmountWeek" type="text" class="text_value" id="salesAmountWeek" value="{$target.Wzprice}"/>
+              <input name="salesAmountMonth" type="text" class="text_value" id="salesAmountMonth" value="{$target.Mzprice}"/>
+          </td>
+          <td></td>
+      </tr>
+    <tr>
+      <td width="100" align="right">密码</td>
+      <td width="300"><input name="password" type="password" class="text_value" id="password"  /></td>
+      <td>不修改密码请勿填写！</td>
+    </tr>
+    <tr>
+      <td width="100" align="right">确认密码</td>
+      <td width="300"><input name="password2" type="password" class="text_value" id="password2"  /></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+<!--普通提交-->
+<div class="form_submit">
+<input name="userId" type="hidden" value="{$info.userId}" />
+<button type="submit" class="button">保存</button> 
+</div>
+</form>
+</div>
+</div>

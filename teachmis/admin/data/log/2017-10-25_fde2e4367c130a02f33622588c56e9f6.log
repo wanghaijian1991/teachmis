@@ -1,0 +1,44 @@
+2017-10-25 16:08:47 | unknown | /kindergarten/admin/index.php/menu | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:08:58 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:08:59 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:10:49 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:10:50 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:11:00 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:11:01 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:11:02 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:11:02 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:11:04 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0 AND id in() ORDER BY id asc<br>
+					<b>错误详情</b>: Erreur de syntaxe près de ') ORDER BY id asc' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-25 16:12:55 | unknown | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: Erreur de syntaxe près de 'LIMIT 1' à la ligne 1<br>
+					<b>错误代码</b>:1064<br>

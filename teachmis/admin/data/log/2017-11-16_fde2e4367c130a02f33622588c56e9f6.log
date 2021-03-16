@@ -1,0 +1,29 @@
+2017-11-16 09:25:04 | 112.229.241.205 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-16 09:56:38 | 112.229.241.205 | /kindergarten/admin/index.php/bookChapters/add/id-1 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE schoolId=2<br>
+					<b>错误详情</b>: Unknown column 'schoolId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-16 10:11:54 | 112.229.241.205 | /kindergarten/admin/index.php/bookChapters/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_bookChapters  SET  `bookChaptersName` = '语文1', `bookChaptersFid` = '0', `gradeId` = '1', `modId` = '2', `modTime` = '2017-11-16 10:11:54'  WHERE bookChaptersId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-16 10:39:56 | 112.229.241.205 | /kindergarten/admin/index.php/bookChapters/ajaxChapters | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.* FROM att_bookChapters A   WHERE A.bookChaptersFid= and A.schoolId=2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and A.schoolId=2' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-16 13:48:35 | 112.229.244.246 | /kindergarten/admin/index.php/questions |questions模块不存在
+2017-11-16 13:49:58 | 112.229.244.246 | /kindergarten/admin/index.php/questions |questions模块不存在
+2017-11-16 13:50:05 | 112.229.244.246 | /kindergarten/admin/index.php/paper |paper模块不存在
+2017-11-16 13:50:11 | 112.229.244.246 | /kindergarten/admin/index.php/questions |questions模块不存在
+2017-11-16 15:54:35 | 112.229.244.246 | /kindergarten/admin/index.php/bookChapters/ajaxChapters | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.* FROM att_bookChapters A   WHERE A.bookChaptersFid=undefined and A.schoolId=2<br>
+					<b>错误详情</b>: Unknown column 'undefined' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-16 22:13:03 | 39.91.107.131 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-16 22:59:41 | 39.91.107.131 | /kindergarten/admin/index.php/paper |paper模块不存在

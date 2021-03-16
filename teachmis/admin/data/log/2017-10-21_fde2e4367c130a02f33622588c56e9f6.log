@@ -1,0 +1,20 @@
+2017-10-21 08:08:38 | unknown | /jixiao/admin/index.php/salesman |index操作方法在salesman模块中不存在
+2017-10-21 08:09:07 | unknown | /jixiao/admin/index.php/salesman |index操作方法在salesman模块中不存在
+2017-10-21 08:43:58 | unknown | /jixiao/admin/index.php/Salesman | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-21 08:44:57 | unknown | /jixiao/admin/index.php/Salesman | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-21 08:45:34 | unknown | /jixiao/admin/index.php/Salesman |index操作方法在Salesman模块中不存在
+2017-10-21 08:45:46 | unknown | /jixiao/admin/index.php/Salesman |index操作方法在Salesman模块中不存在
+2017-10-21 08:48:27 | unknown | /jixiao/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-21 08:49:03 | unknown | /jixiao/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>

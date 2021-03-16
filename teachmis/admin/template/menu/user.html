@@ -1,0 +1,59 @@
+<div class="title"><a href="javascript:void(0)">信息管理</a></div>
+    <ul class="load menu">
+      <!--foreach:{$list $vo}-->
+      <li><a href="__APP__/{$vo.module}">{$vo.menuname}</a></li>
+      <!--{/foreach}-->
+    </ul>
+    
+<!--if:{$_SESSION["user_yg"]["permissions"]!=1}-->
+<!--<div class="title"><a href="javascript:void(0)">员工考核信息管理</a></div>
+<ul id="tree" class="ztree load">
+	
+</ul>-->
+<!--<script>
+url=$(".load li:first a").attr("href");
+if(url==''||url=='#'){
+}else{
+	ajaxload(url);
+}
+</script>
+<script>
+var zTree;
+var setting = {
+    view: {
+        showLine: true,
+        selectedMulti: false
+    },
+    data: {
+        simpleData: {
+            enable: true,
+            idKey: "cid",
+            pIdKey: "pid",
+            rootPId: ""
+        }
+    },
+	callback: {
+		onClick: onClick
+	}
+};
+var zNodes = [
+ <?php echo $class_tree; ?>
+];
+
+function onClick(e,treeId, treeNode) {
+	var zTree = $.fn.zTree.getZTreeObj("tree");
+	if(treeNode.url==null){
+	zTree.expandNode(treeNode);
+	}
+	
+}
+$(document).ready(function() {
+    function filter(node) {
+        return (node.url != null);
+    }
+    var t = $("#tree");
+    t = $.fn.zTree.init(t, setting, zNodes);
+    ajaxload('__APP__/attinfo');
+});
+</script>   -->
+<!--{/if}-->

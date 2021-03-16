@@ -1,0 +1,17 @@
+2017-10-23 08:03:48 | unknown | /jixiao/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-23 08:09:50 | unknown | /jixiao/admin/index.php/areaadmin |areaadmin模块不存在
+2017-10-23 08:42:51 | unknown | /jixiao/admin/index.php/areaadmin/add_save | MySQL Query Error<br>
+					<b>SQL</b>: select * from caiba_staffs where staffId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-10-23 09:01:15 | unknown | /jixiao/admin/index.php/areaadmin/add_save | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admin    WHERE adminname="admin" LIMIT 1<br>
+					<b>错误详情</b>: Table 'caiba_test.att_admin' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-10-23 10:22:55 | unknown | /jixiao/admin/index.php/admin/edit_save/time-1508725370-ajax-true | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_user  SET  `userName` = 'user1', `referralCode` = '123456', `adminId` = '1', `departmentId` = '112', `niceName` = 'user1', `userPhone` = '18618434000', `areaCode` = 'q'  WHERE  `departmentId` = '112' AND  `userName` = 'user1' AND  `niceName` = 'user1' AND  `userPhone` = '18618434000' AND  `referralCode` = '123456' AND  `areaCode` = 'q' AND  `regUserDay` = '11' AND  `regUserWeek` = '5' AND  `regUserMonth` = '20' AND  `newOrderUserDay` = '1' AND  `newOrderUserWeek` = '5' AND  `newOrderUserMonth` = '20' AND  `activeUserDay` = '1' AND  `activeUserWeek` = '5' AND  `activeUserMonth` = '20' AND  `orderUserDay` = '1' AND  `orderUserWeek` = '5' AND  `orderUserMonth` = '20' AND  `orderPriceDay` = '100' AND  `orderPriceWeek` = '500' AND  `orderPriceMonth` = '5000' AND  `salesAmountDay` = '300' AND  `salesAmountWeek` = '3000' AND  `salesAmountMonth` = '10000' AND  `password2` = '' AND  `id` = '' AND  `adminId` = '1' <br>
+					<b>错误详情</b>: Unknown column 'regUserDay' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>

@@ -1,0 +1,8 @@
+2020-02-29 17:32:22 | 124.133.42.154 | /admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file<br>
+					<b>错误代码</b>:2000<br>
+2020-02-29 17:32:24 | 124.133.42.154 | /admin/index.php | 无法连接到数据库服务器<br>
+					<b>SQL</b>: SELECT * FROM att_menuinfo    WHERE menustatus=1 AND fid=0  ORDER BY id asc<br>
+					<b>错误详情</b>: mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file<br>
+					<b>错误代码</b>:2000<br>

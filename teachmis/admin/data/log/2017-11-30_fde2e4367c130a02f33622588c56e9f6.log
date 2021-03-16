@@ -1,0 +1,16 @@
+2017-11-30 09:11:20 | 60.216.164.100 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-30 10:45:39 | 119.164.17.147 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_userQuestion uq ,att_questions q  WHERE bookChaptersId like '%,1,%' and usersId=1 and createTime>'2017-11-20 00:00:00' and createTime<'2017-11-26 23:59:59' AND uq.questionsId = q.questionsId<br>
+					<b>错误详情</b>: Column 'createTime' in where clause is ambiguous<br>
+					<b>错误代码</b>:1052<br>
+2017-11-30 13:23:06 | 119.164.17.147 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT week(createTime,1) as num FROM att_userQuestion uq ,att_questions q  WHERE q.bookChaptersId like '%,1,%' and uq.usersId=1 AND uq.questionsId = q.questionsId GROUP BY num ORDER BY num DESC<br>
+					<b>错误详情</b>: Column 'createTime' in field list is ambiguous<br>
+					<b>错误代码</b>:1052<br>
+2017-11-30 13:36:08 | 119.164.17.147 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT week(uq.createTime,1) as num,sum(uq.status) as snum,count(uq.*) as znum FROM att_userQuestion uq ,att_questions q  WHERE q.bookChaptersId like '%,1,%' and uq.usersId=1 AND uq.questionsId = q.questionsId GROUP BY num ORDER BY num ASC<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) as znum FROM att_userQuestion uq ,att_questions q  WHERE q.bookChaptersId lik' at line 1<br>
+					<b>错误代码</b>:1064<br>

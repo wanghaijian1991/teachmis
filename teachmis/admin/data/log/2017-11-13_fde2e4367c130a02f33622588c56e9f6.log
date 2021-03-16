@@ -1,0 +1,105 @@
+2017-11-13 10:00:12 | 112.229.241.205 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-13 10:00:25 | 112.229.241.205 | /kindergarten/admin/index.php/company | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE status=0 and adminId=1 ORDER BY id ASC<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 10:00:34 | 112.229.241.205 | /kindergarten/admin/index.php/company | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE status=0 and adminId=1 ORDER BY id ASC<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 13:26:06 | 112.229.241.205 | /kindergarten/admin/index.php/company | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE status=0 and adminId=1 ORDER BY id ASC<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:21:10 | 112.229.241.205 | /kindergarten/admin/index.php/menu/edit/id-1 |template/menu/edit.html模板文件不存在
+2017-11-13 14:34:13 | 112.229.241.205 | /kindergarten/admin/index.php/company | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE status=0 and adminId=1 ORDER BY id ASC<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:36:40 | 112.229.241.205 | /kindergarten/admin/index.php/company | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_department    WHERE status=0 and adminId=1<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:36:41 | 112.229.241.205 | /kindergarten/admin/index.php/company | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_department    WHERE status=0 and adminId=1<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:38:31 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_user A ,att_department B  WHERE A.userName like "%%" AND A.departmentId = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_user' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-13 14:39:35 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_user A ,att_department B  WHERE A.userName like "%%" AND A.departmentId = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_user' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-13 14:40:08 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_user A ,att_department B  WHERE A.userName like "%%" AND A.departmentId = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_user' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-13 14:40:14 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_user A ,att_department B  WHERE A.userName like "%%" AND A.departmentId = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_user' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-13 14:43:51 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_admin A ,att_groupinfo B  WHERE A.userName like "%%" AND A.gid = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_admin' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-13 14:44:20 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_admininfo A ,att_groupinfo B  WHERE A.userName like "%%" AND A.gid = B.id<br>
+					<b>错误详情</b>: Unknown column 'A.userName' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:44:21 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_admininfo A ,att_groupinfo B  WHERE A.userName like "%%" AND A.gid = B.id<br>
+					<b>错误详情</b>: Unknown column 'A.userName' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:44:42 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.*,B.name FROM att_admininfo A ,att_groupinfo B  WHERE A.adminname like "%%" AND A.gid = B.id LIMIT 0,20<br>
+					<b>错误详情</b>: Unknown column 'B.name' in 'field list'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:44:44 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.*,B.name FROM att_admininfo A ,att_groupinfo B  WHERE A.adminname like "%%" AND A.gid = B.id LIMIT 0,20<br>
+					<b>错误详情</b>: Unknown column 'B.name' in 'field list'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 14:44:45 | 112.229.241.205 | /kindergarten/admin/index.php/admin | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.*,B.name FROM att_admininfo A ,att_groupinfo B  WHERE A.adminname like "%%" AND A.gid = B.id LIMIT 0,20<br>
+					<b>错误详情</b>: Unknown column 'B.name' in 'field list'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 15:40:01 | 112.229.241.205 | /kindergarten/admin/index.php/admin/add | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE status=0 and adminId=1 ORDER BY id ASC<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 15:41:19 | 112.229.241.205 | /kindergarten/admin/index.php/admin/__ADMIN__/activity/jquery.datetimepicker.css |__ADMIN__操作方法在admin模块中不存在
+2017-11-13 15:41:19 | 112.229.241.205 | /kindergarten/admin/index.php/admin/__ADMIN__/activity/jquery.datetimepicker.js |__ADMIN__操作方法在admin模块中不存在
+2017-11-13 15:42:27 | 112.229.241.205 | /kindergarten/admin/index.php/admin/__ADMIN__/activity/jquery.datetimepicker.css |__ADMIN__操作方法在admin模块中不存在
+2017-11-13 15:42:27 | 112.229.241.205 | /kindergarten/admin/index.php/admin/__ADMIN__/activity/jquery.datetimepicker.js |__ADMIN__操作方法在admin模块中不存在
+2017-11-13 15:52:18 | 112.229.241.205 | /kindergarten/admin/index.php/admin/edit/id-1 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE status=0 and adminId=1 ORDER BY id ASC<br>
+					<b>错误详情</b>: Unknown column 'adminId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-13 15:53:41 | 112.229.241.205 | /kindergarten/admin/index.php/admin/edit/id-1 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_user    WHERE userId=1 LIMIT 1<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_user' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-13 20:38:17 | 39.91.108.95 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-13 20:38:24 | 39.91.108.95 | /kindergarten/admin/index.php/login/check/time-1510576698-ajax-true | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-13 20:38:38 | 39.91.108.95 | /kindergarten/admin/index.php/login/check/time-1510576698-ajax-true | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-13 20:40:44 | 39.91.108.95 | /kindergarten/admin/index.php/login/check/time-1510576698-ajax-true | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_department    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-13 21:48:34 | 39.91.108.95 | /kindergarten/admin/index.php/operation |operation模块不存在
+2017-11-13 21:51:55 | 39.91.108.95 | /kindergarten/admin/index.php/menu/questions |questions操作方法在menu模块中不存在
+2017-11-13 23:12:25 | 39.91.108.95 | /kindergarten/admin/index.php/index/login/logout |login操作方法在index模块中不存在
+2017-11-13 23:18:25 | 39.91.108.95 | /kindergarten/admin/index.php/users |users模块不存在

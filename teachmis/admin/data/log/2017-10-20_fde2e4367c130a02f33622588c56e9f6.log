@@ -1,0 +1,10 @@
+2017-10-20 08:52:20 | unknown | /jixiao/admin/index.php/company |company模块不存在
+2017-10-20 08:52:25 | unknown | /jixiao/admin/index.php/company |company模块不存在
+2017-10-20 08:52:26 | unknown | /jixiao/admin/index.php/company |company模块不存在
+2017-10-20 08:52:28 | unknown | /jixiao/admin/index.php/company |company模块不存在
+2017-10-20 08:53:08 | unknown | /jixiao/admin/index.php/test |test模块不存在
+2017-10-20 08:53:08 | unknown | /jixiao/admin/index.php/paper |paper模块不存在
+2017-10-20 17:41:16 | unknown | /jixiao/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>

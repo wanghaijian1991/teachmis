@@ -1,0 +1,21 @@
+2017-12-01 07:54:19 | 119.164.17.147 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-12-01 14:34:22 | 119.164.17.147 | /kindergarten/admin/index.php/learnEmphases |learnEmphases模块不存在
+2017-12-01 16:18:21 | 119.164.17.147 | /kindergarten/admin/index.php/bookChapters/ajaxChapters | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.* FROM att_bookChapters A   WHERE A.bookChaptersFid=2 and gradeId= and A.schoolId=2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and A.schoolId=2' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-12-01 16:19:26 | 119.164.17.147 | /kindergarten/admin/index.php/learnEmphases | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.* FROM att_bookChapters A   WHERE A.bookChaptersFid= and gradeId=1 and A.schoolId=2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and gradeId=1 and A.schoolId=2' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-12-01 16:21:27 | 119.164.17.147 | /kindergarten/admin/index.php/bookChapters/ajaxChapters | MySQL Query Error<br>
+					<b>SQL</b>: SELECT A.* FROM att_bookChapters A   WHERE A.bookChaptersFid=1 and gradeId= and A.schoolId=2<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and A.schoolId=2' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-12-01 16:32:19 | 119.164.17.147 | /kindergarten/admin/index.php/learnEmphases | MySQL Query Error<br>
+					<b>SQL</b>: SELECT sum(uq.status) as snum,count(*) as znum FROM att_userQuestion uq ,att_questions q  WHERE q.bookChaptersId like '%,0,%' and uq.usersId=1 AND uq.questionsId = q.questionsId ORDER BY num ASC<br>
+					<b>错误详情</b>: Unknown column 'num' in 'order clause'<br>
+					<b>错误代码</b>:1054<br>

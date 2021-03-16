@@ -1,0 +1,52 @@
+2020-03-17 06:28:40 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:28:44 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:28:47 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:28:51 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:31:38 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:32:24 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:32:26 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:33:07 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:34:17 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:34:24 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:34:31 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:36:12 | 223.98.174.154 | /index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2020-03-17 06:37:16 | 223.98.174.154 | /index.php |studentIndividual操作方法在login模块中不存在
+2020-03-17 06:37:51 | 223.98.174.154 | /index.php |/info操作方法在myOperation模块中不存在
+2020-03-17 06:42:55 | 223.98.174.154 | /index.php |/info操作方法在myOperation模块中不存在
+2020-03-17 09:28:15 | 111.206.36.32 | /index.php |login,%20模块不存在

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>系统管理</title>
+    <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>系统管理</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal" id="menu_form" method="post" action="__URL__/save">
+                            <div class="form-group">
+                                <label for="sitename" class="col-sm-2 control-label">网站名称</label>
+                                <div class="col-sm-8">
+                                    <input name="sitename" type="text" class="form-control1" id="sitename" placeholder="网站名称" value="{$config_array.sitename}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.sitename}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="seoname" class="col-sm-2 control-label">网站副标题</label>
+                                <div class="col-sm-8">
+                                    <input name="seoname" type="text" class="form-control1" id="seoname" placeholder="网站副标题" value="{$config_array.seoname}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.seoname}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="siteurl" class="col-sm-2 control-label">网站域名</label>
+                                <div class="col-sm-8">
+                                    <input name="siteurl" type="text" class="form-control1" id="siteurl" placeholder="网站域名" value="{$config_array.siteurl}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.siteurl}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="keywords" class="col-sm-2 control-label">站点关键词</label>
+                                <div class="col-sm-8">
+                                    <input name="keywords" type="text" class="form-control1" id="keywords" placeholder="站点关键词" value="{$config_array.keywords}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.keywords}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-2 control-label">站点描述</label>
+                                <div class="col-sm-8">
+                                    <input name="description" type="text" class="form-control1" id="description" placeholder="站点描述" value="{$config_array.description}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.description}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="masteremail" class="col-sm-2 control-label">站长邮箱</label>
+                                <div class="col-sm-8">
+                                    <input name="masteremail" type="text" class="form-control1" id="masteremail" placeholder="站长邮箱" value="{$config_array.masteremail}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.masteremail}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="copyright" class="col-sm-2 control-label">站点描述</label>
+                                <div class="col-sm-8">
+                                    <input name="copyright" type="text" class="form-control1" id="copyright" placeholder="站点描述" value="{$config_array.copyright}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.copyright}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">性能设置</label>
+                                <div class="col-sm-8">
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="DEBUG" class="col-sm-2 control-label">错误信息输出</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="DEBUG" type="radio" <!--if:{$config_array['DEBUG']}-->checked="checked"<!--{/if}--> value="true"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="DEBUG" type="radio" <!--if:{!$config_array['DEBUG']}-->checked="checked"<!--{/if}--> value="false"> 关闭</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                    开启将会显示详细错误信息
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ERROR_HANDLE" class="col-sm-2 control-label">DEBUG模式</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="ERROR_HANDLE" type="radio" <!--if:{$config_array['ERROR_HANDLE']}-->checked="checked"<!--{/if}--> value="true"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="ERROR_HANDLE" type="radio" <!--if:{!$config_array['ERROR_HANDLE']}-->checked="checked"<!--{/if}--> value="false"> 关闭</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                    开启DEBUG模式将会显示严格的调试信息，非开发者请勿开启
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="URL_REWRITE_ON" class="col-sm-2 control-label">伪静态模式</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="URL_REWRITE_ON" type="radio" <!--if:{$config_array['URL_REWRITE_ON']}-->checked="checked"<!--{/if}--> value="true"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="URL_REWRITE_ON" type="radio" <!--if:{!$config_array['URL_REWRITE_ON']}-->checked="checked"<!--{/if}--> value="false"> 关闭</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                    开启伪静态请先设置相应的伪静态规则
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="HTML_CACHE_ON" class="col-sm-2 control-label">智能生成静态</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="HTML_CACHE_ON" type="radio" <!--if:{$config_array['HTML_CACHE_ON']}-->checked="checked"<!--{/if}--> value="true"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="HTML_CACHE_ON" type="radio" <!--if:{!$config_array['HTML_CACHE_ON']}-->checked="checked"<!--{/if}--> value="false"> 关闭</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                    开启静态缓存后更改模板与设置请先清除缓存
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="DB_CACHE_ON" class="col-sm-2 control-label">数据库缓存</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="DB_CACHE_ON" type="radio" <!--if:{$config_array['DB_CACHE_ON']}-->checked="checked"<!--{/if}--> value="true"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="DB_CACHE_ON" type="radio" <!--if:{!$config_array['DB_CACHE_ON']}-->checked="checked"<!--{/if}--> value="false"> 关闭</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                    建议网站上线后开启
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="TPL_CACHE_ON" class="col-sm-2 control-label">模板缓存</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="TPL_CACHE_ON" type="radio" <!--if:{$config_array['TPL_CACHE_ON']}-->checked="checked"<!--{/if}--> value="true"> 开启</label></div>
+                                    <div class="radio-inline"><label><input name="TPL_CACHE_ON" type="radio" <!--if:{!$config_array['TPL_CACHE_ON']}-->checked="checked"<!--{/if}--> value="false"> 关闭</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                    更换修改模板请先清除缓存
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="HTML_CACHE_RULE|index|*" class="col-sm-2 control-label">首页更新时间</label>
+                                <div class="col-sm-8">
+                                    <input name="HTML_CACHE_RULE|index|*" type="text" class="form-control1" id="TPL_TEMPLATE_PATH" placeholder="首页更新时间" value="<?php echo $config_array['HTML_CACHE_RULE']['index']['*'] ?>">
+                                </div>
+                                <div class="col-sm-2">
+                                    (单位：秒) 开启智能生成静态后有效
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="HTML_CACHE_RULE|empty|*" class="col-sm-2 control-label">其他页更新时间</label>
+                                <div class="col-sm-8">
+                                    <input name="HTML_CACHE_RULE|empty|*" type="text" class="form-control1" id="TPL_TEMPLATE_PATH" placeholder="栏目方法" value="<?php echo $config_array['HTML_CACHE_RULE']['empty']['*'] ?>">
+                                </div>
+                                <div class="col-sm-2">
+                                    (单位：秒) 开启智能生成静态后有效
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">上传设置</label>
+                                <div class="col-sm-8">
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ACCESSPRY_SIZE" class="col-sm-2 control-label">上传大小</label>
+                                <div class="col-sm-8">
+                                    <input name="ACCESSPRY_SIZE" type="text" class="form-control1" id="ACCESSPRY_SIZE" placeholder="上传大小" value="{$config_array.ACCESSPRY_SIZE}">
+                                </div>
+                                <div class="col-sm-2">
+                                    单位:M
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ACCESSPRY_NUM" class="col-sm-2 control-label">批量上传数</label>
+                                <div class="col-sm-8">
+                                    <input name="ACCESSPRY_NUM" type="text" class="form-control1" id="ACCESSPRY_NUM" placeholder="批量上传数" value="{$config_array.ACCESSPRY_NUM}">
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ACCESSPRY_TYPE" class="col-sm-2 control-label">上传格式</label>
+                                <div class="col-sm-8">
+                                    <input name="ACCESSPRY_TYPE" type="text" class="form-control1" id="ACCESSPRY_TYPE" placeholder="上传格式" value="{$config_array.ACCESSPRY_TYPE}">
+                                </div>
+                                <div class="col-sm-2">
+                                    {<span>$</span>sys.copyright}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="WATERMARK_CUTOUT" class="col-sm-2 control-label">默认缩图方式</label>
+                                <div class="col-sm-8">
+                                    <div class="radio-inline"><label><input name="WATERMARK_CUTOUT" type="radio" <!--if:{$config_array['WATERMARK_CUTOUT']}-->checked="checked"<!--{/if}--> value="true"> 裁剪</label></div>
+                                    <div class="radio-inline"><label><input name="WATERMARK_CUTOUT" type="radio" <!--if:{!$config_array['WATERMARK_CUTOUT']}-->checked="checked"<!--{/if}--> value="false"> 按比例</label></div>
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="copyright" class="col-sm-2 control-label">默认缩图尺寸</label>
+                                <div class="col-sm-8">
+                                    最大宽度
+                                    <input name="THUMBNAIL_MAXWIDTH" type="text" class="form-control1" id="THUMBNAIL_MAXWIDTH" placeholder="最大宽度" value="{$config_array.THUMBNAIL_MAXWIDTH}">
+                                    最大高度
+                                    <input name="THUMBNAIL_MAXHIGHT" type="text" class="form-control1" id="THUMBNAIL_MAXHIGHT" placeholder="最大高度" value="{$config_array.THUMBNAIL_MAXHIGHT}">
+                                </div>
+                                <div class="col-sm-2">
+                                    单位:px
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="WATERMARK_PLACE" class="col-sm-2 control-label">默认水印位置</label>
+                                <div class="col-sm-8">
+                                    <select name="WATERMARK_PLACE" id="WATERMARK_PLACE" class="form-control1">
+                                        <option value="0" <?php if($config_array['WATERMARK_PLACE']==0){ ?> selected="selected" <?php } ?>>随机</option>
+                                        <option value="1" <?php if($config_array['WATERMARK_PLACE']==1){ ?> selected="selected" <?php } ?> >左上</option>
+                                        <option value="2" <?php if($config_array['WATERMARK_PLACE']==2){ ?> selected="selected" <?php } ?> >中上</option>
+                                        <option value="3" <?php if($config_array['WATERMARK_PLACE']==3){ ?> selected="selected" <?php } ?>>右上</option>
+                                        <option value="4" <?php if($config_array['WATERMARK_PLACE']==4){ ?> selected="selected" <?php } ?>>左中</option>
+                                        <option value="5" <?php if($config_array['WATERMARK_PLACE']==5){ ?> selected="selected" <?php } ?>>正中</option>
+                                        <option value="6" <?php if($config_array['WATERMARK_PLACE']==6){ ?> selected="selected" <?php } ?>>右中</option>
+                                        <option value="7" <?php if($config_array['WATERMARK_PLACE']==7){ ?> selected="selected" <?php } ?>>左下</option>
+                                        <option value="8" <?php if($config_array['WATERMARK_PLACE']==8){ ?> selected="selected" <?php } ?>>中下</option>
+                                        <option value="9" <?php if($config_array['WATERMARK_PLACE']==9){ ?> selected="selected" <?php } ?>>右下</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="WATERMARK_IMAGE" class="col-sm-2 control-label">水印图片</label>
+                                <div class="col-sm-8">
+                                    <input name="WATERMARK_IMAGE" type="text" class="form-control1" id="WATERMARK_IMAGE" placeholder="上传格式" value="{$config_array.WATERMARK_IMAGE}">
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button type="button" class="btn btn-primary" onclick="submits()">提交</button>
+                                        <button class="btn-default btn" onclick="history.go(-1)">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script>
+    function submits()
+    {
+        if(confirm("是否确定提交！"))
+        {
+            $("#menu_form").submit();
+        }
+    }
+</script>
+</body>
+</html>

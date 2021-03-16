@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Login</title>
+  <!--#include file="public/header_top.html"-->
+</head>
+<body id="login">
+<div class="login-logo">
+  <a href="index.html"><img src="images/logo.png" alt=""/></a>
+</div>
+<h2 class="form-heading">登录链式教育平台</h2>
+<div class="app-cam">
+  <form id="loginform" action="__URL__/check/time-<?php echo time() ?>-ajax-true" method="post">
+    <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
+    <input type="hidden" id="formUrlName" name="formUrl" value="check/time-<?php echo time() ?>-ajax-true">
+    <select name="userType" id="userType" class="form-control1" style="background: #222224;margin: 0 0 1em 0;">
+      <option value="0">学校</option>
+      <option value="1">老师</option>
+      <option value="2">学生</option>
+    </select>
+    <input id="user" class="formIP" name="user" type="text" class="text" value="" onfocus="this.value = '';">
+    <input id="password" class="formIP" name="password" type="password" value="" onfocus="this.value = '';">
+    <div class="submit"><input type="button" onclick="submitform()" value="Login" style="font-size: 14px;font-weight: 300 !important;color: #fff;padding: 10px 15px;width: 100%;border: none;background: rgb(6, 217, 149);border-radius: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;-o-border-radius: 2px;text-transform: uppercase;"></div>
+<!--    <div class="login-social-link">
+      <a href="index.html" class="facebook">
+        Facebook
+      </a>
+      <a href="index.html" class="twitter">
+        Twitter
+      </a>
+    </div>-->
+    <ul class="new">
+      <li class="new_left"><p><a href="javascript:void(0)" onclick="layer.msg('请联系电话：18618434077')">找回密码</a></p></li>
+      <li class="new_right"><p class="sign"><a href="javascript:void(0)" onclick="layer.msg('请联系电话：18618434077')">申请开通校园账号</a></p></li>
+      <div class="clearfix"></div>
+    </ul>
+  </form>
+</div>
+<div class="copy_layout login">
+  <p>Copyright &copy; 2015.Company name All rights reserved.</p>
+</div>
+</body>
+</html>

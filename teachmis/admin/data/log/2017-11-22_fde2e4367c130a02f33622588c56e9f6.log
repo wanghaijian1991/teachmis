@@ -1,0 +1,17 @@
+2017-11-22 09:02:59 | 123.232.173.186 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-22 10:29:31 | 112.229.244.94 | /kindergarten/admin/index.php/paper/ajaxGetPaper | MySQL Query Error<br>
+					<b>SQL</b>: select * from att_questions where 1=1  and bookChaptersId like '%6%' and gradeId=1 and questionsDifficulty=1 order by rand() limit Array<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Array' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-22 15:45:44 | 112.229.244.94 | /kindergarten/admin/index.php/operation |operation模块不存在
+2017-11-22 20:41:13 | 39.91.109.102 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-22 20:41:14 | 39.91.109.102 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>

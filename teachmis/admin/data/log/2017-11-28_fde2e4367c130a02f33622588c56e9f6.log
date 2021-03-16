@@ -1,0 +1,35 @@
+2017-11-28 08:44:14 | 119.162.211.251 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 11:07:57 | 60.216.164.100 | /kindergarten/admin/index.php/myOperation/info/id-3 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_questions    WHERE questionsId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 11:09:42 | 60.216.164.100 | /kindergarten/admin/index.php/myOperation/info/id-3 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_questions    WHERE questionsId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 11:10:50 | 60.216.164.100 | /kindergarten/admin/index.php/myOperation/info/id-3 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_questions    WHERE questionsId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 20:56:18 | 39.64.26.155 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 21:24:10 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/add_save | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_paper    WHERE paperId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 21:24:59 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/add_save | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_paper    WHERE paperId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-28 21:59:04 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/info/id-2 |/info操作方法在myOperation模块中不存在
+2017-11-28 22:01:57 | 39.64.26.155 | /kindergarten/admin/index.php/myOperatio |myOperatio模块不存在
+2017-11-28 22:03:06 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/info/id-4 |/info操作方法在myOperation模块中不存在
+2017-11-28 22:03:48 | 39.64.26.155 | /kindergarten/admin/index.php/myInfo |myInfo模块不存在
+2017-11-28 22:05:23 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/info/id-4 |/info操作方法在myOperation模块中不存在
+2017-11-28 22:31:38 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/info/id-4 |/info操作方法在myOperation模块中不存在
+2017-11-28 22:32:46 | 39.64.26.155 | /kindergarten/admin/index.php/myOperation/info/id-4 |/info操作方法在myOperation模块中不存在

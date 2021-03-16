@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>{$menu_name}</title>
+  <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+  <!--#include file="public/header.html"-->
+  <div id="page-wrapper">
+    <div class="graphs">
+      <div class="xs">
+        <div class="col-md-12 inbox_right">
+          <form action="#" method="GET">
+            <div class="input-group">
+              <input type="text" name="search" id="searchStr" class="form-control1 input-search" placeholder="Search...">
+              <input type="hidden" id="app" name="formUrl" value="__APP__/">
+              <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
+              <input type="hidden" id="formUrlName" name="formUrl" value="ajaxPaperList">
+              <input type="hidden" id="pageNum" name="pageNum" value="1">
+              <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" onclick="selectMyOperationList(0)"><i class="fa fa-search"></i></button>
+                        </span>
+            </div><!-- Input Group -->
+          </form>
+          <div class="mailbox-content">
+            <div class="mail-toolbar clearfix">
+              <div class="float-left">
+                <div class="btn btn_1 btn-default mrg5R">
+                  <i class="fa fa-refresh"> </i>
+                </div>
+                <div class="dropdown">
+                  <a href="#" title="" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-cog icon_8"></i>
+                    <i class="fa fa-chevron-down icon_8"></i>
+                    <div class="ripple-wrapper"></div></a>
+                  <ul class="dropdown-menu float-right">
+                    <li>
+                      <a href="#" title="">
+                        <i class="fa fa-pencil-square-o icon_9"></i>
+                        Edit
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="">
+                        <i class="fa fa-calendar icon_9"></i>
+                        Schedule
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="">
+                        <i class="fa fa-download icon_9"></i>
+                        Download
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#" class="font-red" title="">
+                        <i class="fa fa-times" icon_9=""></i>
+                        Delete
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="clearfix"> </div>
+              </div>
+              <div class="float-right">
+
+
+                <span class="text-muted m-r-sm pageNumStr">Showing 1 of {$num} </span>
+                <button type="button" class="btn btn-primary" style="float: right;margin-left: 10px;" onclick="window.location.href='__APP__/paper/add'">新增</button>
+                <div class="btn-group">
+                  <a class="btn btn-default btn-default-left" href="javascript:void(0)" onclick="selectMyOperationList(2)" style="display: none"><i class="fa fa-angle-left"></i></a>
+                  <a class="btn btn-default btn-default-right" href="javascript:void(0)" onclick="selectMyOperationList(1)" <!--if:{$num<=1}-->style="display: none"<!--{/if}-->><i class="fa fa-angle-right"></i></a>
+                </div>
+
+
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>试卷名称</th>
+                <th>年级名称</th>
+                <th>班级名称</th>
+                <th>教师名称</th>
+                <th>考试状态</th>
+                <th>考试得分</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!--foreach:{$list $l}-->
+              <tr id="{$l.paperId}" class="active unread checked">
+                <td class="hidden-xs">
+                  <input type="checkbox" name="paperId" value="{$l.paperId}" class="checkbox">
+                </td>
+                <td>{$l.paperName}</td>
+                <td>{$l.gradeName}</td>
+                <td>{$l.className}</td>
+                <td>{$l.teacherName}</td>
+                <td><!--if:{$l["status"]==1}-->已参考<!--{else}-->未参考<!--{/if}--></td>
+                <td>{$l.myOperationScore}</td>
+                <td>{$l.startTime}</td>
+                <td>{$l.endTime}</td>
+                <td><!--if:{$l["status"]!=1}--><a href="__APP__/myOperation/info/id-{$l.paperId}">考试</a><!--{/if}--></td>
+              </tr>
+              <!--{/foreach}-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+      function del(id) {
+          $.ajax({
+              url:"__URL__/del",
+              type:'post',
+              data:"id="+id,
+              dataType:'json',
+              success:function(d){
+                  if(d.status==0){
+                      $("#"+id).css("display","none");
+                      layer.msg(d.message);
+                      //window.location.href=formUrl;
+                  }else{
+                      layer.msg(d.message);
+                  }
+              }
+          });
+      }
+  </script>
+  <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+</body>
+</html>

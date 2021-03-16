@@ -1,0 +1,111 @@
+2017-11-15 10:14:48 | 112.229.241.205 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 10:56:42 | 112.229.241.205 | /kindergarten/admin/index.php/users |users模块不存在
+2017-11-15 11:05:28 | 112.229.241.205 | /kindergarten/admin/index.php/users |template/users/index.html模板文件不存在
+2017-11-15 11:16:17 | 112.229.241.205 | /kindergarten/admin/index.php/teachers |teachers模块不存在
+2017-11-15 11:16:21 | 112.229.241.205 | /kindergarten/admin/index.php/classs |classs模块不存在
+2017-11-15 11:24:52 | 112.229.241.205 | /kindergarten/admin/index.php/classs | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_classs A ,att_admininfo B WHERE  A.schoolId = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_classs' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-15 11:45:54 | 112.229.241.205 | /kindergarten/admin/index.php/teachers | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_teachers A ,att_admininfo B WHERE  A.schoolId = B.id<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_teachers' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-15 11:49:41 | 112.229.241.205 | /kindergarten/admin/index.php/teachers | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_teacher A ,att_admininfo B WHERE  A.schoolId = B.id<br>
+					<b>错误详情</b>: Unknown column 'A.schoolId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 11:49:47 | 112.229.241.205 | /kindergarten/admin/index.php/teachers | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_teacher A ,att_admininfo B WHERE  A.schoolId = B.id<br>
+					<b>错误详情</b>: Unknown column 'A.schoolId' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 14:11:54 | 112.229.241.205 | /kindergarten/admin/index.php/teachers/add_save | MySQL Query Error<br>
+					<b>SQL</b>: SHOW FULL FIELDS FROM att_teachers <br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_teachers' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-15 14:14:29 | 112.229.241.205 | /kindergarten/admin/index.php/teachers/add_save | MySQL Query Error<br>
+					<b>SQL</b>: SHOW FULL FIELDS FROM att_teachers <br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_teachers' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-15 14:37:38 | 112.229.241.205 | /kindergarten/admin/index.php/teachers/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_teacher  SET  `teacherName` = '王海', `teacherBirth` = '2017-11-15 00:00:00', `teacherSex` = 'undefined', `teacherAddress` = '住址', `teacherPhone` = '18618434077', `teacherEdu` = '4', `modId` = '2', `modTime` = '2017-11-15 14:37:38'  WHERE teacherId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 14:38:58 | 112.229.241.205 | /kindergarten/admin/index.php/teachers/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_teacher  SET  `teacherName` = '王海', `teacherBirth` = '2017-11-15 00:00:00', `teacherSex` = 'undefined', `teacherAddress` = '住址', `teacherPhone` = '18618434077', `teacherEdu` = '4', `modId` = '2', `modTime` = '2017-11-15 14:38:58'  WHERE teacherId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 14:41:49 | 112.229.241.205 | /kindergarten/admin/index.php/teachers/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_teacher  SET  `teacherName` = '王海', `teacherBirth` = '2017-11-15 00:00:00', `teacherSex` = '0', `teacherAddress` = '住址', `teacherPhone` = '18618434077', `teacherEdu` = '4', `modId` = '2', `modTime` = '2017-11-15 14:41:49'  WHERE teacherId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 14:45:31 | 112.229.241.205 | /kindergarten/admin/index.php/teachers/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_teacher  SET  `teacherId` = 'undefined', `teacherName` = '王海', `teacherBirth` = '2017-11-15 00:00:00', `teacherSex` = '0', `teacherAddress` = '住址', `teacherPhone` = '18618434077', `teacherEdu` = '4', `modId` = '2', `modTime` = '2017-11-15 14:45:31'  WHERE teacherId=undefined<br>
+					<b>错误详情</b>: Unknown column 'undefined' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 15:53:59 | 112.229.241.205 | /kindergarten/admin/index.php/classs | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_classs A ,att_admininfo B,att_teacher C WHERE  A.schoolId = B.id AND A.teacherId = C.teacherId<br>
+					<b>错误详情</b>: Table 'bdm24037196_db.att_classs' doesn't exist<br>
+					<b>错误代码</b>:1146<br>
+2017-11-15 19:34:22 | 39.82.40.230 | /kindergarten/admin/index.php/ | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 19:46:47 | 39.82.40.230 | /kindergarten/admin/index.php/positions |positions模块不存在
+2017-11-15 19:46:52 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit/id- | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 19:56:26 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit/id- | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 19:58:54 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit/id- | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_users    WHERE usersId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 19:59:31 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit/id-1 | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_users    WHERE usersId= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 20:01:01 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_users  SET  `usersId` = 'undefined', `usersName` = '王建1', `studentName` = '王建', `studentAge` = '2017-11-15 00:00:00', `studentSex` = '0', `classId` = '1', `modTime` = '2017-11-15 20:01:01'  WHERE usersId=undefined<br>
+					<b>错误详情</b>: Unknown column 'undefined' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 20:01:16 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_users  SET  `usersId` = 'undefined', `usersName` = '王建1', `studentName` = '王建', `studentAge` = '2017-11-15 00:00:00', `studentSex` = '0', `classId` = '1', `modTime` = '2017-11-15 20:01:16'  WHERE usersId=undefined<br>
+					<b>错误详情</b>: Unknown column 'undefined' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 20:02:07 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_users  SET  `usersId` = 'undefined', `usersName` = '王建1', `studentName` = '王建', `studentAge` = '2017-11-15 00:00:00', `studentSex` = '0', `classId` = '1', `modTime` = '2017-11-15 20:02:07'  WHERE usersId=undefined<br>
+					<b>错误详情</b>: Unknown column 'undefined' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 20:02:34 | 39.82.40.230 | /kindergarten/admin/index.php/users/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_users  SET  `usersId` = 'undefined', `usersName` = '王建1', `studentName` = '王建', `studentAge` = '2017-11-15 00:00:00', `studentSex` = '0', `classId` = '1', `modTime` = '2017-11-15 20:02:34'  WHERE usersId=undefined<br>
+					<b>错误详情</b>: Unknown column 'undefined' in 'where clause'<br>
+					<b>错误代码</b>:1054<br>
+2017-11-15 20:51:01 | 39.82.40.230 | /kindergarten/admin/index.php/courses |courses模块不存在
+2017-11-15 20:53:34 | 39.82.40.230 | /kindergarten/admin/index.php/login/forms.html |forms操作方法在login模块中不存在
+2017-11-15 20:58:30 | 39.82.40.230 | /kindergarten/admin/index.php/positions |positions模块不存在
+2017-11-15 21:00:06 | 39.82.40.230 | /kindergarten/admin/index.php/courses |courses模块不存在
+2017-11-15 21:50:31 | 39.82.40.230 | /kindergarten/admin/index.php/grade |grade模块不存在
+2017-11-15 21:55:44 | 39.82.40.230 | /kindergarten/admin/index.php/textbookChapters |textbookChapters模块不存在
+2017-11-15 22:03:04 | 39.82.40.230 | /kindergarten/admin/index.php/grade |grade模块不存在
+2017-11-15 22:17:00 | 39.82.40.230 | /kindergarten/admin/index.php/grade/edit_save | MySQL Query Error<br>
+					<b>SQL</b>: UPDATE att_grade  SET  `gradeId` = '1', `gradeName` = '一年级1', `modId` = '2', `modTime` = '2017-11-15 22:17:00'  WHERE gradeId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2017-11-15 22:21:25 | 39.82.40.230 | /kindergarten/admin/index.php/classs | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_class A ,att_admininfo B,att_teacher C  WHERE schoolId=2 AND A.schoolId = B.id AND A.teacherId = C.teacherId<br>
+					<b>错误详情</b>: Column 'schoolId' in where clause is ambiguous<br>
+					<b>错误代码</b>:1052<br>
+2017-11-15 22:21:29 | 39.82.40.230 | /kindergarten/admin/index.php/classs | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_class A ,att_admininfo B,att_teacher C  WHERE schoolId=2 AND A.schoolId = B.id AND A.teacherId = C.teacherId<br>
+					<b>错误详情</b>: Column 'schoolId' in where clause is ambiguous<br>
+					<b>错误代码</b>:1052<br>
+2017-11-15 22:33:54 | 39.82.40.230 | /kindergarten/admin/index.php/positions |positions模块不存在
+2017-11-15 22:35:17 | 39.82.40.230 | /kindergarten/admin/index.php/textbookChapters |textbookChapters模块不存在
+2017-11-15 22:39:24 | 39.82.40.230 | /kindergarten/admin/index.php/bookChapters |bookChapters模块不存在

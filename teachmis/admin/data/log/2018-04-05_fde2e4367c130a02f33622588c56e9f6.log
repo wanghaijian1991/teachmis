@@ -1,0 +1,15 @@
+2018-04-05 16:56:37 | 112.232.191.127 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2018-04-05 17:41:52 | 112.232.191.127 | /kindergarten/admin/index.php | MySQL Query Error<br>
+					<b>SQL</b>: SELECT * FROM att_admininfo    WHERE id= LIMIT 1<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1<br>
+					<b>错误代码</b>:1064<br>
+2018-04-05 17:42:12 | 112.232.191.127 | /kindergarten/admin/index.php/positions |positions模块不存在
+2018-04-05 17:42:20 | 112.232.191.127 | /kindergarten/admin/index.php/courses |coursesMod类未定义
+2018-04-05 17:42:25 | 112.232.191.127 | /kindergarten/admin/index.php/operation |operation模块不存在
+2018-04-05 17:42:44 | 112.232.191.127 | /kindergarten/admin/index.php/index | MySQL Query Error<br>
+					<b>SQL</b>: SELECT count(*) FROM att_paper    WHERE classId=<br>
+					<b>错误详情</b>: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<br>
+					<b>错误代码</b>:1064<br>
