@@ -30,73 +30,70 @@ class indexMod extends commonMod
         $beginLastweek=date("Y-m-d H:i:s",mktime(0,0,0,date('m'),date('d')-date('w')+1-7,date('Y')));
         $endLastweek=date("Y-m-d H:i:s",mktime(23,59,59,date('m'),date('d')-date('w')+7-7,date('Y')));
         $bookChapters=$this->model->field('*')->table('bookChapters')->where("bookChaptersFid=0 and gradeId=".$users["gradeId"])->select();
-        foreach($bookChapters as $k=>$b)
-        {
-            $lastnum=$this->model->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"]." and uq.createTime>'".$beginLastweek."' and uq.createTime<'".$endLastweek."'")->count();
-            $lastcorrectnessNum=$this->model->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"]." and uq.createTime>'".$beginLastweek."' and uq.createTime<'".$endLastweek."' and uq.status=1")->count();
-            if($lastnum==0)$lastnum=1;
-            $bookChapters[$k]["correctLast"]=ceil($lastcorrectnessNum*100/$lastnum);
-            $thisnum=$this->model->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"]." and uq.createTime>'".$endLastweek."'")->count();
-            $thiscorrectnessNum=$this->model->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"]." and uq.createTime>'".$endLastweek."' and uq.status=1")->count();
-            if($thisnum==0)$thisnum=1;
-            $bookChapters[$k]["correctThis"]=ceil($thiscorrectnessNum*100/$thisnum);
-            if($bookChapters[$k]["correctLast"]==0)$bookChapters[$k]["correctLast"]=1;
-            if($bookChapters[$k]["correctThis"]-$bookChapters[$k]["correctLast"]>0)
-            {
-                $bookChapters[$k]["upStatus"]=1;
-                if($bookChapters[$k]["correctLast"])
-                {
-                    $bookChapters[$k]["upNum"]=ceil(($bookChapters[$k]["correctThis"]-$bookChapters[$k]["correctLast"])*100/$bookChapters[$k]["correctLast"]);
-                }else{
-                    $bookChapters[$k]["upNum"]=0;
-                }
-            }else if($bookChapters[$k]["correctThis"]-$bookChapters[$k]["correctLast"]==0){
-                $bookChapters[$k]["upStatus"]=2;
-                $bookChapters[$k]["upNum"]=0;
-            }else{
-                $bookChapters[$k]["upStatus"]=0;
-                $bookChapters[$k]["upNum"]=ceil(($bookChapters[$k]["correctLast"]-$bookChapters[$k]["correctThis"])*100/$bookChapters[$k]["correctLast"]);
-            }
-            $xyList=array();
-            //$xyinfo=$this->model->field('date_format(uq.createTime,"%Y-%m") as num,sum(uq.status) as snum,count(*) as znum')->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"])->group("date_format(uq.createTime,'%Y-%m')")->order("num ASC")->select();
-            $time=date("Y-m", strtotime("-1 year"));
-            $timeArr=explode("-",$time);
-            for($xi=0;$xi<12;$xi++)
-            {
-                if(($timeArr[1]+$xi)>12)
-                {
-                    $m=$timeArr[1]+$xi-12;
-                    if($m<10)
-                    {
-                        $m='0'.$m;
+        if($bookChapters) {
+            foreach ($bookChapters as $k => $b) {
+                $lastnum = $this->model->table('userQuestion', 'uq')->add_table('questions', 'q', 'uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%," . $b["bookChaptersId"] . ",%' and uq.usersId=" . $_SESSION["user_yg"]["id"] . " and uq.createTime>'" . $beginLastweek . "' and uq.createTime<'" . $endLastweek . "'")->count();
+                $lastcorrectnessNum = $this->model->table('userQuestion', 'uq')->add_table('questions', 'q', 'uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%," . $b["bookChaptersId"] . ",%' and uq.usersId=" . $_SESSION["user_yg"]["id"] . " and uq.createTime>'" . $beginLastweek . "' and uq.createTime<'" . $endLastweek . "' and uq.status=1")->count();
+                if ($lastnum == 0) $lastnum = 1;
+                $bookChapters[$k]["correctLast"] = ceil($lastcorrectnessNum * 100 / $lastnum);
+                $thisnum = $this->model->table('userQuestion', 'uq')->add_table('questions', 'q', 'uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%," . $b["bookChaptersId"] . ",%' and uq.usersId=" . $_SESSION["user_yg"]["id"] . " and uq.createTime>'" . $endLastweek . "'")->count();
+                $thiscorrectnessNum = $this->model->table('userQuestion', 'uq')->add_table('questions', 'q', 'uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%," . $b["bookChaptersId"] . ",%' and uq.usersId=" . $_SESSION["user_yg"]["id"] . " and uq.createTime>'" . $endLastweek . "' and uq.status=1")->count();
+                if ($thisnum == 0) $thisnum = 1;
+                $bookChapters[$k]["correctThis"] = ceil($thiscorrectnessNum * 100 / $thisnum);
+                if ($bookChapters[$k]["correctLast"] == 0) $bookChapters[$k]["correctLast"] = 1;
+                if ($bookChapters[$k]["correctThis"] - $bookChapters[$k]["correctLast"] > 0) {
+                    $bookChapters[$k]["upStatus"] = 1;
+                    if ($bookChapters[$k]["correctLast"]) {
+                        $bookChapters[$k]["upNum"] = ceil(($bookChapters[$k]["correctThis"] - $bookChapters[$k]["correctLast"]) * 100 / $bookChapters[$k]["correctLast"]);
+                    } else {
+                        $bookChapters[$k]["upNum"] = 0;
                     }
-                    $y=$timeArr[0]+1;
-                }else{
-                    $m=$timeArr[1]+$xi;
-                    if($m<10)
-                    {
-                        $m='0'.$m;
+                } else if ($bookChapters[$k]["correctThis"] - $bookChapters[$k]["correctLast"] == 0) {
+                    $bookChapters[$k]["upStatus"] = 2;
+                    $bookChapters[$k]["upNum"] = 0;
+                } else {
+                    $bookChapters[$k]["upStatus"] = 0;
+                    $bookChapters[$k]["upNum"] = ceil(($bookChapters[$k]["correctLast"] - $bookChapters[$k]["correctThis"]) * 100 / $bookChapters[$k]["correctLast"]);
+                }
+                $xyList = array();
+                //$xyinfo=$this->model->field('date_format(uq.createTime,"%Y-%m") as num,sum(uq.status) as snum,count(*) as znum')->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"])->group("date_format(uq.createTime,'%Y-%m')")->order("num ASC")->select();
+                $time = date("Y-m", strtotime("-1 year"));
+                $timeArr = explode("-", $time);
+                for ($xi = 0; $xi < 12; $xi++) {
+                    if (($timeArr[1] + $xi) > 12) {
+                        $m = $timeArr[1] + $xi - 12;
+                        if ($m < 10) {
+                            $m = '0' . $m;
+                        }
+                        $y = $timeArr[0] + 1;
+                    } else {
+                        $m = $timeArr[1] + $xi;
+                        if ($m < 10) {
+                            $m = '0' . $m;
+                        }
+                        $y = $timeArr[0];
                     }
-                    $y=$timeArr[0];
+                    $xyinfo = array();
+                    $xyinfo = $this->model->field('date_format(uq.createTime,"%Y年%m月") as num,sum(uq.status) as snum,count(*) as znum')->table('userQuestion', 'uq')->add_table('questions', 'q', 'uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%," . $b["bookChaptersId"] . ",%' and uq.usersId=" . $_SESSION["user_yg"]["id"] . " and date_format(uq.createTime,'%Y-%m')='" . $y . "-" . $m . "'")->group('date_format(uq.createTime,"%Y年%m月")')->order("num ASC")->select();
+                    //print_r($this->model);
+                    if ($xyinfo[0]["num"]) {
+                        $xyList[$xi]["x"] = $xi;
+                        if ($xyinfo[0]["znum"] == 0) $xyinfo[0]["znum"] = 1;
+                        if (!$xyinfo[0]["snum"]) $xyinfo[0]["snum"] = 0;
+                        $xyList[$xi]["y"] = ceil($xyinfo[0]["snum"] * 100 / $xyinfo[0]["znum"]);
+                        $xyList[$xi]["num"] = $y . "年" . $m . "月";
+                    }
                 }
-                $xyinfo=array();
-                $xyinfo=$this->model->field('date_format(uq.createTime,"%Y年%m月") as num,sum(uq.status) as snum,count(*) as znum')->table('userQuestion','uq')->add_table('questions','q','uq.questionsId = q.questionsId')->where("q.bookChaptersId like '%,".$b["bookChaptersId"].",%' and uq.usersId=".$_SESSION["user_yg"]["id"]." and date_format(uq.createTime,'%Y-%m')='".$y."-".$m."'")->group('date_format(uq.createTime,"%Y年%m月")')->order("num ASC")->select();
-                //print_r($this->model);
-                if($xyinfo[0]["num"]){
-                    $xyList[$xi]["x"]=$xi;
-                    if($xyinfo[0]["znum"]==0)$xyinfo[0]["znum"]=1;
-                    if(!$xyinfo[0]["snum"])$xyinfo[0]["snum"]=0;
-                    $xyList[$xi]["y"]=ceil($xyinfo[0]["snum"]*100/$xyinfo[0]["znum"]);
-                    $xyList[$xi]["num"]=$y."年".$m."月";
+                if ($xyList) {
+                    $xy["bclist"] = $xyList;
+                    $xy["name"] = $b["bookChaptersName"];
+                    $xy["color"] = '#AFE9FF';
+                    $xys[] = $xy;
                 }
             }
-            if($xyList)
-            {
-                $xy["bclist"]=$xyList;
-                $xy["name"]=$b["bookChaptersName"];
-                $xy["color"]='#AFE9FF';
-                $xys[]=$xy;
-            }
+        }else{
+            $xys=array();
+            $bookChapters=array();
         }
         //$xys[]=$xy;
         //echo json_encode($xys);
