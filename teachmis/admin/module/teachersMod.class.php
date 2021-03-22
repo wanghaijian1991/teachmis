@@ -41,7 +41,7 @@ class teachersMod extends commonMod {
             array('field'=>'teacherEmergencyPhone','name'=>'应急联系方式','type'=>2,'prompt'=>'应急联系方式不能为空！'),
             array('field'=>'teacherAddress','name'=>'教师住址','type'=>1,'prompt'=>'教师住址不能为空！')
         );
-        $return=$this->validation_field($validation);
+        $return=$this->validation_field($validation,$_POST);
         if($return['status']==1)
         {
             $this->msg($return['msg'],1);
@@ -75,7 +75,7 @@ class teachersMod extends commonMod {
             array('field'=>'teacherEmergencyPhone','name'=>'应急联系方式','type'=>2,'prompt'=>'应急联系方式不能为空！'),
             array('field'=>'teacherAddress','name'=>'教师住址','type'=>1,'prompt'=>'教师住址不能为空！')
         );
-        $return=$this->validation_field($validation);
+        $return=$this->validation_field($validation,$_POST);
         if($return['status']==1)
         {
             $this->msg($return['msg'],1);

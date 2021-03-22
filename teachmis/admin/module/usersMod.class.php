@@ -42,7 +42,7 @@ class usersMod extends commonMod {
             array('field'=>'parentsTel','name'=>'家长联系方式','type'=>2,'prompt'=>'家长联系方式不能为空！'),
             array('field'=>'studentAddr','name'=>'家庭住址','type'=>1,'prompt'=>'家庭住址不能为空！')
         );
-        $return=$this->validation_field($validation);
+        $return=$this->validation_field($validation,$_POST);
         if($return['status']==1)
         {
             $this->msg($return['msg'],1);
@@ -92,7 +92,7 @@ class usersMod extends commonMod {
             array('field'=>'parentsTel','name'=>'家长联系方式','type'=>2,'prompt'=>'家长联系方式不能为空！'),
             array('field'=>'studentAddr','name'=>'家庭住址','type'=>1,'prompt'=>'家庭住址不能为空！')
         );
-        $return=$this->validation_field($validation);
+        $return=$this->validation_field($validation,$_POST);
         if($return['status']==1)
         {
             $this->msg($return['msg'],1);
