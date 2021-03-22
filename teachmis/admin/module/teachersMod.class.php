@@ -31,8 +31,20 @@ class teachersMod extends commonMod {
 	}
 
 	public function add_save() {
-        if(!$_POST['teacherPassword']){
-            $this->msg('密码不能为空！',1);
+        $validation=array(
+            array('field'=>'gid','name'=>'权限组','type'=>1,'prompt'=>'权限组不能为空！'),
+            array('field'=>'teacherName','name'=>'教师姓名','type'=>1,'prompt'=>'教师姓名不能为空！'),
+            array('field'=>'teacherPassword','name'=>'密码','type'=>1,'prompt'=>'密码不能为空！'),
+            array('field'=>'teacherPhone','name'=>'联系方式','type'=>2,'prompt'=>'联系方式不能为空！'),
+            array('field'=>'graduationSchool','name'=>'毕业院校','type'=>1,'prompt'=>'毕业院校不能为空！'),
+            array('field'=>'teacherEdu','name'=>'学历','type'=>1,'prompt'=>'学历不能为空！'),
+            array('field'=>'teacherEmergencyPhone','name'=>'应急联系方式','type'=>2,'prompt'=>'应急联系方式不能为空！'),
+            array('field'=>'teacherAddress','name'=>'教师住址','type'=>1,'prompt'=>'教师住址不能为空！')
+        );
+        $return=$this->validation_field($validation);
+        if($return['status']==1)
+        {
+            $this->msg($return['msg'],1);
             return;
         }
         $key=rand(10000,99999);
@@ -54,6 +66,21 @@ class teachersMod extends commonMod {
     }
 
     public function edit_save() {
+        $validation=array(
+            array('field'=>'gid','name'=>'权限组','type'=>1,'prompt'=>'权限组不能为空！'),
+            array('field'=>'teacherName','name'=>'教师姓名','type'=>1,'prompt'=>'教师姓名不能为空！'),
+            array('field'=>'teacherPhone','name'=>'联系方式','type'=>2,'prompt'=>'联系方式不能为空！'),
+            array('field'=>'graduationSchool','name'=>'毕业院校','type'=>1,'prompt'=>'毕业院校不能为空！'),
+            array('field'=>'teacherEdu','name'=>'学历','type'=>1,'prompt'=>'学历不能为空！'),
+            array('field'=>'teacherEmergencyPhone','name'=>'应急联系方式','type'=>2,'prompt'=>'应急联系方式不能为空！'),
+            array('field'=>'teacherAddress','name'=>'教师住址','type'=>1,'prompt'=>'教师住址不能为空！')
+        );
+        $return=$this->validation_field($validation);
+        if($return['status']==1)
+        {
+            $this->msg($return['msg'],1);
+            return;
+        }
         if(!$_POST['teacherPassword']){
             unset($_POST['teacherPassword']);
         }else{

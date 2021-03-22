@@ -33,8 +33,19 @@ class usersMod extends commonMod {
 	}
 
 	public function add_save() {
-        if(!$_POST['usersPassword']){
-            $this->msg('密码不能为空！',0);
+        $validation=array(
+            array('field'=>'gid','name'=>'权限组','type'=>1,'prompt'=>'权限组不能为空！'),
+            array('field'=>'usersName','name'=>'用户名','type'=>1,'prompt'=>'用户名不能为空！'),
+            array('field'=>'usersPassword','name'=>'密码','type'=>1,'prompt'=>'密码不能为空！'),
+            array('field'=>'studentCode','name'=>'学籍号','type'=>1,'prompt'=>'学籍号不能为空！'),
+            array('field'=>'studentName','name'=>'学生姓名','type'=>1,'prompt'=>'学生姓名不能为空！'),
+            array('field'=>'parentsTel','name'=>'家长联系方式','type'=>2,'prompt'=>'家长联系方式不能为空！'),
+            array('field'=>'studentAddr','name'=>'家庭住址','type'=>1,'prompt'=>'家庭住址不能为空！')
+        );
+        $return=$this->validation_field($validation);
+        if($return['status']==1)
+        {
+            $this->msg($return['msg'],1);
             return;
         }
         $key=rand(10000,99999);
@@ -67,6 +78,25 @@ class usersMod extends commonMod {
             $key=rand(10000,99999);
             $_POST['usersPassword']=$this->md5ps($_POST['usersPassword'],$key);
             $_POST['usersSecretKey']=$key;
+        }
+        /**
+         * 1 验证是否为空
+         * 2 验证手机号
+         * 3 验证邮箱
+        */
+        $validation=array(
+            array('field'=>'gid','name'=>'权限组','type'=>1,'prompt'=>'权限组不能为空！'),
+            array('field'=>'usersName','name'=>'用户名','type'=>1,'prompt'=>'用户名不能为空！'),
+            array('field'=>'studentCode','name'=>'学籍号','type'=>1,'prompt'=>'学籍号不能为空！'),
+            array('field'=>'studentName','name'=>'学生姓名','type'=>1,'prompt'=>'学生姓名不能为空！'),
+            array('field'=>'parentsTel','name'=>'家长联系方式','type'=>2,'prompt'=>'家长联系方式不能为空！'),
+            array('field'=>'studentAddr','name'=>'家庭住址','type'=>1,'prompt'=>'家庭住址不能为空！')
+        );
+        $return=$this->validation_field($validation);
+        if($return['status']==1)
+        {
+            $this->msg($return['msg'],1);
+            return;
         }
         
         //录入模型处理

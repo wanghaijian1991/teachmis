@@ -287,5 +287,61 @@ class commonMod
         return md5(md5($password)."teachmis".$key);
     }
 
+    /**
+     * 验证数据
+     * field验证字段 name字段名称 type验证类型 prompt错误提示
+     * 1 验证是否为空
+     * 2 验证手机号
+     * 3 验证邮箱
+    */
+    function validation_field($arr,$data)
+    {
+        $return['status']=0;
+        $return['msg']='验证成功！';
+        if(!$arr)
+        {
+            $return['status']=1;
+            $return['msg']='验证数据异常！';
+        }
+        foreach($arr as $v)
+        {
+            switch ($v['type']){
+                case 1:
+                    if(empty($data[$v['field']]))
+                    {
+                        $return['status']=1;
+                        $return['msg']=$v['prompt'];
+                    }
+                    break;
+                case 2:
+                    $status=false;
+                    $g = "/^1[34578]\d{9}$/";
+                    $g2 = "/^19[89]\d{8}$/";
+                    $g3 = "/^166\d{8}$/";
+                    if(preg_match($g, $data[$v['field']])){
+                        $status=true;
+                    }else  if(preg_match($g2, $data[$v['field']])){
+                        $status=true;
+                    }else if(preg_match($g3, $data[$v['field']])){
+                        $status=true;
+                    }
+                    if(!$status)
+                    {
+                        $return['status']=1;
+                        $return['msg']=$v['prompt'];
+                    }
+                    break;
+                case 3:
+                    $result  = filter_var($data[$v['field']], FILTER_VALIDATE_EMAIL);
+                    if(!$result)
+                    {
+                        $return['status']=1;
+                        $return['msg']=$v['prompt'];
+                    }
+            }
+        }
+        return $return;
+    }
+
 
 }
