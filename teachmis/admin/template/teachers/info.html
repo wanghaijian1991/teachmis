@@ -65,6 +65,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="graduationSchool" class="col-sm-2 control-label">毕业学校</label>
+                                <div class="col-sm-8">
+                                    <input name="graduationSchool" type="text" class="form-control1" id="graduationSchool" placeholder="毕业学校" value="{$info.graduationSchool}">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="teacherEdu" class="col-sm-2 control-label">学历</label>
                                 <div class="col-sm-8">
                                     <select name="teacherEdu" id="teacherEdu" class="form-control1">
@@ -75,6 +81,18 @@
                                         <option value="4" <!--if:{$info["teacherEdu"]==4}-->selected="selected"<!--{/if}-->>博士</option>
                                         <option value="5" <!--if:{$info["teacherEdu"]==5}-->selected="selected"<!--{/if}-->>博士后</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="teacherCertification" class="col-sm-2 control-label">教师资格证</label>
+                                <div class="col-sm-8">
+                                    <input name="teacherCertification" type="text" class="form-control1" id="teacherCertification" placeholder="教师资格证" value="{$info.teacherCertification}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="teacherEmergencyPhone" class="col-sm-2 control-label">应急联系方式</label>
+                                <div class="col-sm-8">
+                                    <input name="teacherEmergencyPhone" type="text" class="form-control1" id="teacherEmergencyPhone" placeholder="应急联系方式" value="{$info.teacherEmergencyPhone}">
                                 </div>
                             </div>
                             <div class="form-group">

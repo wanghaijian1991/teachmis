@@ -44,6 +44,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="studentCode" class="col-sm-2 control-label">学籍号</label>
+                                <div class="col-sm-8">
+                                    <input name="studentCode" type="text" class="form-control1" id="studentCode" placeholder="学籍号" value="{$info.studentCode}">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="studentName" class="col-sm-2 control-label">学生名称</label>
                                 <div class="col-sm-8">
                                     <input name="studentName" type="text" class="form-control1" id="studentName" placeholder="学生名称" value="{$info.studentName}">
@@ -84,6 +90,18 @@
                                         <option value="{$l.classId}" <!--if:{$l["classId"]==$info["classId"]}-->selected="selected"<!--{/if}-->>{$l.className}</option>
                                         <!--{/foreach}-->
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="parentsTel" class="col-sm-2 control-label">家长联系方式(手机号以逗号隔开)</label>
+                                <div class="col-sm-8">
+                                    <input name="parentsTel" type="text" class="form-control1" id="parentsTel" placeholder="家长联系方式" value="{$info.parentsTel}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentAddr" class="col-sm-2 control-label">家庭地址</label>
+                                <div class="col-sm-8">
+                                    <input name="studentAddr" type="text" class="form-control1" id="studentAddr" placeholder="家庭地址" value="{$info.studentAddr}">
                                 </div>
                             </div>
                             <div class="panel-footer">
