@@ -25,9 +25,39 @@ class curriculumMod extends commonMod
         //获取信息列表
         $list=model('curriculum')->curriculumList($_GET['search'],$limit);
         $this->assign('list',$list);
-        $this->menu_name='班级列表';
+        $this->menu_name='课程表列表';
         $this->page=$this->page($url,$num,$listRows);
         $this->show();
+    }
+
+    /**
+     * 添加课程表
+    */
+    public function add()
+    {
+        $this->classlist=model('classs')->list_select('');
+        $this->action_name='添加课程表';
+        $this->action='add';
+        $this->show('curriculum/info');
+    }
+
+    /**
+     * 保存
+    */
+    public function add_save() {
+        $validation=array(
+            array('field'=>'curriculumName','name'=>'课程表名称','type'=>1,'prompt'=>'课程表名称不能为空！'),
+            array('field'=>'classId','name'=>'班级','type'=>1,'prompt'=>'班级不能为空！')
+        );
+        $return=$this->validation_field($validation,$_POST);
+        if($return['status']==1)
+        {
+            $this->msg($return['msg'],1);
+            return;
+        }
+        //录入模型处理
+        model('users')->add($_POST);
+        $this->msg('添加学生成功！',0);
     }
 }
 ?>

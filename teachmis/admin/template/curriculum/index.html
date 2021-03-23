@@ -17,25 +17,21 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>班级名称</th>
-                            <th>年份</th>
+                            <th>课程表名称</th>
                             <th>年级</th>
-                            <th>几班</th>
+                            <th>班级</th>
                             <th>班主任</th>
-                            <th>学校名称</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <!--foreach:{$list $l}-->
                         <tr class="active">
-                            <th scope="row">{$l.classId}</th>
-                            <td>{$l.className}</td>
-                            <td>{$l.classYear}年</td>
+                            <th scope="row">{$l.curriculumId}</th>
+                            <td>{$l.curriculumName}</td>
                             <td>{$l.gradeName}</td>
-                            <td>{$l.classFew}</td>
+                            <td>{$l.className}</td>
                             <td>{$l.teacherName}</td>
-                            <td>{$l.nicename}</td>
                             <td><a href="__APP__/classs/edit/id-{$l.classId}">修改</a></td>
                         </tr>
                         <!--{/foreach}-->
