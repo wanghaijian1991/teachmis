@@ -56,8 +56,8 @@ class curriculumMod extends commonMod
             return;
         }
         //录入模型处理
-        model('users')->add($_POST);
-        $this->msg('添加学生成功！',0);
+        model('curriculum')->add($_POST);
+        $this->msg('添加课程表成功！',0);
     }
 }
 ?>

@@ -608,3 +608,31 @@ function selectmyPractiseList(type)
         }
     });
 }
+function submitcurriculumform()
+{
+    var curriculumName=$("#curriculumName").val();
+    var classId=$("#classId").val();
+    var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+    if(!curriculumName)
+    {
+        layer.msg("课程表名称不能为空！");
+        return false;
+    }else if(pattern.test(curriculumName)){
+        layer.msg("课程表名称存在非法字符！");
+        return false;
+    }
+    $.ajax({
+        url:formUrl+formUrlName,
+        type:'post',
+        data:"curriculumName="+curriculumName+"&classId="+classId,
+        dataType:'json',
+        success:function(d){
+            if(d.status==0){
+                layer.msg(d.message);
+                window.location.href=formUrl;
+            }else{
+                layer.msg(d.message);
+            }
+        }
+    });
+}

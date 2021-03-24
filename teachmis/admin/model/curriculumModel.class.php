@@ -44,7 +44,8 @@ class curriculumModel extends commonModel
         $data['createTime']=date("Y-m-d H:i:s");
         $data['founderId']=$_SESSION["user_yg"]["id"];
         $data['schoolId']=$_SESSION["user_yg"]["id"];
-        $userId=$this->model->table('curriculum')->data($data)->insert();
+        $curriculumId=$this->model->table('curriculum')->data($data)->insert();
+        return $curriculumId;
     }
 }
 ?>
