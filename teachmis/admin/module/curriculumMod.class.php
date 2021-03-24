@@ -45,8 +45,10 @@ class curriculumMod extends commonMod
      * 保存
     */
     public function add_save() {
+        $classInfo=model('classs')->info($_POST['classId']);
+        $curriculum['curriculumName']=$classInfo['className'];
+        $curriculum['classId']=$_POST['classId'];
         $validation=array(
-            array('field'=>'curriculumName','name'=>'课程表名称','type'=>1,'prompt'=>'课程表名称不能为空！'),
             array('field'=>'classId','name'=>'班级','type'=>1,'prompt'=>'班级不能为空！')
         );
         $return=$this->validation_field($validation,$_POST);
@@ -56,7 +58,7 @@ class curriculumMod extends commonMod
             return;
         }
         //录入模型处理
-        model('curriculum')->add($_POST);
+        model('curriculum')->add($curriculum);
         $this->msg('添加课程表成功！',0);
     }
 }
