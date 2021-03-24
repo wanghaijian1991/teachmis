@@ -43,8 +43,17 @@ class curriculumModel extends commonModel
     {
         $data['createTime']=date("Y-m-d H:i:s");
         $data['founderId']=$_SESSION["user_yg"]["id"];
-        $data['schoolId']=$_SESSION["user_yg"]["id"];
+        $data['schoolId']=$_SESSION["user_yg"]["schoolId"];
         $curriculumId=$this->model->table('curriculum')->data($data)->insert();
+        return $curriculumId;
+    }
+
+    //添加课程表详情内容
+    public function addInfo($data)
+    {
+        $data['createTime']=date("Y-m-d H:i:s");
+        $data['schoolId']=$_SESSION["user_yg"]["schoolId"];
+        $curriculumId=$this->model->table('curriculuminfo')->data($data)->insert();
         return $curriculumId;
     }
 }

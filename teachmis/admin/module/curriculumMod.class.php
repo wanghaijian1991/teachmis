@@ -35,7 +35,13 @@ class curriculumMod extends commonMod
     */
     public function add()
     {
+        if(!$_POST['curriculumId'])
+        {
+            $_POST['curriculumId']=0;
+        }
+        $this->curriculumId=$_POST['curriculumId'];
         $this->classlist=model('classs')->list_select('');
+        $this->teachers=model("teachers")->list_select('');
         $this->action_name='添加课程表';
         $this->action='add';
         $this->show('curriculum/info');
@@ -57,9 +63,22 @@ class curriculumMod extends commonMod
             $this->msg($return['msg'],1);
             return;
         }
-        //录入模型处理
-        model('curriculum')->add($curriculum);
-        $this->msg('添加课程表成功！',0);
+        if(!$_POST['curriculumId'])
+        {
+            $curriculumId=model('curriculum')->add($curriculum);
+        }else{
+            $curriculumId=$_POST['curriculumId'];
+        }
+        $curriculumInfo['curriculumId']=$curriculumId;
+        $curriculumInfo['week']=$_POST['week'];
+        $curriculumInfo['weekSort']=$_POST['weekSort'];
+        $curriculumInfo['startTime']=$_POST['startTime'];
+        $curriculumInfo['endTime']=$_POST['endTime'];
+        $curriculumInfo['course']=$_POST['courseName'];
+        $curriculumInfo['teacherId']=$_POST['teacherId'];
+        $curriculumInfo['classId']=$_POST['classId'];
+        model('curriculum')->addInfo($curriculumInfo);
+        $this->msg('添加课程表成功！',0,$curriculumId);
     }
 }
 ?>

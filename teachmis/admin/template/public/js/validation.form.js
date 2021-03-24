@@ -610,8 +610,14 @@ function selectmyPractiseList(type)
 }
 function submitcurriculumform()
 {
-    var curriculumName=$("#curriculumName").val();
     var classId=$("#classId").val();
+    var week=$("#week").val();
+    var weekSort=$("#weekSort").val();
+    var startTime=$("#startTime").val();
+    var endTime=$("#endTime").val();
+    var courseName=$("#courseName").val();
+    var teacherId=$("#teacherId").val();
+    var curriculumId=$("#curriculumId").val();
     var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
     if(!curriculumName)
     {
@@ -624,12 +630,12 @@ function submitcurriculumform()
     $.ajax({
         url:formUrl+formUrlName,
         type:'post',
-        data:"curriculumName="+curriculumName+"&classId="+classId,
+        data:"classId="+classId+"&week="+week+"&weekSort="+weekSort+"&startTime="+startTime+"&endTime="+endTime+"&courseName="+courseName+"&teacherId="+teacherId+"&curriculumId="+curriculumId,
         dataType:'json',
         success:function(d){
             if(d.status==0){
                 layer.msg(d.message);
-                window.location.href=formUrl;
+                window.location.href=formUrl+"add?curriculumId="+d.data;
             }else{
                 layer.msg(d.message);
             }

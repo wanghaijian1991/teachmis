@@ -206,9 +206,9 @@ class commonMod
     }
 
     //提示
-    public function msg($message,$status=1) {
+    public function msg($message,$status=1,$data=array()) {
         //@header("Content-type:application/json,text/html,*/*");
-        echo json_encode(array('status' => $status, 'message' => $message));
+        echo json_encode(array('status' => $status, 'message' => $message, 'data' => $data));
         exit;
     }
 
