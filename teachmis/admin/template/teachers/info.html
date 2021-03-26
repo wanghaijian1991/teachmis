@@ -123,6 +123,16 @@
                                     <input name="teacherTitle" type="text" class="form-control1" id="teacherTitle" placeholder="教师职称" value="{$info.teacherTitle}">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="teacherPosition" class="col-sm-2 control-label">教师职务</label>
+                                <div class="col-sm-8">
+                                    <select name="teacherPosition" id="teacherPosition" class="form-control1">
+                                        <option value="0" <!--if:{$info["teacherPosition"]==0}-->selected="selected"<!--{/if}-->>教师</option>
+                                        <option value="1" <!--if:{$info["teacherPosition"]==1}-->selected="selected"<!--{/if}-->>班主任</option>
+                                        <option value="2" <!--if:{$info["teacherPosition"]==2}-->selected="selected"<!--{/if}-->>教务主任</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-2">

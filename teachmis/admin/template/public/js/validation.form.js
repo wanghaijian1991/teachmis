@@ -642,3 +642,67 @@ function submitcurriculumform()
         }
     });
 }
+//部门管理提交表单
+function submitdepartmentIdform()
+{
+    var fid=$("#fid").val();
+    var departmentName=$("#departmentName").val();
+    var departmentId=$("#departmentId").val();
+    var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+    if(!departmentName)
+    {
+        layer.msg("部门名称不能为空！");
+        return false;
+    }else if(pattern.test(departmentName)){
+        layer.msg("部门名称存在非法字符！");
+        return false;
+    }
+    $.ajax({
+        url:formUrl+formUrlName,
+        type:'post',
+        data:"fid="+fid+"&departmentName="+departmentName+"&id="+departmentId,
+        dataType:'json',
+        success:function(d){
+            if(d.status==0){
+                layer.msg(d.message);
+                window.location.href=formUrl;
+            }else{
+                layer.msg(d.message);
+            }
+        }
+    });
+}
+//审批流程提交表单
+function submitexaminationtypeform()
+{
+    var type=$("#type").val();
+    var typeName=$("#typeName").val();
+    var auditArchitecture=$("#auditArchitecture").val();
+    var teacherId1=$("#teacherId1").val();
+    var teacherId2=$("#teacherId2").val();
+    var teacherId3=$("#teacherId3").val();
+    var examinationtypeId=$("#examinationtypeId").val();
+    var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+    if(!typeName)
+    {
+        layer.msg("审批流程名称不能为空！");
+        return false;
+    }else if(pattern.test(typeName)){
+        layer.msg("审批流程名称存在非法字符！");
+        return false;
+    }
+    $.ajax({
+        url:formUrl+formUrlName,
+        type:'post',
+        data:"type="+type+"&typeName="+typeName+"&auditArchitecture="+auditArchitecture+"&teacherId1="+teacherId1+"&teacherId2="+teacherId2+"&teacherId3="+teacherId3+"&id="+examinationtypeId,
+        dataType:'json',
+        success:function(d){
+            if(d.status==0){
+                layer.msg(d.message);
+                window.location.href=formUrl;
+            }else{
+                layer.msg(d.message);
+            }
+        }
+    });
+}
