@@ -706,7 +706,7 @@ function submitexaminationtypeform()
         success:function(d){
             if(d.status==0){
                 layer.msg(d.message);
-                window.location.href=formUrl;
+                window.location.href=formUrl+"setTypeList";
             }else{
                 layer.msg(d.message);
             }

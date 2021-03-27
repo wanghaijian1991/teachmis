@@ -46,6 +46,12 @@ class departmentMod extends commonMod
      * 保存
      */
     public function add_save() {
+        $where[]='departmentName=."'.$_POST['departmentName'].'"';
+        $info=model('department')->info($where);
+        if($info)
+        {
+            $this->msg('部门名称已存在！',1);
+        }
         $departmentInfo['fid']=$_POST['fid'];
         $departmentInfo['departmentName']=$_POST['departmentName'];
         $departmentInfo['teacherId']=$_POST['teacherId'];

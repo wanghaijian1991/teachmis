@@ -64,9 +64,14 @@ class departmentModel extends commonModel
     }
 
     //查询列表
-    public function info($id)
+    public function info($data)
     {
-        $data=$this->model->table('department')->where('id='.$id." and schoolId=".$_SESSION["user_yg"]["schoolId"])->find();
+        $where="";
+        foreach($data as $k=>$v)
+        {
+            $where.=" and ".$v;
+        }
+        $data=$this->model->table('department')->where("schoolId=".$_SESSION["user_yg"]["schoolId"].$where)->find();
         return $data;
     }
 }
