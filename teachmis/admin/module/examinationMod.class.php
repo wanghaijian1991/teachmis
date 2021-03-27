@@ -51,19 +51,61 @@ class examinationMod extends commonMod
         $examinationtype['auditProcess']='';
         if($_POST['teacherId1'])
         {
-            $examinationtype['auditProcess']=','.$_POST['teacherId1'];
+            $examinationtype['auditProcess'].=','.$_POST['teacherId1'];
         }
         if($_POST['teacherId2'])
         {
-            $examinationtype['auditProcess']=','.$_POST['teacherId2'];
+            $examinationtype['auditProcess'].=','.$_POST['teacherId2'];
         }
         if($_POST['teacherId3'])
         {
-            $examinationtype['auditProcess']=','.$_POST['teacherId3'];
+            $examinationtype['auditProcess'].=','.$_POST['teacherId3'];
         }
         $examinationtype['auditProcess']=trim($examinationtype['auditProcess'],',');
         model('examinationtype')->add($examinationtype);
         $this->msg('添加审批流程成功！',0);
+    }
+
+    //审批流程修改
+    public function edit() {
+        $id=$_GET['id'];
+        $this->teachers=model("teachers")->list_select('');
+        $info=model('examinationtype')->info($id);
+        $this->assign("info",$info);
+        $this->action_name='编辑审批流程';
+        $this->action='edit';
+        $this->show('examination/info');
+    }
+
+    //保存审批流程修改
+    public function edit_save() {
+        //录入模型处理
+        $examinationtype['id']=$_POST['id'];
+        $examinationtype['type']=$_POST['type'];
+        $examinationtype['typeName']=$_POST['typeName'];
+        $examinationtype['auditArchitecture']=$_POST['auditArchitecture'];
+        $examinationtype['auditProcess']='';
+        if($_POST['teacherId1'])
+        {
+            $examinationtype['auditProcess'].=','.$_POST['teacherId1'];
+        }
+        if($_POST['teacherId2'])
+        {
+            $examinationtype['auditProcess'].=','.$_POST['teacherId2'];
+        }
+        if($_POST['teacherId3'])
+        {
+            $examinationtype['auditProcess'].=','.$_POST['teacherId3'];
+        }
+        model('examinationtype')->edit($examinationtype);
+        $this->msg('修改审批流程成功！',0);
+    }
+
+    //审批流程删除
+    public function del() {
+        $id=intval($_GET['id']);
+        //录入模型处理
+        model('examinationtype')->del($id);
     }
 }
 ?>
