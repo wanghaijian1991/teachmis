@@ -36,6 +36,7 @@ class departmentMod extends commonMod
     public function add()
     {
         $this->department=model("department")->list_select('');
+        $this->teachers=model("teachers")->list_select('');
         $this->action_name='添加部门';
         $this->action='add';
         $this->show('department/info');
