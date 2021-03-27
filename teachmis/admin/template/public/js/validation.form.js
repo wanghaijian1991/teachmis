@@ -651,6 +651,7 @@ function submitdepartmentIdform()
     var formUrlName=$("#formUrlName").val();
     var fid=$("#fid").val();
     var departmentName=$("#departmentName").val();
+    var teacherId=$("#teacherId").val();
     var departmentId=$("#departmentId").val();
     var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
     if(!departmentName)
@@ -664,7 +665,7 @@ function submitdepartmentIdform()
     $.ajax({
         url:formUrl+formUrlName,
         type:'post',
-        data:"fid="+fid+"&departmentName="+departmentName+"&id="+departmentId,
+        data:"fid="+fid+"&departmentName="+departmentName+"&teacherId="+teacherId+"&id="+departmentId,
         dataType:'json',
         success:function(d){
             if(d.status==0){
