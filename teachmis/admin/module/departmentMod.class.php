@@ -48,6 +48,7 @@ class departmentMod extends commonMod
     public function add_save() {
         $departmentInfo['fid']=$_POST['fid'];
         $departmentInfo['departmentName']=$_POST['departmentName'];
+        $departmentInfo['teacherId']=$_POST['teacherId'];
         $departmentId=model('department')->addInfo($departmentInfo);
         $this->msg('添加部门成功！',0,$departmentId);
     }
