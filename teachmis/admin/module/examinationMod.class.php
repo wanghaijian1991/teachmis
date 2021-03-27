@@ -70,7 +70,7 @@ class examinationMod extends commonMod
     public function edit() {
         $id=$_GET['id'];
         $this->teachers=model("teachers")->list_select('');
-        $info=model('examinationtype')->info($id);
+        $info=model('examinationtype')->info(array('id='.$id));
         $this->assign("info",$info);
         $this->action_name='编辑审批流程';
         $this->action='edit';

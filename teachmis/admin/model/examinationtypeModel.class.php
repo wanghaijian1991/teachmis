@@ -80,5 +80,17 @@ class examinationtypeModel extends commonModel
         $examinationtypeId=$this->model->table('examinationtype')->data($data)->insert();
         return $examinationtypeId;
     }
+
+    //查询列表
+    public function info($data)
+    {
+        $where="";
+        foreach($data as $k=>$v)
+        {
+            $where.=" and ".$v;
+        }
+        $data=$this->model->table('examinationtype')->where("schoolId=".$_SESSION["user_yg"]["schoolId"].$where)->find();
+        return $data;
+    }
 }
 ?>
