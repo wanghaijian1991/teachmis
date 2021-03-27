@@ -15,33 +15,36 @@ class examinationtypeModel extends commonModel
             ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"])
             ->limit($limit)
             ->select();
-        foreach($data as &$v)
+        if($data)
         {
-            $config=$this->config['type'];
-            $v['type']=$config[$v['type']];
-            switch($v['auditArchitecture'])
+            foreach($data as &$v)
             {
-                case 0:
-                    $v['auditArchitecture']='自定义';
-                    break;
-                case 1:
-                    $v['auditArchitecture']='当前部门';
-                    break;
-                case 2:
-                    $v['auditArchitecture']='全流程';
-                    break;
-            }
-            $teacherinfo=array();
-            if($v['auditProcess'])
-            {
-                $teacherinfo=$this->model->field('group_concat(teacherName) as auditProcess')->table('teacher')->where('schoolId='.$_SESSION["user_yg"]["schoolId"].' and teacherId in('.$v['auditProcess'].')')->group('schoolId')->order('teacherPosition DESC')->find();
-            }
-            $v['auditProcess']=$teacherinfo['auditProcess']?$teacherinfo['auditProcess']:'';
-            if($v['status']==0)
-            {
-                $v['status']='正常';
-            }else{
-                $v['status']='删除';
+                $config=$this->config['type'];
+                $v['type']=$config[$v['type']];
+                switch($v['auditArchitecture'])
+                {
+                    case 0:
+                        $v['auditArchitecture']='自定义';
+                        break;
+                    case 1:
+                        $v['auditArchitecture']='当前部门';
+                        break;
+                    case 2:
+                        $v['auditArchitecture']='全流程';
+                        break;
+                }
+                $teacherinfo=array();
+                if($v['auditProcess'])
+                {
+                    $teacherinfo=$this->model->field('group_concat(teacherName) as auditProcess')->table('teacher')->where('schoolId='.$_SESSION["user_yg"]["schoolId"].' and teacherId in('.$v['auditProcess'].')')->group('schoolId')->order('teacherPosition DESC')->find();
+                }
+                $v['auditProcess']=$teacherinfo['auditProcess']?$teacherinfo['auditProcess']:'';
+                if($v['status']==0)
+                {
+                    $v['status']='正常';
+                }else{
+                    $v['status']='删除';
+                }
             }
         }
         return $data;

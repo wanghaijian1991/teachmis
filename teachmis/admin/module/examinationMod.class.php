@@ -36,43 +36,34 @@ class examinationMod extends commonMod
     public function add()
     {
         $this->teachers=model("teachers")->list_select('');
-        $this->action_name='添加课程表';
+        $this->action_name='添加审批流程';
         $this->action='add';
-        $this->show('curriculum/info');
+        $this->show('examination/info');
     }
 
     /**
      * 保存
      */
     public function add_save() {
-        $classInfo=model('classs')->info($_POST['classId']);
-        $curriculum['curriculumName']=$classInfo['className'];
-        $curriculum['classId']=$_POST['classId'];
-        $validation=array(
-            array('field'=>'classId','name'=>'班级','type'=>1,'prompt'=>'班级不能为空！')
-        );
-        $return=$this->validation_field($validation,$_POST);
-        if($return['status']==1)
+        $examinationtype['type']=$_POST['type'];
+        $examinationtype['typeName']=$_POST['typeName'];
+        $examinationtype['auditArchitecture']=$_POST['auditArchitecture'];
+        $examinationtype['auditProcess']='';
+        if($_POST['teacherId1'])
         {
-            $this->msg($return['msg'],1);
-            return;
+            $examinationtype['auditProcess']=','.$_POST['teacherId1'];
         }
-        if(!$_POST['curriculumId'])
+        if($_POST['teacherId2'])
         {
-            $curriculumId=model('curriculum')->add($curriculum);
-        }else{
-            $curriculumId=$_POST['curriculumId'];
+            $examinationtype['auditProcess']=','.$_POST['teacherId2'];
         }
-        $curriculumInfo['curriculumId']=$curriculumId;
-        $curriculumInfo['week']=$_POST['week'];
-        $curriculumInfo['weekSort']=$_POST['weekSort'];
-        $curriculumInfo['startTime']=$_POST['startTime'];
-        $curriculumInfo['endTime']=$_POST['endTime'];
-        $curriculumInfo['course']=$_POST['courseName'];
-        $curriculumInfo['teacherId']=$_POST['teacherId'];
-        $curriculumInfo['classId']=$_POST['classId'];
-        model('curriculum')->addInfo($curriculumInfo);
-        $this->msg('添加课程表成功！',0,$curriculumId);
+        if($_POST['teacherId3'])
+        {
+            $examinationtype['auditProcess']=','.$_POST['teacherId3'];
+        }
+        $examinationtype['auditProcess']=trim($examinationtype['auditProcess'],',');
+        model('examinationtype')->add($examinationtype);
+        $this->msg('添加审批流程成功！',0);
     }
 }
 ?>
