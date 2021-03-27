@@ -121,5 +121,8 @@ $config['SMTP_ceshi_NAME']='cnhonk@qq.com';//测试人邮件地址
 //$cookiedomain = '/'; 			// cookie 作用域
 //$cookiepath = 'http://localhost/qiche';			// cookie 作用路径
 
+//审批流程类型
+$config['type']=array('请假','物品领用','物品维修','用章申请','书籍借阅','采购申请');
+
 
 ?>
