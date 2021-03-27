@@ -17,6 +17,7 @@
                         <thead>
                         <tr>
                             <th>ID</th>
+                            <th>上级部门名称</th>
                             <th>部门名称</th>
                             <th>部门领导</th>
                             <th>操作</th>
@@ -26,6 +27,7 @@
                         <!--foreach:{$list $l}-->
                         <tr class="active">
                             <th scope="row">{$l.id}</th>
+                            <td>{$l.fidName}</td>
                             <td>{$l.departmentName}</td>
                             <td>{$l.teacherName}</td>
                             <td><a href="__APP__/department/edit/id-{$l.id}">修改</a></td>

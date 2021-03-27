@@ -16,6 +16,11 @@ class departmentModel extends commonModel
             ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"])
             ->limit($limit)
             ->select();
+        foreach($data as &$l)
+        {
+            $department=$this->model->table('department')->where('id='.$l['fid'])->find();
+            $l['fidName']=$department['departmentName'];
+        }
         return $data;
 
     }
