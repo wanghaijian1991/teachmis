@@ -610,6 +610,8 @@ function selectmyPractiseList(type)
 }
 function submitcurriculumform()
 {
+    var formUrl=$("#formUrl").val();
+    var formUrlName=$("#formUrlName").val();
     var classId=$("#classId").val();
     var week=$("#week").val();
     var weekSort=$("#weekSort").val();
@@ -619,11 +621,11 @@ function submitcurriculumform()
     var teacherId=$("#teacherId").val();
     var curriculumId=$("#curriculumId").val();
     var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
-    if(!curriculumName)
+    if(!courseName)
     {
         layer.msg("课程表名称不能为空！");
         return false;
-    }else if(pattern.test(curriculumName)){
+    }else if(pattern.test(courseName)){
         layer.msg("课程表名称存在非法字符！");
         return false;
     }
@@ -645,6 +647,8 @@ function submitcurriculumform()
 //部门管理提交表单
 function submitdepartmentIdform()
 {
+    var formUrl=$("#formUrl").val();
+    var formUrlName=$("#formUrlName").val();
     var fid=$("#fid").val();
     var departmentName=$("#departmentName").val();
     var departmentId=$("#departmentId").val();
@@ -675,6 +679,8 @@ function submitdepartmentIdform()
 //审批流程提交表单
 function submitexaminationtypeform()
 {
+    var formUrl=$("#formUrl").val();
+    var formUrlName=$("#formUrlName").val();
     var type=$("#type").val();
     var typeName=$("#typeName").val();
     var auditArchitecture=$("#auditArchitecture").val();
