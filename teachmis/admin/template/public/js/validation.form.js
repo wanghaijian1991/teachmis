@@ -50,6 +50,7 @@ function submitteacherform()
     var teacherCertification=$("#teacherCertification").val();
     var teacherTitle=$("#teacherTitle").val();
     var teacherPosition=$("#teacherPosition").val();
+    var graduationSchool=$("#graduationSchool").val();
     var gid=$("#gid").val();
     var formUrl=$("#formUrl").val();
     var formUrlName=$("#formUrlName").val();
@@ -81,7 +82,7 @@ function submitteacherform()
     $.ajax({
         url:formUrl+formUrlName,
         type:'post',
-        data:"teacherId="+teacherId+"&teacherName="+teacherName+"&teacherPassword="+teacherPassword+"&teacherPhone="+teacherPhone+"&teacherSex="+teacherSex+"&teacherBirth="+teacherBirth+"&teacherEdu="+teacherEdu+"&teacherAddress="+teacherAddress+"&gid="+gid+"&departmentId="+departmentId+"&teacherEmergencyPhone="+teacherEmergencyPhone+"&teacherCertification="+teacherCertification+"&teacherTitle="+teacherTitle+"&teacherPosition="+teacherPosition,
+        data:"teacherId="+teacherId+"&teacherName="+teacherName+"&teacherPassword="+teacherPassword+"&teacherPhone="+teacherPhone+"&teacherSex="+teacherSex+"&teacherBirth="+teacherBirth+"&teacherEdu="+teacherEdu+"&teacherAddress="+teacherAddress+"&gid="+gid+"&departmentId="+departmentId+"&teacherEmergencyPhone="+teacherEmergencyPhone+"&teacherCertification="+teacherCertification+"&teacherTitle="+teacherTitle+"&teacherPosition="+teacherPosition+"&graduationSchool="+graduationSchool,
         dataType:'json',
         success:function(d){
             if(d.status==0){
