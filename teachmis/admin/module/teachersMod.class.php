@@ -24,6 +24,7 @@ class teachersMod extends commonMod {
 
 	//用户添加
 	public function add() {
+        $this->department = model("department")->list_select('');
         $this->list=model('groupinfo')->admin_list();
 		$this->action_name='添加教师';
         $this->action='add';
@@ -56,6 +57,7 @@ class teachersMod extends commonMod {
 	}
 
     public function edit() {
+        $this->department = model("department")->list_select('');
         $this->list=model('groupinfo')->admin_list();
         $id=$_GET['id'];
         $info=model('teachers')->info($id);

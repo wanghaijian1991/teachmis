@@ -18,12 +18,23 @@
                             <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
                             <input type="hidden" id="formUrlName" name="formUrl" value="{$action}_save">
                             <div class="form-group">
-                                <label for="fid" class="col-sm-2 control-label">选择权限组</label>
+                                <label for="gid" class="col-sm-2 control-label">选择权限组</label>
                                 <div class="col-sm-8">
                                     <select name="gid" id="gid" class="form-control1">
                                         <option value="0"></option>
                                         <!--foreach:{$list $l}-->
                                         <option value="{$l.id}" <!--if:{$l["id"]==$info["gid"]}-->selected="selected"<!--{/if}-->>{$l.groupname}</option>
+                                        <!--{/foreach}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="departmentId" class="col-sm-2 control-label">所属部门</label>
+                                <div class="col-sm-8">
+                                    <select name="departmentId" id="departmentId" class="form-control1">
+                                        <option value="0"></option>
+                                        <!--foreach:{$department $l}-->
+                                        <option value="{$l.id}" <!--if:{$l["id"]==$info["departmentId"]}-->selected="selected"<!--{/if}-->>{$l.departmentName}</option>
                                         <!--{/foreach}-->
                                     </select>
                                 </div>
