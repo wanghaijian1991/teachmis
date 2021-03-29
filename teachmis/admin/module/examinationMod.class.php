@@ -71,6 +71,10 @@ class examinationMod extends commonMod
         $id=$_GET['id'];
         $this->teachers=model("teachers")->list_select('');
         $info=model('examinationtype')->info(array('id='.$id));
+        $arr=explode(',',$info['auditProcess']);
+        $info['teacherId1']=$arr[0];
+        $info['teacherId2']=$arr[1];
+        $info['teacherId3']=$arr[2];
         $this->assign("info",$info);
         $this->action_name='编辑审批流程';
         $this->action='edit';
