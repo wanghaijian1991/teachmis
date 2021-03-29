@@ -10,7 +10,7 @@ class teacherAttendanceModel extends commonModel
     public function infoList($search, $limit)
     {
         $data = $this->model->field('A.*')
-            ->table('teacherAttendance', 'A')
+            ->table('teacherAskLeave', 'A')
             ->where($search)
             ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"])
             ->limit($limit)
@@ -23,7 +23,7 @@ class teacherAttendanceModel extends commonModel
     public function infoCount($search)
     {
         $num = $this->model->field('A.*')
-            ->table('teacherAttendance', 'A')
+            ->table('teacherAskLeave', 'A')
             ->where($search)
             ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"])
             ->count();
