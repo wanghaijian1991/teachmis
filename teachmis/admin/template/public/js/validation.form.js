@@ -46,6 +46,10 @@ function submitteacherform()
     var teacherAddress=$("#teacherAddress").val();
     var teacherId=$("#teacherId").val();
     var departmentId=$("#departmentId").val();
+    var teacherEmergencyPhone=$("#teacherEmergencyPhone").val();
+    var teacherCertification=$("#teacherCertification").val();
+    var teacherTitle=$("#teacherTitle").val();
+    var teacherPosition=$("#teacherPosition").val();
     var gid=$("#gid").val();
     var formUrl=$("#formUrl").val();
     var formUrlName=$("#formUrlName").val();
@@ -77,7 +81,7 @@ function submitteacherform()
     $.ajax({
         url:formUrl+formUrlName,
         type:'post',
-        data:"teacherId="+teacherId+"&teacherName="+teacherName+"&teacherPassword="+teacherPassword+"&teacherPhone="+teacherPhone+"&teacherSex="+teacherSex+"&teacherBirth="+teacherBirth+"&teacherEdu="+teacherEdu+"&teacherAddress="+teacherAddress+"&gid="+gid+"&departmentId="+departmentId,
+        data:"teacherId="+teacherId+"&teacherName="+teacherName+"&teacherPassword="+teacherPassword+"&teacherPhone="+teacherPhone+"&teacherSex="+teacherSex+"&teacherBirth="+teacherBirth+"&teacherEdu="+teacherEdu+"&teacherAddress="+teacherAddress+"&gid="+gid+"&departmentId="+departmentId+"&teacherEmergencyPhone="+teacherEmergencyPhone+"&teacherCertification="+teacherCertification+"&teacherTitle="+teacherTitle+"&teacherPosition="+teacherPosition,
         dataType:'json',
         success:function(d){
             if(d.status==0){
