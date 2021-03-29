@@ -35,11 +35,34 @@ class teacherAttendanceMod extends commonMod
      */
     public function add()
     {
+        $examinationtype=model('examinationtype')->info(array('type=0 and status=0'));
         $this->department = model("department")->list_select('');
         $this->teachers = model("teachers")->list_select('');
+        $auditProcess=array();
+        switch($examinationtype['auditArchitecture'])
+        {
+            case 0:
+                $auditProcess=explode(',',$examinationtype['auditProcess']);
+                break;
+            case 1:
+                $teacher=model("teachers")->info($_SESSION["user_yg"]["id"]);
+                $department=model("department")->info(array('id='.$teacher['departmentId']));
+                $auditProcess[]=$department['teacherId'];
+                break;
+            case 2:
+                $teacher=model("teachers")->info($_SESSION["user_yg"]["id"]);
+                $department=model("department")->info(array('id='.$teacher['departmentId']));
+                $str=$department['teacherId'];
+                if($department['fid'])
+                {
+                    $str=$str.",".$this->getDepartmentLeader($department['fid']);
+                }
+                $auditProcess=explode(',',$str);
+        }
+        $this->auditProcess=$auditProcess;
         $this->action_name = '添加请假申请';
         $this->action = 'add';
-        $this->show('department/info');
+        $this->show('teacherAttendance/info');
     }
 
     /**
@@ -52,6 +75,20 @@ class teacherAttendanceMod extends commonMod
         $departmentInfo['teacherId'] = $_POST['teacherId'];
         $departmentId = model('department')->addInfo($departmentInfo);
         $this->msg('添加请假申请成功！', 0, $departmentId);
+    }
+
+    /**
+     * 获取上级部门领导
+    */
+    public function getDepartmentLeader($id)
+    {
+        $department=model("department")->info(array('id='.$id));
+        $str=$department['teacherId'];
+        if($department['fid'])
+        {
+            $str=$str.",".$this->getDepartmentLeader($department['fid']);
+        }
+        return $str;
     }
 }
 ?>

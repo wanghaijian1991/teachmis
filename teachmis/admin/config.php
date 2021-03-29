@@ -123,6 +123,8 @@ $config['SMTP_ceshi_NAME']='cnhonk@qq.com';//测试人邮件地址
 
 //审批流程类型
 $config['type']=array('请假','物品领用','物品维修','用章申请','书籍借阅','采购申请');
+//请假类型
+$config['AskLeave']=array('请选择','事假','调休','病假');
 
 
 ?>

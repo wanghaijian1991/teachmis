@@ -11,7 +11,7 @@
         <div class="col-md-12 graphs">
             <div class="xs">
                 <h3>{$menu_name}</h3>
-                <button type="button" class="btn btn-primary" style="float: right" onclick="window.location.href='__APP__/department/add'">新增</button>
+                <button type="button" class="btn btn-primary" style="float: right" onclick="window.location.href='__APP__/teacherAttendance/add'">新增</button>
                 <div class="bs-example4" data-example-id="contextual-table">
                     <table class="table">
                         <thead>
@@ -21,6 +21,7 @@
                             <th>请假时间</th>
                             <th>请假事由</th>
                             <th>工作代理人</th>
+                            <th>审批部门</th>
                             <th>审批状态</th>
                             <th>操作</th>
                         </tr>
@@ -32,6 +33,7 @@
                             <td>{$l.askLeaveType}</td>
                             <td>{$l.askLeaveTime}</td>
                             <td>{$l.askLeaveCause}</td>
+                            <td>{$l.askLeaveAgent}</td>
                             <td>{$l.askLeaveAgent}</td>
                             <td>{$l.askLeaveStatus}</td>
                             <td><a href="__APP__/department/edit/id-{$l.id}">修改</a></td>
