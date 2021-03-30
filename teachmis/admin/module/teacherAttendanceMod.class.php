@@ -119,8 +119,58 @@ class teacherAttendanceMod extends commonMod
 
     //保存申请修改
     public function edit_save() {
+        $teacherAskLeave['id']=$_POST['id'];
+        $teacherAskLeave['askLeaveType']=$_POST['askLeaveType'];
+        $teacherAskLeave['askLeaveTimeStart']=$_POST['askLeaveTimeStart'];
+        $teacherAskLeave['askLeaveTimeEnd']=$_POST['askLeaveTimeEnd'];
+        $teacherAskLeave['askLeaveCause']=$_POST['askLeaveCause'];
+        $teacherAskLeave['askLeaveAgent']=$_POST['askLeaveAgent'];
+        $teacherAskLeave['auditProcess']='';
+        if($_POST['teacherId1'])
+        {
+            $teacherAskLeave['auditProcess'].=','.$_POST['teacherId1'];
+        }
+        if($_POST['teacherId2'])
+        {
+            $teacherAskLeave['auditProcess'].=','.$_POST['teacherId2'];
+        }
+        if($_POST['teacherId3'])
+        {
+            $teacherAskLeave['auditProcess'].=','.$_POST['teacherId3'];
+        }
+        $teacherAskLeave['auditProcess']=trim($teacherAskLeave['auditProcess'],',');
         //录入模型处理
-        model('teacherAttendance')->edit($_POST);
+        model('teacherAttendance')->edit($teacherAskLeave);
+        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);
+        $data=array();
+        $sort=0;
+        foreach($auditProcess as $key=>$v)
+        {
+            $arr=array();
+            $arr['schoolId']=$_SESSION["user_yg"]["schoolId"];
+            $arr['teacherId']=$v;
+            $arr['applyId']=$teacherAskLeave['id'];
+            $arr['type']=0;
+            $arr['createTime']=date("Y-m-d H:i:s");
+            $examinationTeacher=model('examinationTeacher')->info(array('applyId='.$teacherAskLeave['id'],'teacherId='.$v,'status>=0'));
+            if($examinationTeacher)
+            {
+                $sort++;
+                $update=array();
+                $update['sort']=$sort;
+                $update['id']=$examinationTeacher['id'];
+                model('examinationTeacher')->edit($update);
+            }else{
+                $sort++;
+                $arr['sort']=$sort;
+                $data[]=$arr;
+            }
+        }
+        $update=array();
+        $update['status']=-1;
+        $update['id']=$teacherAskLeave['auditProcess'];
+        model('examinationTeacher')->edit($data,1);
+        model('examinationTeacher')->add($data);
         $this->msg('修改申请成功！',0);
     }
 
