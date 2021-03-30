@@ -36,7 +36,7 @@
                             <td>{$l.teacherName}</td>
                             <td>{$l.askLeaveAgent}</td>
                             <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核通过<!--{/if}--></td>
-                            <td><a href="__APP__/department/teacherAttendance/id-{$l.id}">修改</a></td>
+                            <td><a href="__APP__/teacherAttendance/edit/id-{$l.id}">修改</a></td>
                         </tr>
                         <!--{/foreach}-->
                         </tbody>
