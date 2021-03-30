@@ -719,3 +719,41 @@ function submitexaminationtypeform()
         }
     });
 }
+//请假申请
+function submitattendanceform()
+{
+    var formUrl=$("#formUrl").val();
+    var formUrlName=$("#formUrlName").val();
+    var askLeaveType=$("#askLeaveType").val();
+    var askLeaveTimeStart=$("#askLeaveTimeStart").val();
+    var askLeaveTimeEnd=$("#askLeaveTimeEnd").val();
+    var askLeaveCause=$("#askLeaveCause").val();
+    var askLeaveAgent=$("#askLeaveAgent").val();
+    var teacherId1=$("#teacherId1").val();
+    var teacherId2=$("#teacherId2").val();
+    var teacherId3=$("#teacherId3").val();
+    var teacherAskLeaveId=$("#teacherAskLeaveId").val();
+    var pattern = new RegExp("[~'!@#$%^&*()-+_=:]");
+    if(!askLeaveCause)
+    {
+        layer.msg("请假事由不能为空！");
+        return false;
+    }else if(pattern.test(askLeaveCause)){
+        layer.msg("请假事由存在非法字符！");
+        return false;
+    }
+    $.ajax({
+        url:formUrl+formUrlName,
+        type:'post',
+        data:"askLeaveType="+askLeaveType+"&askLeaveTimeStart="+askLeaveTimeStart+"&askLeaveTimeEnd="+askLeaveTimeEnd+"&teacherId1="+teacherId1+"&teacherId2="+teacherId2+"&teacherId3="+teacherId3+"&askLeaveCause="+askLeaveCause+"&askLeaveAgent="+askLeaveAgent+"&id="+teacherAskLeaveId,
+        dataType:'json',
+        success:function(d){
+            if(d.status==0){
+                layer.msg(d.message);
+                window.location.href=formUrl;
+            }else{
+                layer.msg(d.message);
+            }
+        }
+    });
+}

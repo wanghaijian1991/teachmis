@@ -36,7 +36,8 @@ class teacherAttendanceModel extends commonModel
     {
         $data['createTime']=date("Y-m-d H:i:s");
         $data['schoolId']=$_SESSION["user_yg"]["schoolId"];
-        $curriculumId=$this->model->table('department')->data($data)->insert();
+        $data['teacherId']=$_SESSION["user_yg"]["id"];
+        $curriculumId=$this->model->table('teacherAskLeave')->data($data)->insert();
         return $curriculumId;
     }
 

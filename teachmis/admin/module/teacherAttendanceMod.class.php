@@ -71,25 +71,9 @@ class teacherAttendanceMod extends commonMod
      */
     public function add_save()
     {
-        $departmentInfo['fid'] = $_POST['fid'];
-        $departmentInfo['departmentName'] = $_POST['departmentName'];
-        $departmentInfo['teacherId'] = $_POST['teacherId'];
-        $departmentId = model('department')->addInfo($departmentInfo);
+        unset($_POST['id']);
+        $departmentId = model('teacherAttendance')->add($_POST);
         $this->msg('添加请假申请成功！', 0, $departmentId);
-    }
-
-    /**
-     * 获取上级部门领导
-    */
-    public function getDepartmentLeader($id)
-    {
-        $department=model("department")->info(array('id='.$id));
-        $str=$department['teacherId'];
-        if($department['fid'])
-        {
-            $str=$str.",".$this->getDepartmentLeader($department['fid']);
-        }
-        return $str;
     }
 }
 ?>
