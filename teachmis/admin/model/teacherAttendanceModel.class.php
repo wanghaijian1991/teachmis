@@ -11,7 +11,7 @@ class teacherAttendanceModel extends commonModel
     {
         $data = $this->model->field('A.*,B.teacherName')
             ->table('teacherAskLeave', 'A')
-            ->table('teacher', 'B','A.teacherId=B.teacherId')
+            ->add_table('teacher', 'B','A.teacherId=B.teacherId')
             ->where($search)
             ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"])
             ->limit($limit)
