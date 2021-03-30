@@ -56,5 +56,13 @@ class curriculumModel extends commonModel
         $curriculumId=$this->model->table('curriculuminfo')->data($data)->insert();
         return $curriculumId;
     }
+
+    //编辑
+    public function edit($data)
+    {
+        $data['editTime']=date("Y-m-d H:i:s");
+        $id=$this->model->table('curriculum')->data($data)->where("id=".$data["id"])->update();
+        return $id;
+    }
 }
 ?>

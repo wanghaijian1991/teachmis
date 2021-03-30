@@ -90,8 +90,45 @@ class teacherAttendanceMod extends commonMod
             $teacherAskLeave['auditProcess'].=','.$_POST['teacherId3'];
         }
         $teacherAskLeave['auditProcess']=trim($teacherAskLeave['auditProcess'],',');
-        $departmentId = model('teacherAttendance')->add($teacherAskLeave);
-        $this->msg('添加请假申请成功！', 0, $departmentId);
+        $id = model('teacherAttendance')->add($teacherAskLeave);
+        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);
+        $data=array();
+        foreach($auditProcess as $v)
+        {
+            $arr['schoolId']=$_SESSION["user_yg"]["schoolId"];
+            $arr['teacherId']=$v;
+            $arr['applyId']=$id;
+            $arr['type']=0;
+            $arr['createTime']=date("Y-m-d H:i:s");
+            $data[]=$arr;
+        }
+        model('examinationTeacher')->add($data);
+        $this->msg('添加请假申请成功！', 0, $id);
+    }
+
+    //修改
+    public function edit() {
+        $id=$_GET['id'];
+        $this->department=model("department")->list_select('');
+        $info=model('teacherAttendance')->info('id='.$id);
+        $this->assign("info",$info);
+        $this->action_name='编辑申请';
+        $this->action='edit';
+        $this->show('teacherAttendance/info');
+    }
+
+    //保存申请修改
+    public function edit_save() {
+        //录入模型处理
+        model('teacherAttendance')->edit($_POST);
+        $this->msg('修改申请成功！',0);
+    }
+
+    //部门删除
+    public function del() {
+        $id=intval($_GET['id']);
+        //录入模型处理
+        model('department')->del($id);
     }
 }
 ?>

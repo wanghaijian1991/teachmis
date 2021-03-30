@@ -74,5 +74,13 @@ class departmentModel extends commonModel
         $data=$this->model->table('department')->where("schoolId=".$_SESSION["user_yg"]["schoolId"].$where)->find();
         return $data;
     }
+
+    //编辑
+    public function edit($data)
+    {
+        $data['editTime']=date("Y-m-d H:i:s");
+        $id=$this->model->table('curriculum')->data($data)->where("id=".$data["id"])->update();
+        return $id;
+    }
 }
 ?>

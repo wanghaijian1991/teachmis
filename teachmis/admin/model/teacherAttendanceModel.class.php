@@ -9,8 +9,9 @@ class teacherAttendanceModel extends commonModel
     //获取列表
     public function infoList($search, $limit)
     {
-        $data = $this->model->field('A.*')
+        $data = $this->model->field('A.*,B.teacherName')
             ->table('teacherAskLeave', 'A')
+            ->table('teacher', 'B','A.teacherId=B.teacherId')
             ->where($search)
             ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"])
             ->limit($limit)
@@ -37,14 +38,14 @@ class teacherAttendanceModel extends commonModel
         $data['createTime']=date("Y-m-d H:i:s");
         $data['schoolId']=$_SESSION["user_yg"]["schoolId"];
         $data['teacherId']=$_SESSION["user_yg"]["id"];
-        $curriculumId=$this->model->table('teacherAskLeave')->data($data)->insert();
-        return $curriculumId;
+        $id=$this->model->table('teacherAskLeave')->data($data)->insert();
+        return $id;
     }
 
     //查询列表
     public function list_select($where)
     {
-        $data=$this->model->table('department')->where($where)->where("schoolId=".$_SESSION["user_yg"]["schoolId"])->select();
+        $data=$this->model->table('teacherAskLeave')->where($where)->where("schoolId=".$_SESSION["user_yg"]["schoolId"])->select();
         return $data;
     }
 
@@ -56,8 +57,16 @@ class teacherAttendanceModel extends commonModel
         {
             $where.=" and ".$v;
         }
-        $data=$this->model->table('department')->where("schoolId=".$_SESSION["user_yg"]["schoolId"].$where)->find();
+        $data=$this->model->table('teacherAskLeave')->where("schoolId=".$_SESSION["user_yg"]["schoolId"].$where)->find();
         return $data;
+    }
+
+    //编辑
+    public function edit($data)
+    {
+        $data['editTime']=date("Y-m-d H:i:s");
+        $id=$this->model->table('teacherAskLeave')->data($data)->where("id=".$data["id"])->update();
+        return $id;
     }
 }
 ?>

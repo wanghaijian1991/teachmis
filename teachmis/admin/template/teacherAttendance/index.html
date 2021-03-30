@@ -21,7 +21,7 @@
                             <th>请假时间</th>
                             <th>请假事由</th>
                             <th>工作代理人</th>
-                            <th>审批部门</th>
+                            <th>审批人员</th>
                             <th>审批状态</th>
                             <th>操作</th>
                         </tr>
@@ -33,7 +33,7 @@
                             <td>{$l.askLeaveType}</td>
                             <td>{$l.askLeaveTimeStart}-{$l.askLeaveTimeEnd}</td>
                             <td>{$l.askLeaveCause}</td>
-                            <td>{$l.askLeaveAgent}</td>
+                            <td>{$l.teacherName}</td>
                             <td>{$l.askLeaveAgent}</td>
                             <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核通过<!--{/if}--></td>
                             <td><a href="__APP__/department/teacherAttendance/id-{$l.id}">修改</a></td>
