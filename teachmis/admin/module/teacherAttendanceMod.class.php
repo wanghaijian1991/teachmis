@@ -71,8 +71,26 @@ class teacherAttendanceMod extends commonMod
      */
     public function add_save()
     {
-        unset($_POST['id']);
-        $departmentId = model('teacherAttendance')->add($_POST);
+        $teacherAskLeave['askLeaveType']=$_POST['askLeaveType'];
+        $teacherAskLeave['askLeaveTimeStart']=$_POST['askLeaveTimeStart'];
+        $teacherAskLeave['askLeaveTimeEnd']=$_POST['askLeaveTimeEnd'];
+        $teacherAskLeave['askLeaveCause']=$_POST['askLeaveCause'];
+        $teacherAskLeave['askLeaveAgent']=$_POST['askLeaveAgent'];
+        $teacherAskLeave['auditProcess']='';
+        if($_POST['teacherId1'])
+        {
+            $teacherAskLeave['auditProcess'].=','.$_POST['teacherId1'];
+        }
+        if($_POST['teacherId2'])
+        {
+            $teacherAskLeave['auditProcess'].=','.$_POST['teacherId2'];
+        }
+        if($_POST['teacherId3'])
+        {
+            $teacherAskLeave['auditProcess'].=','.$_POST['teacherId3'];
+        }
+        $teacherAskLeave['auditProcess']=trim($teacherAskLeave['auditProcess'],',');
+        $departmentId = model('teacherAttendance')->add($teacherAskLeave);
         $this->msg('添加请假申请成功！', 0, $departmentId);
     }
 }
