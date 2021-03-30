@@ -31,12 +31,12 @@
                         <tr class="active">
                             <th scope="row">{$key}</th>
                             <td>{$l.askLeaveType}</td>
-                            <td>{$l.askLeaveTime}</td>
+                            <td>{$l.askLeaveTimeStart}-{$l.askLeaveTimeEnd}</td>
                             <td>{$l.askLeaveCause}</td>
                             <td>{$l.askLeaveAgent}</td>
                             <td>{$l.askLeaveAgent}</td>
-                            <td>{$l.askLeaveStatus}</td>
-                            <td><a href="__APP__/department/edit/id-{$l.id}">修改</a></td>
+                            <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核通过<!--{/if}--></td>
+                            <td><a href="__APP__/department/teacherAttendance/id-{$l.id}">修改</a></td>
                         </tr>
                         <!--{/foreach}-->
                         </tbody>
