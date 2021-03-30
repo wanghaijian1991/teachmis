@@ -58,6 +58,7 @@ class teacherAttendanceMod extends commonMod
                     $str=$str.",".$this->getDepartmentLeader($department['fid']);
                 }
                 $auditProcess=explode(',',$str);
+                break;
         }
         $this->auditProcess=$auditProcess;
         $this->action_name = '添加请假申请';
