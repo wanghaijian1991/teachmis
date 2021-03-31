@@ -109,6 +109,7 @@ class teacherAttendanceMod extends commonMod
     //修改
     public function edit() {
         $id=$_GET['id'];
+        $this->teachers = model("teachers")->list_select('');
         $this->department=model("department")->list_select('');
         $info=model('teacherAttendance')->info(array('id='.$id));
         $this->assign("info",$info);
