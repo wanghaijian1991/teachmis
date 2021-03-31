@@ -112,7 +112,9 @@ class teacherAttendanceMod extends commonMod
         $this->teachers = model("teachers")->list_select('');
         $this->department=model("department")->list_select('');
         $info=model('teacherAttendance')->info(array('id='.$id));
+        $auditProcess=explode(',',$info['auditProcess']);
         $this->assign("info",$info);
+        $this->assign("auditProcess",$auditProcess);
         $this->action_name='编辑申请';
         $this->action='edit';
         $this->show('teacherAttendance/info');
