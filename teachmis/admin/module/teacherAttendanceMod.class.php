@@ -93,12 +93,16 @@ class teacherAttendanceMod extends commonMod
         $id = model('teacherAttendance')->add($teacherAskLeave);
         $auditProcess=explode(',',$teacherAskLeave['auditProcess']);
         $data=array();
-        foreach($auditProcess as $v)
+        foreach($auditProcess as $k=>$v)
         {
             $arr['schoolId']=$_SESSION["user_yg"]["schoolId"];
             $arr['teacherId']=$v;
             $arr['applyId']=$id;
             $arr['type']=0;
+            if($k==0)
+            {
+                $arr['status']=1;
+            }
             $arr['createTime']=date("Y-m-d H:i:s");
             $data[]=$arr;
         }

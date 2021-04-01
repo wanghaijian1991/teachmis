@@ -35,8 +35,8 @@
                             <td>{$l.askLeaveCause}</td>
                             <td>{$l.teacherName}</td>
                             <td>{$l.askLeaveAgent}</td>
-                            <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核通过<!--{/if}--></td>
-                            <td><a href="__APP__/teacherAttendance/edit/id-{$l.id}">修改</a></td>
+                            <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核中<!--{/if}--><!--if:{$l['askLeaveStatus']==2}-->审核通过<!--{/if}--><!--if:{$l['askLeaveStatus']==-2}-->已驳回<!--{/if}--></td>
+                            <td><!--if:{$l['askLeaveStatus']==0}--><a href="__APP__/teacherAttendance/edit/id-{$l.id}">修改</a><!--{/if}--></td>
                         </tr>
                         <!--{/foreach}-->
                         </tbody>

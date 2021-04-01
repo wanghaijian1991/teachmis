@@ -6,6 +6,35 @@ class examinationTeacherModel extends commonModel
         parent::__construct();
     }
 
+    //获取列表
+    public function infoList($search, $limit)
+    {
+        $data = $this->model->field('A.*,B.askLeaveType,B.askLeaveTimeStart,B.askLeaveTimeEnd,B.askLeaveCause,B.askLeaveAgent,B.askLeaveStatus,C.teacherName')
+            ->table('examinationTeacher', 'A')
+            ->add_table('teacherAskLeave', 'B','A.applyId=B.id')
+            ->add_table('teacher', 'C','B.teacherId=C.teacherId')
+            ->where($search)
+            ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"]." and A.status!=0")
+            ->limit($limit)
+            ->select();
+        return $data;
+
+    }
+
+    //获取总数
+    public function infoCount($search)
+    {
+        $num = $this->model->field('A.*,B.askLeaveType,B.askLeaveTimeStart,B.askLeaveTimeEnd,B.askLeaveCause,B.askLeaveAgent,B.askLeaveStatus,C.teacherName')
+            ->table('examinationTeacher', 'A')
+            ->add_table('teacherAskLeave', 'B','A.applyId=B.id')
+            ->add_table('teacher', 'C','B.teacherId=C.teacherId')
+            ->where($search)
+            ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"]." and A.status!=0")
+            ->count();
+        return $num;
+
+    }
+
     //添加
     public function add($data)
     {
