@@ -102,6 +102,8 @@ class teacherAttendanceMod extends commonMod
             if($k==0)
             {
                 $arr['status']=1;
+            }else{
+                $arr['status']=0;
             }
             $arr['createTime']=date("Y-m-d H:i:s");
             $data[]=$arr;
