@@ -158,25 +158,18 @@ class teacherAttendanceMod extends commonMod
             $arr['teacherId']=$v;
             $arr['applyId']=$teacherAskLeave['id'];
             $arr['type']=0;
-            $arr['createTime']=date("Y-m-d H:i:s");
-            $examinationTeacher=model('examinationTeacher')->info(array('applyId='.$teacherAskLeave['id'],'teacherId='.$v,'status>=0'));
-            if($examinationTeacher)
+            if($key==0)
             {
-                $sort++;
-                $update=array();
-                $update['sort']=$sort;
-                $update['id']=$examinationTeacher['id'];
-                model('examinationTeacher')->edit($update);
-            }else{
-                $sort++;
-                $arr['sort']=$sort;
-                $data[]=$arr;
+                $arr['status']=1;
             }
+            $arr['sort']=$key;
+            $arr['createTime']=date("Y-m-d H:i:s");
+            $data[]=$arr;
         }
         $update=array();
-        $update['status']=-1;
-        $update['id']=$teacherAskLeave['auditProcess'];
-        model('examinationTeacher')->edit($data,1);
+        $update['status']=-2;
+        $where['applyId']=$teacherAskLeave['id'];
+        model('examinationTeacher')->update($update,$where);
         model('examinationTeacher')->add($data);
         $this->msg('修改申请成功！',0);
     }

@@ -67,5 +67,13 @@ class examinationTeacherModel extends commonModel
         }
         return $id;
     }
+
+    //编辑
+    public function update($data,$where)
+    {
+        $data['editTime']=date("Y-m-d H:i:s");
+        $id=$this->model->table('examinationTeacher')->data($data)->where($where)->update();
+        return $id;
+    }
 }
 ?>
