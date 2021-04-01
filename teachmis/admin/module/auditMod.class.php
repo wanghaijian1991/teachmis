@@ -29,5 +29,35 @@ class auditMod extends commonMod
         $this->page = $this->page($url, $num, $listRows);
         $this->show();
     }
+
+    /**
+     * 审核
+    */
+    public function audit()
+    {
+        $info=model('examinationTeacher')->info(array('id='.$_POST['id'],'teacherId='.$_SESSION["user_yg"]["id"]));
+        if($info['status']!=1)
+        {
+            $this->msg('当前审核数据不存在！', 1);
+        }
+        $data['status']=2;
+        $where['id']=$_POST['id'];
+        $status=model('examinationTeacher')->update($data,$where);
+        if($status)
+        {
+            $teacherAttendance['askLeaveStatus']=1;
+            $teacherAttendance['id']=$info['applyId'];
+            $status_ta=model('teacherAttendance')->edit($teacherAttendance);
+            if($status_ta)
+            {
+                $info=model('examinationTeacher')->info(array('id='.$_POST['id'],'teacherId='.$_SESSION["user_yg"]["id"]));
+            }
+        }
+    }
+
+    /**
+     * 驳回
+    */
+    public function rejected(){}
 }
 ?>

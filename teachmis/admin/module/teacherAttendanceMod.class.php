@@ -105,8 +105,8 @@ class teacherAttendanceMod extends commonMod
             }
             $arr['createTime']=date("Y-m-d H:i:s");
             $data[]=$arr;
-        }
-        model('examinationTeacher')->add($data);
+        }print_r($data);
+        $status=model('examinationTeacher')->add($data);print_r($status);
         $this->msg('添加请假申请成功！', 0, $id);
     }
 
