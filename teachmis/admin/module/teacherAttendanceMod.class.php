@@ -150,7 +150,7 @@ class teacherAttendanceMod extends commonMod
         $teacherAskLeave['auditProcess']=trim($teacherAskLeave['auditProcess'],',');
         //录入模型处理
         model('teacherAttendance')->edit($teacherAskLeave);
-        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);
+        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);print_r($auditProcess);print_r($teacherAskLeave);
         $data=array();
         $sort=0;
         foreach($auditProcess as $key=>$v)
@@ -167,7 +167,7 @@ class teacherAttendanceMod extends commonMod
             $arr['sort']=$key;
             $arr['createTime']=date("Y-m-d H:i:s");
             $data[]=$arr;
-        }
+        }print_r($data);
         $update=array();
         $update['status']=-2;
         $where['applyId']=$teacherAskLeave['id'];
