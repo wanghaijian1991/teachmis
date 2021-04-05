@@ -74,6 +74,7 @@ class auditMod extends commonMod
                 }
             }
         }
+        $this->msg('审核成功！',0);
     }
 
     /**
