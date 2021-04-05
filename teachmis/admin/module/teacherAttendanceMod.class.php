@@ -150,7 +150,7 @@ class teacherAttendanceMod extends commonMod
         $teacherAskLeave['auditProcess']=trim($teacherAskLeave['auditProcess'],',');
         //录入模型处理
         model('teacherAttendance')->edit($teacherAskLeave);
-        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);print_r($auditProcess);
+        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);
         $update=array();
         $update['status']=-2;
         $where['applyId']=$teacherAskLeave['id'];

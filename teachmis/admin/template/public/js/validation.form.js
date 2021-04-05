@@ -750,7 +750,29 @@ function submitattendanceform()
         success:function(d){
             if(d.status==0){
                 layer.msg(d.message);
-                //window.location.href=formUrl;
+                window.location.href=formUrl;
+            }else{
+                layer.msg(d.message);
+            }
+        }
+    });
+}
+function auditApply(id,type=0)
+{
+    if(!id)
+    {
+        layer.msg("审核错误信息！");
+    }
+    var formUrl=$("#formUrl").val();
+    $.ajax({
+        url:formUrl+"audit",
+        type:'post',
+        data:"id="+id+"&type="+type,
+        dataType:'json',
+        success:function(d){
+            if(d.status==0){
+                layer.msg(d.message);
+                window.location.href=formUrl;
             }else{
                 layer.msg(d.message);
             }

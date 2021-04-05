@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{$menu_name}</title>
+    <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>{$menu_name}</h3>
+                <button type="button" class="btn btn-primary" style="float: right" onclick="window.location.href='__APP__/teacherAttendance/add'">新增</button>
+                <input type="hidden" id="formUrl" name="formUrl" value="__URL__/">
+                <div class="bs-example4" data-example-id="contextual-table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>教师名称</th>
+                            <th>请假时间</th>
+                            <th>请假事由</th>
+                            <th>工作代理人</th>
+                            <th>审批状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--foreach:{$list $key=>$l}-->
+                        <tr class="active">
+                            <th scope="row">{$key}</th>
+                            <td>{$l.teacherName}</td>
+                            <td>{$l.askLeaveTimeStart}-{$l.askLeaveTimeEnd}</td>
+                            <td>{$l.askLeaveCause}</td>
+                            <td>{$l.askLeaveAgent}</td>
+                            <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核中<!--{/if}--><!--if:{$l['askLeaveStatus']==2}-->审核通过<!--{/if}--><!--if:{$l['askLeaveStatus']==-1}-->已驳回<!--{/if}--></td>
+                            <td><!--if:{$l['askLeaveStatus']==1}--><a href="javascript:void(0)" onclick="auditApply({$l.id},0)">审核</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="auditApply({$l.id},1)">驳回</a><!--{/if}--></td>
+                        </tr>
+                        <!--{/foreach}-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -9,12 +9,13 @@ class examinationTeacherModel extends commonModel
     //获取列表
     public function infoList($search, $limit)
     {
-        $data = $this->model->field('A.*,B.askLeaveType,B.askLeaveTimeStart,B.askLeaveTimeEnd,B.askLeaveCause,B.askLeaveAgent,B.askLeaveStatus,C.teacherName')
+        $data = $this->model->field('A.*,B.askLeaveType,B.askLeaveTimeStart,B.askLeaveTimeEnd,B.askLeaveCause,B.askLeaveAgent,B.askLeaveStatus,C.teacherName,D.askLeaveAgent')
             ->table('examinationTeacher', 'A')
             ->add_table('teacherAskLeave', 'B','A.applyId=B.id')
             ->add_table('teacher', 'C','B.teacherId=C.teacherId')
+            ->add_table('teacher', 'D','B.askLeaveAgent=D.teacherId')
             ->where($search)
-            ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"]." and A.status!=0")
+            ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"]." and A.status=1 and A.teacherId=".$_SESSION["user_yg"]["id"]." and A.status>-2")
             ->limit($limit)
             ->select();
         return $data;
@@ -29,7 +30,7 @@ class examinationTeacherModel extends commonModel
             ->add_table('teacherAskLeave', 'B','A.applyId=B.id')
             ->add_table('teacher', 'C','B.teacherId=C.teacherId')
             ->where($search)
-            ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"]." and A.status!=0")
+            ->where("A.schoolId=" . $_SESSION["user_yg"]["schoolId"]." and A.status=1 and A.teacherId=".$_SESSION["user_yg"]["id"]." and A.status>-2")
             ->count();
         return $num;
 
