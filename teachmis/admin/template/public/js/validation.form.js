@@ -771,8 +771,9 @@ function auditApply(id,type=0)
         dataType:'json',
         success:function(d){
             if(d.status==0){
-                layer.msg(d.message);
-                window.location.href=formUrl;
+                layer.msg(d.message,function(){
+                    window.location.href=formUrl;
+                });
             }else{
                 layer.msg(d.message);
             }
