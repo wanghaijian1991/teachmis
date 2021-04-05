@@ -9,7 +9,7 @@ class examinationTeacherModel extends commonModel
     //获取列表
     public function infoList($search, $limit)
     {
-        $data = $this->model->field('A.*,B.askLeaveType,B.askLeaveTimeStart,B.askLeaveTimeEnd,B.askLeaveCause,B.askLeaveAgent,B.askLeaveStatus,C.teacherName,D.askLeaveAgent')
+        $data = $this->model->field('A.*,B.askLeaveType,B.askLeaveTimeStart,B.askLeaveTimeEnd,B.askLeaveCause,B.askLeaveStatus,C.teacherName,D.teacherName as askLeaveAgent')
             ->table('examinationTeacher', 'A')
             ->add_table('teacherAskLeave', 'B','A.applyId=B.id')
             ->add_table('teacher', 'C','B.teacherId=C.teacherId')
