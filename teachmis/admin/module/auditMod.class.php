@@ -60,12 +60,17 @@ class auditMod extends commonMod
             $status_ta=model('teacherAttendance')->edit($teacherAttendance);
             if($status_ta && $_POST['type']==0)
             {
-                $infoList=model('examinationTeacher')->info(array('applyId='.$info['applyId'],'status in(0,1)'));
+                $sort=$info['sort']+1;
+                $infoList=model('examinationTeacher')->info(array('applyId='.$info['applyId'],'status in(0,1)','sort='.$sort));
                 if(!$infoList)
                 {
                     $teacherAttendance['askLeaveStatus']=2;
                     $teacherAttendance['id']=$info['applyId'];
                     $status_ta=model('teacherAttendance')->edit($teacherAttendance);
+                }else{
+                    $data['status']=1;
+                    $where['id']=$infoList['id'];
+                    $status=model('examinationTeacher')->update($data,$where);
                 }
             }
         }
