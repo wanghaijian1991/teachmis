@@ -150,9 +150,11 @@ class teacherAttendanceMod extends commonMod
         $teacherAskLeave['auditProcess']=trim($teacherAskLeave['auditProcess'],',');
         //录入模型处理
         model('teacherAttendance')->edit($teacherAskLeave);
-        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);print_r($auditProcess);print_r($teacherAskLeave);
-        $data=array();
-        $sort=0;
+        $auditProcess=explode(',',$teacherAskLeave['auditProcess']);print_r($auditProcess);
+        $update=array();
+        $update['status']=-2;
+        $where['applyId']=$teacherAskLeave['id'];
+        model('examinationTeacher')->update($update,$where);
         foreach($auditProcess as $key=>$v)
         {
             $arr=array();
@@ -166,13 +168,8 @@ class teacherAttendanceMod extends commonMod
             }
             $arr['sort']=$key;
             $arr['createTime']=date("Y-m-d H:i:s");
-            $data[]=$arr;
-        }print_r($data);
-        $update=array();
-        $update['status']=-2;
-        $where['applyId']=$teacherAskLeave['id'];
-        model('examinationTeacher')->update($update,$where);
-        model('examinationTeacher')->add($data);
+            model('examinationTeacher')->addinfo($arr);
+        }
         $this->msg('修改申请成功！',0);
     }
 

@@ -36,7 +36,7 @@ class examinationTeacherModel extends commonModel
     }
 
     //添加
-    public function add($data)
+    public function addinfo($data)
     {
         return $this->model->table('examinationTeacher')->data($data)->insert();
     }
