@@ -1,6 +1,6 @@
 <?php
 /**
- * 考勤管理
+ * 审批管理
  * add 2021-4-1
  */
 class auditMod extends commonMod
@@ -12,7 +12,7 @@ class auditMod extends commonMod
     }
 
     /**
-     * 请假申请列表
+     * 审批列表
      */
     public function index()
     {
@@ -25,7 +25,7 @@ class auditMod extends commonMod
         //获取信息列表
         $list = model('examinationTeacher')->infolist($_GET['search'], $limit);
         $this->assign('list', $list);
-        $this->menu_name = '请假申请列表';
+        $this->menu_name = '审批列表';
         $this->page = $this->page($url, $num, $listRows);
         $this->show();
     }

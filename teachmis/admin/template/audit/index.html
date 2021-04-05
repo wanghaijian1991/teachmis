@@ -34,8 +34,8 @@
                             <td>{$l.askLeaveTimeStart}-{$l.askLeaveTimeEnd}</td>
                             <td>{$l.askLeaveCause}</td>
                             <td>{$l.askLeaveAgent}</td>
-                            <td><!--if:{$l['askLeaveStatus']==0}-->已申请<!--{/if}--><!--if:{$l['askLeaveStatus']==1}-->审核中<!--{/if}--><!--if:{$l['askLeaveStatus']==2}-->审核通过<!--{/if}--><!--if:{$l['askLeaveStatus']==-1}-->已驳回<!--{/if}--></td>
-                            <td><!--if:{$l['askLeaveStatus']==1}--><a href="javascript:void(0)" onclick="auditApply({$l.id},0)">审核</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="auditApply({$l.id},1)">驳回</a><!--{/if}--></td>
+                            <td><!--if:{$l['status']==0}-->已申请<!--{/if}--><!--if:{$l['status']==1}-->审核中<!--{/if}--><!--if:{$l['status']==2}-->审核通过<!--{/if}--><!--if:{$l['status']==-1}-->已驳回<!--{/if}--></td>
+                            <td><!--if:{$l['status']==1}--><a href="javascript:void(0)" onclick="auditApply({$l.id},0)">审核</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="auditApply({$l.id},1)">驳回</a><!--{/if}--></td>
                         </tr>
                         <!--{/foreach}-->
                         </tbody>
