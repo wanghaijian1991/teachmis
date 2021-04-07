@@ -42,11 +42,39 @@ class teacherClassMod extends commonMod
     /**
      * 查看班级成绩曲线
     */
-    public function getrejectedclass(){}
+    public function getrejectedclass()
+    {}
     /**
      * 导入学生成绩
     */
-    public function importrejected(){}
+    public function importrejected()
+    {
+        //接收前台文件
+        $ex = $_FILES['excel'];
+        //重设置文件名
+        $filename = time().substr($ex['name'],stripos($ex['name'],'.'));
+        $path = './excel/'.$filename;//设置移动路径
+        move_uploaded_file($ex['tmp_name'],$path);echo $path;
+        //表用函数方法 返回数组
+        $exfn = $this->_readExcel($path);print_r($exfn);
+
+        $this->redirect('input');
+    }
+    //创建一个读取excel数据，可用于入库
+    public function _readExcel($path)
+    {
+        //引用PHPexcel 类
+        include_once(IWEB_PATH.'core/util/PHPExcel.php');
+        include_once(IWEB_PATH.'core/util/PHPExcel/IOFactory.php');//静态类
+        $type = 'Excel2007';//设置为Excel5代表支持2003或以下版本，Excel2007代表2007版
+        $xlsReader = PHPExcel_IOFactory::createReader($type);
+        $xlsReader->setReadDataOnly(true);
+        $xlsReader->setLoadSheetsOnly(true);
+        $Sheets = $xlsReader->load($path);
+        //开始读取上传到服务器中的Excel文件，返回一个二维数组
+        $dataArray = $Sheets->getSheet(0)->toArray();
+        return $dataArray;
+    }
     /**
      * 查看学生成绩
     */
