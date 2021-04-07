@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{$menu_name}</title>
+    <!--#include file="public/header_top.html"-->
+</head>
+<body>
+<div id="wrapper">
+    <!--#include file="public/header.html"-->
+    <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+            <div class="xs">
+                <h3>{$menu_name}</h3>
+                <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;" onclick="window.location.href='__APP__/teacherClass/getrejectedclass'">查看班级成绩</button>
+                <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;" onclick="window.location.href='__APP__/teacherCLass/importrejected'">导入成绩单</button>
+                <div class="bs-example4" data-example-id="contextual-table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>学生名称</th>
+                            <th>学生年龄</th>
+                            <th>性别</th>
+                            <th>校园名称</th>
+                            <th>班级名称</th>
+                            <th>班主任名称</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--foreach:{$list $l}-->
+                        <tr class="active">
+                            <th scope="row">{$l.usersId}</th>
+                            <td>{$l.usersName}</td>
+                            <td>{$l.studentName}</td>
+                            <td>{$l.studentAge}</td>
+                            <td>{$l.studentSex}</td>
+                            <td>{$l.nicename}</td>
+                            <td>{$l.className}</td>
+                            <td>{$l.teacherName}</td>
+                            <td>
+                                <a href="__APP__/teacherClass/info/id-{$l.usersId}">查看详情</a>
+                                <a href="__APP__/teacherClass/getrejected/id-{$l.usersId}">查看成绩</a>
+                            </td>
+                        </tr>
+                        <!--{/foreach}-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+</body>
+</html>

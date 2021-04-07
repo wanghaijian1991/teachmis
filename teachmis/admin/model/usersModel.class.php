@@ -7,16 +7,21 @@ class usersModel extends commonModel
     }
 
     //获取用户列表
-    public function usersList($search,$limit)
+    public function usersList($where,$limit)
     {
+        $sql='';
+        if($where['teacherId'])
+        {
+            $sql.=' and E.teacherId='.$where['teacherId'];
+        }
         /*$user=$this->current_user();*/
         $data=$this->model->field('A.*,B.nicename,C.className,D.teacherName')
                 ->table('users','A')
                 ->add_table('admininfo','B','A.schoolId = B.id')
                 ->add_table('class','C','A.classId = C.classId')
                 ->add_table('teacher','D','C.teacherId = D.teacherId')
-                ->where($search)
-                ->where("A.schoolId=".$_SESSION["user_yg"]["id"])
+                ->add_table('curriculuminfo','E','A.classId = E.classId')
+                ->where("A.schoolId=".$_SESSION["user_yg"]["schoolId"].$sql)
 				->limit($limit)
                 ->select();
         $sex[0]="男";
@@ -31,16 +36,21 @@ class usersModel extends commonModel
     }
 
     //获取用户列表数目
-    public function usersCount($search)
+    public function usersCount($where)
     {
+        $sql='';
+        if($where['teacherId'])
+        {
+            $sql.=' and E.teacherId='.$where['teacherId'];
+        }
         /*$user=$this->current_user();*/
         $num=$this->model->field('A.*,B.nicename,C.className')
                 ->table('users','A')
                 ->add_table('admininfo','B','A.schoolId = B.id')
                 ->add_table('class','C','A.classId = C.classId')
                 ->add_table('teacher','D','C.teacherId = D.teacherId')
-                ->where($search)
-                ->where("A.schoolId=".$_SESSION["user_yg"]["id"])
+                ->add_table('curriculuminfo','E','A.classId = E.classId')
+                ->where("A.schoolId=".$_SESSION["user_yg"]["schoolId"].$sql)
                 ->count();
         return $num;
 
