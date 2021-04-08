@@ -11,36 +11,32 @@
         <div class="col-md-12 graphs">
             <div class="xs">
                 <h3>{$menu_name}</h3>
-                <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;margin: 5px;" onclick="window.location.href='__APP__/teacherClass/getrejectedclass'">查看班级成绩</button>
-                <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;margin: 5px;" onclick="window.location.href='__APP__/teacherCLass/importrejected'">导入成绩单</button>
                 <div class="bs-example4" data-example-id="contextual-table">
                     <table class="table">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>学生名称</th>
-                            <th>学生年龄</th>
-                            <th>性别</th>
-                            <th>校园名称</th>
+                            <th>考试名称</th>
                             <th>班级名称</th>
-                            <th>班主任名称</th>
+                            <th>授课老师</th>
+                            <th>平均分</th>
+                            <th>分数</th>
+                            <th>名次</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <!--foreach:{$list $l}-->
                         <tr class="active">
-                            <th scope="row">{$l.usersId}</th>
-                            <td>{$l.usersName}</td>
-                            <td>{$l.studentName}</td>
-                            <td>{$l.studentAge}</td>
-                            <td>{$l.studentSex}</td>
-                            <td>{$l.nicename}</td>
+                            <th scope="row">{$l.id}</th>
+                            <td>{$l.rejectedName}</td>
                             <td>{$l.className}</td>
                             <td>{$l.teacherName}</td>
+                            <td>{$l.average}</td>
+                            <td>{$l.score}</td>
+                            <td>{$l.ranking}</td>
                             <td>
                                 <a href="__APP__/teacherClass/info/id-{$l.usersId}">查看详情</a>
-                                <a href="__APP__/teacherClass/getrejected/id-{$l.usersId}">查看成绩</a>
                             </td>
                         </tr>
                         <!--{/foreach}-->

@@ -12,7 +12,6 @@
             <div class="xs">
                 <h3>{$menu_name}</h3>
                 <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;margin: 5px;" onclick="window.location.href='__APP__/teacherClass/getrejectedclass'">查看班级成绩</button>
-                <input type="file" name="excel" id="excel">
                 <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;margin: 5px;" onclick="window.location.href='__APP__/teacherCLass/importrejected'">导入成绩单</button>
                 <div class="bs-example4" data-example-id="contextual-table">
                     <table class="table">
@@ -55,5 +54,17 @@
 <!-- /#wrapper -->
 <!-- Bootstrap Core JavaScript -->
 <script src="__PUBLICURL__/kg/js/bootstrap.min.js"></script>
+<script>
+    layer.open({
+        type:1,
+        skin:'layui-layer-rim',
+        area:['300px','200px'],
+        content:$("#uploadFile")
+    });
+</script>
+<div id="uploadFile">
+    <input type="file" name="excel" id="excel">
+    <button type="button" class="btn btn-primary" style="float: right;padding-left: 10px;margin: 5px;" onclick="upload(1)">确定</button>
+</div>
 </body>
 </html>
