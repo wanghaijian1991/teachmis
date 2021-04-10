@@ -64,8 +64,8 @@ class teacherClassMod extends commonMod
     public function _readExcel($path)
     {
         //引用PHPexcel 类
-        include_once(IWEB_PATH.'core/util/PHPExcel.php');
-        include_once(IWEB_PATH.'core/util/PHPExcel/IOFactory.php');//静态类
+        include_once('../include/PHPExcel/Classes/PHPExcel.php');
+        include_once('./include/PHPExcel/Classes/IOFactory.php');//静态类
         $type = 'Excel2007';//设置为Excel5代表支持2003或以下版本，Excel2007代表2007版
         $xlsReader = PHPExcel_IOFactory::createReader($type);
         $xlsReader->setReadDataOnly(true);
