@@ -53,7 +53,7 @@ class teacherClassMod extends commonMod
         $ex = $_FILES['excel'];print_r($ex);
         //重设置文件名
         $filename = time().substr($ex['name'],stripos($ex['name'],'.'));
-        $path = './excel/'.$filename;//设置移动路径
+        $path = __ROOTDIR__.'/excel/'.$filename;//设置移动路径
         move_uploaded_file($ex['tmp_name'],$path);echo $path;
         //表用函数方法 返回数组
         $exfn = $this->_readExcel($path);print_r($exfn);
