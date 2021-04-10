@@ -64,10 +64,36 @@
             content:$("#uploadFile")
         });
     }
+    function uploadfile()
+    {
+        $.ajax({
+            url: "__APP__/teacherClass/importrejected",
+            type: 'POST',
+            cache: false,
+            data: new FormData($('#uploadForm')[0]),
+            processData: false,
+            contentType: false,
+            dataType:"json",
+            beforeSend: function(){
+                uploading = true;
+            },
+            success : function(data) {
+                alert(1);return false;
+                if (data.code == 1) {
+                    $("#logo").attr("src", data.msg);
+                } else {
+                    showError(data.msg);
+                }
+                uploading = false;
+            }
+        });
+    }
 </script>
 <div id="uploadFile">
+    <form id="uploadForm">
     <input type="file" name="excel" id="excel" style="padding:19px;">
-    <button type="button" class="btn btn-primary" style="padding-left: 10px;margin-left: 43%;margin-top:15px;" onclick="upload(1)">确定</button>
+    <button type="button" class="btn btn-primary" style="padding-left: 10px;margin-left: 43%;margin-top:15px;" onclick="uploadfile(1)">确定</button>
+    </form>
 </div>
 </body>
 </html>

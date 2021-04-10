@@ -50,7 +50,7 @@ class teacherClassMod extends commonMod
     public function importrejected()
     {
         //接收前台文件
-        $ex = $_FILES['excel'];
+        $ex = $_FILES['excel'];print_r($ex);
         //重设置文件名
         $filename = time().substr($ex['name'],stripos($ex['name'],'.'));
         $path = './excel/'.$filename;//设置移动路径
