@@ -56,9 +56,9 @@ class teacherClassMod extends commonMod
         $path = __ROOTDIR__.'/excel/'.$filename;//设置移动路径
         move_uploaded_file($ex['tmp_name'],$path);echo $path;
         //表用函数方法 返回数组
-        $exfn = $this->_readExcel($path);print_r($exfn);
+        $data = $this->_readExcel($path);
 
-        $this->redirect('input');
+        print_r($data);
     }
     //创建一个读取excel数据，可用于入库
     public function _readExcel($path)
