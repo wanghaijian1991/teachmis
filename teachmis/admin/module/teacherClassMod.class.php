@@ -126,10 +126,9 @@ class teacherClassMod extends commonMod
                     $error['data']=$v;
                     $errorList[]=$error;
                     continue;
-                }else{
-                    $this->msg('导入成功！',0,$errorList);
                 }
             }
+            $this->msg('导入成功！',0,$errorList);
         }else{
             $this->msg('表头不对！',1);
         }
