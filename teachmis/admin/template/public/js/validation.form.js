@@ -150,6 +150,7 @@ function submitpositionsform()
 function submitclassform()
 {
     var className=$("#className").val();
+    var classCode=$("#classCode").val();
     var classYear=$("#classYear").val();
     var gradeId=$("#gradeId").val();
     var classFew=$("#classFew").val();
@@ -169,7 +170,7 @@ function submitclassform()
     $.ajax({
         url:formUrl+formUrlName,
         type:'post',
-        data:"classId="+classId+"&className="+className+"&classYear="+classYear+"&gradeId="+gradeId+"&classFew="+classFew+"&teacherId="+teacherId,
+        data:"classId="+classId+"&className="+className+"&classYear="+classYear+"&gradeId="+gradeId+"&classFew="+classFew+"&teacherId="+teacherId+"&classCode="+classCode,
         dataType:'json',
         success:function(d){
             if(d.status==0){
