@@ -62,13 +62,19 @@ class usersModel extends commonModel
         return $this->model->table('users')->where('usersId='.$id)->find();
     }
 
+    //获取用户内容
+    public function searchInfo($where)
+    {
+        return $this->model->table('users')->where($where)->find();
+    }
+
     //检测重复用户
     public function count($user,$id=null)
     {
         if(!empty($id)){
             $where=' AND id<>'.$id;
         }
-        return $this->model->table('admininfo')->where('adminname="'.$user.'"'.$where)->count(); 
+        return $this->model->table('admininfo')->where('adminname="'.$user.'"'.$where)->count();
     }
 
     //添加用户内容

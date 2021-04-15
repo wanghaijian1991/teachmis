@@ -57,8 +57,82 @@ class teacherClassMod extends commonMod
         move_uploaded_file($ex['tmp_name'],$path);echo $path;
         //表用函数方法 返回数组
         $data = $this->_readExcel($path);
-
-        print_r($data);
+        //处理excel表中学生成绩数据
+        $menu=$data[0];
+        if($menu[0]=='考试名称' && $menu[1]=='班级' && $menu[2]=='学生' && $menu[3]=='课程' && $menu[4]=='分数')
+        {
+            $errorList=array();
+            for($i=1;$i<count($data);$i++)
+            {
+                $error=array();
+                $rejectedStudent=array();
+                $v=$data[$i];
+                if(empty($v[0]) || empty($v[1]) || empty($v[2]) || empty($v[3]) || empty($v[4]))
+                {
+                    $error['row']=$i;
+                    $error['msg']='本行插入数据不能为空！';
+                    $error['data']=$v;
+                    $errorList[]=$error;
+                    continue;
+                }
+                //查看考试名称是否存在，并做对应处理
+                if($v[0])
+                {
+                    $rejectedInfo=model('rejected')->info('schoolId='.$_SESSION["user_yg"]["schoolId"].' and rejectedName="'.$v[0].'"');
+                    if(empty($rejectedInfo))
+                    {
+                        $insertData['rejectedName']=$v[0];
+                        $rejectedStudent['rejectedId']=model('rejected')->add($insertData);
+                    }else{
+                        $rejectedStudent['rejectedId']=$rejectedInfo['id'];
+                    }
+                }
+                //查看考试班级是否存在
+                if($v[1])
+                {
+                    $classInfo=model('classs')->info('schoolId='.$_SESSION["user_yg"]["schoolId"].' and classCode="'.$v[0].'"');
+                    if(empty($classInfo))
+                    {
+                        $error['row']=$i;
+                        $error['msg']='本行班级不存在！';
+                        $error['data']=$v;
+                        $errorList[]=$error;
+                        continue;
+                    }else{
+                        $rejectedStudent['classId']=$classInfo['classId'];
+                    }
+                }
+                if($v[2])
+                {
+                    $studentInfo=model('users')->searchInfo('classId='.$rejectedStudent['classId'].' and studentName="'.$v[2].'"');
+                    if(empty($studentInfo))
+                    {
+                        $error['row']=$i;
+                        $error['msg']='本行班级对应学生不存在！';
+                        $error['data']=$v;
+                        $errorList[]=$error;
+                        continue;
+                    }else{
+                        $rejectedStudent['studentId']=$studentInfo['usersId'];
+                    }
+                }
+                $rejectedStudent['courseId']=$v[3];
+                $rejectedStudent['score']=$v[4];
+                $status=model('rejectedStudent')->add($rejectedStudent);
+                if(!$status)
+                {
+                    $error['row']=$i;
+                    $error['msg']='插入失败！';
+                    $error['data']=$v;
+                    $errorList[]=$error;
+                    continue;
+                }else{
+                    $this->msg('导入成功！',0,$errorList);
+                }
+            }
+        }else{
+            $this->msg('表头不对！',1);
+        }
     }
     //创建一个读取excel数据，可用于入库
     public function _readExcel($path)
