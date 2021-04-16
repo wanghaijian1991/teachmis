@@ -90,7 +90,7 @@ class teacherClassMod extends commonMod
                 //查看考试班级是否存在
                 if($v[1])
                 {
-                    $classInfo=model('classs')->info('schoolId='.$_SESSION["user_yg"]["schoolId"].' and classCode="'.$v[1].'"');echo 'schoolId='.$_SESSION["user_yg"]["schoolId"].' and classCode="'.$v[1].'"';print_r($classInfo);
+                    $classInfo=model('classs')->searchInfo('schoolId='.$_SESSION["user_yg"]["schoolId"].' and classCode="'.$v[1].'"');
                     if(empty($classInfo))
                     {
                         $error['row']=$i;
