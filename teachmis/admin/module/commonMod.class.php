@@ -6,6 +6,8 @@ class commonMod
     protected $layout = NULL; //布局视图
     protected $config = array();
     private $_data = array();
+    public $schoolId='';
+    public $userId='';
 
     protected function init(){}
     
@@ -16,6 +18,8 @@ class commonMod
         $this->model = self::initModel( $this->config);
         $this->menu_list=model('menu')->main_menu();
         $this->appurl=__APP__;
+        $this->schoolId=$_SESSION["user_yg"]["schoolId"];
+        $this->userId=$_SESSION["user_yg"]["id"];
         $this->init();
         if($_GET["_module"]!='login')
         {
