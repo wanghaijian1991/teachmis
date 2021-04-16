@@ -69,7 +69,7 @@ class rejectedStudentModel extends commonModel
         $data['createTime']=date("Y-m-d H:i:s");
         $data['createId']=$_SESSION["user_yg"]["id"];
         $data['schoolId']=$_SESSION["user_yg"]["schoolId"];
-        $userId=$this->model->table('rejected')->data($data)->insert();
+        $userId=$this->model->table('rejected_student')->data($data)->insert();
     }
 
 }
