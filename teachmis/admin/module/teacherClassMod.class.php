@@ -120,7 +120,7 @@ class teacherClassMod extends commonMod
                 $rejectedStudent['score']=$v[4];
                 $status=model('rejectedStudent')->add($rejectedStudent);
                 if(!$status)
-                {
+                {print_r($rejectedStudent);
                     $error['row']=$i;
                     $error['msg']='插入失败！';
                     $error['data']=$v;
