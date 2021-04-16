@@ -50,13 +50,13 @@ class teacherClassMod extends commonMod
     public function importrejected()
     {
         //接收前台文件
-        $ex = $_FILES['excel'];print_r($ex);
+        $ex = $_FILES['excel'];
         //重设置文件名
         $filename = time().substr($ex['name'],stripos($ex['name'],'.'));
         $path = __ROOTDIR__.'/excel/'.$filename;//设置移动路径
-        move_uploaded_file($ex['tmp_name'],$path);echo $path;
+        move_uploaded_file($ex['tmp_name'],$path);
         //表用函数方法 返回数组
-        $data = $this->_readExcel($path);print_r($data);
+        $data = $this->_readExcel($path);
         //处理excel表中学生成绩数据
         $menu=$data[0];
         if($menu[0]=='考试名称' && $menu[1]=='班级' && $menu[2]=='学生' && $menu[3]=='课程' && $menu[4]=='分数')
@@ -90,7 +90,7 @@ class teacherClassMod extends commonMod
                 //查看考试班级是否存在
                 if($v[1])
                 {
-                    $classInfo=model('classs')->info('schoolId='.$_SESSION["user_yg"]["schoolId"].' and classCode="'.$v[0].'"');
+                    $classInfo=model('classs')->info('schoolId='.$_SESSION["user_yg"]["schoolId"].' and classCode="'.$v[1].'"');
                     if(empty($classInfo))
                     {
                         $error['row']=$i;
