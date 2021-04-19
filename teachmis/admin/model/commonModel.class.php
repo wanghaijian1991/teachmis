@@ -61,7 +61,7 @@ class commonModel
                                 $where_str=$k.'="'.$v[1].'"';
                         }
                     }else{
-                        $where_str=$k.'="'.$v[1].'"';
+                        $where_str=$k.'="'.$v.'"';
                     }
                 }else{
                     if(is_array($v))
@@ -75,7 +75,7 @@ class commonModel
                                 $where_str.=' and '.$k.'="'.$v[1].'"';
                         }
                     }else{
-                        $where_str.=' and '.$k.'="'.$v[1].'"';
+                        $where_str.=' and '.$k.'="'.$v.'"';
                     }
 
                 }
