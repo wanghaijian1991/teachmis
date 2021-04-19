@@ -165,9 +165,9 @@ class teacherClassMod extends commonMod
 
         $where['teacherId']=$_SESSION["user_yg"]["id"];
         //获取行数
-        $num = model('teacherClass')->usersCount($where);
+        $num = model('teacherClass')->count($where);
         //获取信息列表
-        $list = model('teacherClass')->usersList($where, $limit);
+        $list = model('teacherClass')->lists($where, $limit);
         $this->assign('list', $list);
         $userInfo=model('users')->info($_GET['id']);
         $this->menu_name = $userInfo['studentName'].'学生成绩列表';
