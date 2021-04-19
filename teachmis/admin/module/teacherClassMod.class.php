@@ -119,9 +119,9 @@ class teacherClassMod extends commonMod
                 $rejectedStudent['courseId']=$v[3];
                 $rejectedStudent['score']=$v[4];
                 $info=model('rejectedStudent')->info($rejectedStudent);
+                print_r($info);
                 if($info)
                 {
-                    print_r($info);
                     continue;
                 }
                 $status=model('rejectedStudent')->add($rejectedStudent);

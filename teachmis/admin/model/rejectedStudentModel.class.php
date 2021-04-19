@@ -60,7 +60,7 @@ class rejectedStudentModel extends commonModel
     //获取考试内容
     public function info($where)
     {
-        $where_str=$this->where_str($where);
+        $where_str=$this->where_str($where);print_r($where_str);
         return $this->model->table('rejected_student')->where($where_str)->find();
     }
 
