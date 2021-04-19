@@ -40,4 +40,50 @@ class commonModel
         exit;
     }
 
+    //查询
+    public function where_str($where)
+    {
+        if(is_array($where))
+        {
+            $where_str='';
+            foreach($where as $k=>$v)
+            {
+                if(!$where_str)
+                {
+                    if(is_array($v))
+                    {
+                        switch ($v[0])
+                        {
+                            case 'like':
+                                $where_str=$k.' like "%'.$v[1].'%"';
+                                break;
+                            default:
+                                $where_str=$k.'="'.$v[1].'"';
+                        }
+                    }else{
+                        $where_str=$k.'="'.$v[1].'"';
+                    }
+                }else{
+                    if(is_array($v))
+                    {
+                        switch ($v[0])
+                        {
+                            case 'like':
+                                $where_str.=' and '.$k.' like "%'.$v[1].'%"';
+                                break;
+                            default:
+                                $where_str.=' and '.$k.'="'.$v[1].'"';
+                        }
+                    }else{
+                        $where_str.=' and '.$k.'="'.$v[1].'"';
+                    }
+
+                }
+            }
+        }else{
+            $where_str=$where;
+        }
+        return $where_str;
+    }
+
 }
