@@ -28,6 +28,21 @@ class teacherClassModel extends commonModel
             ->where("A.schoolId=".$_SESSION["user_yg"]["schoolId"].$sql)
             ->limit($limit)
             ->select();
+        foreach($data as &$v)
+        {
+            switch($v['courseId'])
+            {
+                case 1:
+                    $v['courseName']='语文';
+                    break;
+                case 2:
+                    $v['courseName']='数学';
+                    break;
+                case 3:
+                    $v['courseName']='英语';
+                    break;
+            }
+        }
         return $data;
 
     }
