@@ -138,7 +138,7 @@ class teacherClassMod extends commonMod
             $this->msg('表头不对！',1);
         }
     }
-    //创建一个读取excel数据，可用于入库
+    //创建一个读取excel数据，可用于入库 ceshi
     public function _readExcel($path)
     {
         //引用PHPexcel 类
