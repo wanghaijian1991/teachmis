@@ -11,9 +11,12 @@ class Common extends Controller
     public function _initialize()
     {
         parent::_initialize();
-        $MenuInfo=new MenuInfo();
-        $mailinfo=$MenuInfo->mainMenu();
-        $this->assign('menu_list',$mailinfo);
+        $session=Session::get();
+        if(isset($session) && isset($session['token'])) {
+            $MenuInfo = new MenuInfo();
+            $mailinfo = $MenuInfo->mainMenu();
+            $this->assign('menu_list', $mailinfo);
+        }
     }
 
     /**
@@ -25,7 +28,7 @@ class Common extends Controller
         $request=Request::instance();
         if($request->action()!='login')
         {
-            if(isset($session) && $session['token'])
+            if(isset($session) && isset($session['token']))
             {
                 $token=$this->setToken($session);
                 if($session['token']!=$token)
@@ -34,9 +37,9 @@ class Common extends Controller
                     header('location:' . __APP__ . '/login');
                 }
             }else{
-                //$Login=new \app\index\controller\Login();
-                //$Login->index();
-                header('location:/login/1');
+                $Login=new \app\index\controller\Login();
+                $Login->index();
+                //header('location:/login/1');
             }
         }
         return $session;
