@@ -18,7 +18,7 @@ class cpMysql {
 			$sql = str_replace(':'.$k, $this->escape($v), $sql);
 		}
 		$this->sql = $sql;
-		if( $query = mysqli_query($sql, $this->_getReadLink()) )
+		if( $query = mysql_query($sql, $this->_getReadLink()) )
 			return $query;
 		else
 			$this->error('MySQL Query Error');
@@ -30,25 +30,25 @@ class cpMysql {
 			$sql = str_replace(':'.$k, $this->escape($v), $sql);
 		}
 		$this->sql = $sql;
-		if( $query = mysqli_query($sql, $this->_getWriteLink()) )
+		if( $query = mysql_query($sql, $this->_getWriteLink()) )
 			return $query;
 		else
 			$this->error('MySQL Query Error');
 	}
 	
 	//从结果集中取得一行作为关联数组，或数字数组，或二者兼有 
-	public function fetchArray($query, $result_type = mysqli_ASSOC) {
-		return $this->unEscape( mysqli_fetch_array($query, $result_type) );
+	public function fetchArray($query, $result_type = mysql_ASSOC) {
+		return $this->unEscape( mysql_fetch_array($query, $result_type) );
 	}	
 	
 	//取得前一次 MySQL 操作所影响的记录行数
 	public function affectedRows() {
-		return mysqli_affected_rows($this->_getWriteLink());
+		return mysql_affected_rows($this->_getWriteLink());
 	}
 	
 	//获取上一次插入的id
 	public function lastId() {
-		return ($id = mysqli_insert_id( $this->_getWriteLink() )) >= 0 ? $id : mysqli_result($this->execute("SELECT last_insert_id()"), 0);
+		return ($id = mysql_insert_id( $this->_getWriteLink() )) >= 0 ? $id : mysql_result($this->execute("SELECT last_insert_id()"), 0);
 	}
 	
 	//获取表结构
@@ -86,7 +86,7 @@ class cpMysql {
 		   if( get_magic_quotes_gpc() ) {
 			   $value = stripslashes($value);
 		   } 
-			return	"'" . mysqli_real_escape_string($value, $link) . "'";
+			return	"'" . mysql_real_escape_string($value, $link) . "'";
 		}
 	}
 	
@@ -173,8 +173,8 @@ class cpMysql {
 	
 	//输出错误信息
 	public function error($message = ''){
-		$error = mysqli_error($this->_readLink);
-		$errorno = mysqli_errno();
+		$error = mysql_error($this->_readLink);
+		$errorno = mysql_errno();
 		if( DEBUG ){
 			$str = " {$message}<br>
 					<b>SQL</b>: {$this->sql}<br>
@@ -189,11 +189,11 @@ class cpMysql {
 	/******************兼容以前的版本*****************************/
 		//选择数据库
 	public function select_db($dbname) {
-		return mysqli_select_db($dbname, $this->_getWriteLink());
+		return mysql_select_db($dbname, $this->_getWriteLink());
 	}
 	
 	//从结果集中取得一行作为关联数组，或数字数组，或二者兼有 
-	public function fetch_array($query, $result_type = mysqli_ASSOC) {
+	public function fetch_array($query, $result_type = mysql_ASSOC) {
 		return $this->fetchArray($query, $result_type);
 	}
 	//获取上一次插入的id
@@ -206,14 +206,14 @@ class cpMysql {
 	}
 	//取得结果集中行的数目
 	public function num_rows($query) {
-		return mysqli_num_rows($query);
+		return mysql_num_rows($query);
 	}
 	/******************兼容以前的版本*****************************/
 
 	//获取从服务器连接
     private function _getReadLink() {
         if( isset( $this->_readLink ) ) {
-			 mysqli_ping( $this->_readLink );
+			 mysql_ping( $this->_readLink );
             return $this->_readLink;
         } else {
             if( !$this->_replication ) {
@@ -228,7 +228,7 @@ class cpMysql {
 	//获取主服务器连接
     private function _getWriteLink() {
         if( isset( $this->_writeLink ) ) {
-			mysqli_ping( $this->_writeLink );
+			mysql_ping( $this->_writeLink );
             return $this->_writeLink;
         } else{
             $this->_writeLink = $this->_connect( true );
@@ -253,7 +253,7 @@ class cpMysql {
 		}
 
 		foreach($db_all as $db) {
-			if( $link = @mysqli_connect($db['DB_HOST'] . ':' . $db['DB_PORT'], $db['DB_USER'], $db['DB_PWD'])) {
+			if( $link = @mysql_connect($db['DB_HOST'] . ':' . $db['DB_PORT'], $db['DB_USER'], $db['DB_PWD'])) {
 				break;
 			}
 		}
@@ -262,25 +262,25 @@ class cpMysql {
 			$this->error('无法连接到数据库服务器');
 		}
 
-		$version = mysqli_get_server_info($link);
+		$version = mysql_get_server_info($link);
 		if($version > '4.1') {
-			mysqli_query("SET character_set_connection = " . $db['DB_CHARSET'] . ", character_set_results = " . $db['DB_CHARSET'] . ", character_set_client = binary", $link);
+			mysql_query("SET character_set_connection = " . $db['DB_CHARSET'] . ", character_set_results = " . $db['DB_CHARSET'] . ", character_set_client = binary", $link);
 				
 			if($version > '5.0.1') {
-				mysqli_query("SET sql_mode = ''", $link);
+				mysql_query("SET sql_mode = ''", $link);
 			}
 		}		
-        mysqli_select_db($db['DB_NAME'], $link);
+        mysql_select_db($db['DB_NAME'], $link);
         return $link;
 	}
 	
 	//关闭数据库
 	public function __destruct() {
 		if($this->_writeLink) {
-			@mysqli_close($this->_writeLink);
+			@mysql_close($this->_writeLink);
 		}
 		if($this->_readLink) {
-			@mysqli_close($this->_readLink);
+			@mysql_close($this->_readLink);
 		}
 	} 
 }

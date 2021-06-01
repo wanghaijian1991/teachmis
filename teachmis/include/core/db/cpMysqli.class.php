@@ -37,7 +37,7 @@ class cpMysqli {
 	}
 	
 	//从结果集中取得一行作为关联数组，或数字数组，或二者兼有 
-	public function fetchArray($query, $result_type = MYSQLI_ASSOC) {
+	public function fetchArray($query, $result_type = mysql_ASSOC) {
 		return $this->unEscape( $query->fetch_array($result_type) );
 	}	
 	
